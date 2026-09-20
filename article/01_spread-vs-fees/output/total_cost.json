@@ -1,0 +1,150 @@
+{
+  "note": "Fee schedule is hand-entered and unconfirmed. Confirm against each venue's own page with a check date before publishing.",
+  "formula": "taker_roundtrip_bps = spread_bps + 2 * taker_fee_bps",
+  "markets": {
+    "BITBANK:ETH_SPOT": {
+      "spread_bps": 0.2677,
+      "maker_fee_pct": -0.02,
+      "taker_fee_pct": 0.12,
+      "maker_fee_bps": -2.0,
+      "taker_fee_bps": 12.0,
+      "taker_roundtrip_bps": 24.2677,
+      "fee_share_of_total_pct": 98.9,
+      "fee_status": "given"
+    },
+    "BITBANK:XRP_SPOT": {
+      "spread_bps": 0.0551,
+      "maker_fee_pct": -0.02,
+      "taker_fee_pct": 0.12,
+      "maker_fee_bps": -2.0,
+      "taker_fee_bps": 12.0,
+      "taker_roundtrip_bps": 24.0551,
+      "fee_share_of_total_pct": 99.8,
+      "fee_status": "given"
+    },
+    "GMO:BTC_SPOT": {
+      "spread_bps": 1.6123,
+      "maker_fee_pct": -0.01,
+      "taker_fee_pct": 0.05,
+      "maker_fee_bps": -1.0,
+      "taker_fee_bps": 5.0,
+      "taker_roundtrip_bps": 11.6123,
+      "fee_share_of_total_pct": 86.1,
+      "fee_status": "given"
+    },
+    "GMO:ETH_SPOT": {
+      "spread_bps": 3.6384,
+      "maker_fee_pct": -0.01,
+      "taker_fee_pct": 0.05,
+      "maker_fee_bps": -1.0,
+      "taker_fee_bps": 5.0,
+      "taker_roundtrip_bps": 13.6384,
+      "fee_share_of_total_pct": 73.3,
+      "fee_status": "given"
+    },
+    "GMO:XRP_SPOT": {
+      "spread_bps": 1.7515,
+      "maker_fee_pct": -0.01,
+      "taker_fee_pct": 0.05,
+      "maker_fee_bps": -1.0,
+      "taker_fee_bps": 5.0,
+      "taker_roundtrip_bps": 11.7515,
+      "fee_share_of_total_pct": 85.1,
+      "fee_status": "given"
+    },
+    "BITBANK:BTC_SPOT": {
+      "spread_bps": 0.918,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 0.918,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, post-2026-02 change"
+    },
+    "COINCHECK:BTC_SPOT": {
+      "spread_bps": 2.0544,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 2.0544,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, unconfirmed"
+    },
+    "COINCHECK:ETH_SPOT": {
+      "spread_bps": 11.1651,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 11.1651,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, unconfirmed"
+    },
+    "COINCHECK:XRP_SPOT": {
+      "spread_bps": 14.774,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 14.774,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, unconfirmed"
+    },
+    "GMO:BTC_JPY": {
+      "spread_bps": 2.2348,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 2.2348,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, unconfirmed; excludes leverage carry"
+    },
+    "GMO:ETH_JPY": {
+      "spread_bps": 6.3509,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 6.3509,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, unconfirmed; excludes leverage carry"
+    },
+    "GMO:XRP_JPY": {
+      "spread_bps": 4.5298,
+      "maker_fee_pct": 0.0,
+      "taker_fee_pct": 0.0,
+      "maker_fee_bps": 0.0,
+      "taker_fee_bps": 0.0,
+      "taker_roundtrip_bps": 4.5298,
+      "fee_share_of_total_pct": 0.0,
+      "fee_status": "given, unconfirmed; excludes leverage carry"
+    }
+  },
+  "inversion": {
+    "tightest_spread_market": "BITBANK:XRP_SPOT",
+    "tightest_spread_bps": 0.0551,
+    "its_roundtrip_bps": 24.06,
+    "cheapest_roundtrip_market": "BITBANK:BTC_SPOT",
+    "cheapest_roundtrip_bps": 0.92,
+    "cheapest_roundtrip_spread_bps": 0.918,
+    "ratio": 26.2
+  },
+  "fee_change_taker_view": {
+    "before": {
+      "spread_bps": 0.0008,
+      "taker_fee_bps": 12.0,
+      "roundtrip_bps": 24.0008
+    },
+    "after": {
+      "spread_bps": 0.5877,
+      "taker_fee_bps": 0.0,
+      "roundtrip_bps": 0.5877
+    },
+    "spread_wider_x": 734.6,
+    "taker_roundtrip_cheaper_x": 40.8,
+    "caveat": "assumes bitbank BTC spot taker fee was 0.12% before and 0% after; unconfirmed"
+  }
+}

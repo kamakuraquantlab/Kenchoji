@@ -1,0 +1,27 @@
+window 2026-06-01 .. 2026-06-28  (28 days)
+
+=== negative maker fee (2026-06-01 .. 2026-06-28) 
+market                  spread bps   top-of-book  RT 1M bps  trades/day
+BITBANK:ETH_SPOT            0.2677        49,733      3.118       6,166
+BITBANK:XRP_SPOT            0.0551        90,217      2.588      13,546
+GMO:BTC_SPOT                1.6123        83,354      4.285      11,009
+GMO:ETH_SPOT                3.6384        90,868      6.557       4,928
+GMO:XRP_SPOT                1.7515        36,555      6.801       5,486
+
+=== zero fee (2026-06-01 .. 2026-06-28) 
+market                  spread bps   top-of-book  RT 1M bps  trades/day
+BITBANK:BTC_SPOT            0.9180        72,552      2.924       7,772
+COINCHECK:BTC_SPOT          2.0544       102,072      3.311      30,670
+COINCHECK:ETH_SPOT         11.1651        31,967     33.368       3,320
+COINCHECK:XRP_SPOT         14.7740        19,250     43.432       3,144
+GMO:BTC_JPY                 2.2348       101,336      3.820      39,524
+GMO:ETH_JPY                 6.3509        26,906     10.281      10,453
+GMO:XRP_JPY                 4.5298        54,217      7.916      11,676
+
+=== positive maker fee (reference) (2026-06-01 .. 2026-06-28) 
+market                  spread bps   top-of-book  RT 1M bps  trades/day
+BINANCE:BTC_USDT            0.0016        37,248      0.194     933,304
+BINANCE:ETH_USDT            0.0592        11,218        nan     898,694
+BINANCE:XRP_USDT            0.8773         9,919     13.829     125,181
+
+wrote output/groups_2026-06.json

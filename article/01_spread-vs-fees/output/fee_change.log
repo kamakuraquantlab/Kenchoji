@@ -1,0 +1,11 @@
+before  2026-01-29..02-04
+   BTC spot   spread    0.0008 bps   top-of-book   366,034 JPY   trades/day  20,412
+   XRP ctrl   spread    0.0399 bps   top-of-book    51,142 JPY   trades/day  28,502
+after   2026-02-05..02-11
+   BTC spot   spread    0.9880 bps   top-of-book    67,890 JPY   trades/day  18,115
+   XRP ctrl   spread    0.0471 bps   top-of-book    42,740 JPY   trades/day  29,633
+settled 2026-02-20..02-26
+   BTC spot   spread    0.5877 bps   top-of-book    52,668 JPY   trades/day  13,543
+   XRP ctrl   spread    0.0458 bps   top-of-book    67,409 JPY   trades/day  29,237
+
+wrote output/fee_change.json

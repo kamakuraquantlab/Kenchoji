@@ -1,0 +1,135 @@
+{
+  "window": [
+    "2026-06-01",
+    "2026-06-28"
+  ],
+  "days_requested": 28,
+  "groups": {
+    "negative maker fee": {
+      "BITBANK:ETH_SPOT": {
+        "days": 28,
+        "spread_bps": 0.2677,
+        "top_of_book_jpy": 49733,
+        "roundtrip_1m_bps": 3.118,
+        "fillable_1m_pct": 87.7,
+        "trades_per_day": 6166
+      },
+      "BITBANK:XRP_SPOT": {
+        "days": 28,
+        "spread_bps": 0.0551,
+        "top_of_book_jpy": 90217,
+        "roundtrip_1m_bps": 2.588,
+        "fillable_1m_pct": 90.6,
+        "trades_per_day": 13546
+      },
+      "GMO:BTC_SPOT": {
+        "days": 28,
+        "spread_bps": 1.6123,
+        "top_of_book_jpy": 83354,
+        "roundtrip_1m_bps": 4.285,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 11009
+      },
+      "GMO:ETH_SPOT": {
+        "days": 28,
+        "spread_bps": 3.6384,
+        "top_of_book_jpy": 90868,
+        "roundtrip_1m_bps": 6.557,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 4928
+      },
+      "GMO:XRP_SPOT": {
+        "days": 28,
+        "spread_bps": 1.7515,
+        "top_of_book_jpy": 36555,
+        "roundtrip_1m_bps": 6.801,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 5486
+      }
+    },
+    "zero fee": {
+      "BITBANK:BTC_SPOT": {
+        "days": 28,
+        "spread_bps": 0.918,
+        "top_of_book_jpy": 72552,
+        "roundtrip_1m_bps": 2.924,
+        "fillable_1m_pct": 86.2,
+        "trades_per_day": 7772
+      },
+      "COINCHECK:BTC_SPOT": {
+        "days": 28,
+        "spread_bps": 2.0544,
+        "top_of_book_jpy": 102072,
+        "roundtrip_1m_bps": 3.311,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 30670
+      },
+      "COINCHECK:ETH_SPOT": {
+        "days": 28,
+        "spread_bps": 11.1651,
+        "top_of_book_jpy": 31967,
+        "roundtrip_1m_bps": 33.368,
+        "fillable_1m_pct": 98.7,
+        "trades_per_day": 3320
+      },
+      "COINCHECK:XRP_SPOT": {
+        "days": 28,
+        "spread_bps": 14.774,
+        "top_of_book_jpy": 19250,
+        "roundtrip_1m_bps": 43.432,
+        "fillable_1m_pct": 89.5,
+        "trades_per_day": 3144
+      },
+      "GMO:BTC_JPY": {
+        "days": 28,
+        "spread_bps": 2.2348,
+        "top_of_book_jpy": 101336,
+        "roundtrip_1m_bps": 3.82,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 39524
+      },
+      "GMO:ETH_JPY": {
+        "days": 28,
+        "spread_bps": 6.3509,
+        "top_of_book_jpy": 26906,
+        "roundtrip_1m_bps": 10.281,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 10453
+      },
+      "GMO:XRP_JPY": {
+        "days": 28,
+        "spread_bps": 4.5298,
+        "top_of_book_jpy": 54217,
+        "roundtrip_1m_bps": 7.916,
+        "fillable_1m_pct": 100.0,
+        "trades_per_day": 11676
+      }
+    },
+    "positive maker fee (reference)": {
+      "BINANCE:BTC_USDT": {
+        "days": 28,
+        "spread_bps": 0.0016,
+        "top_of_book_jpy": 37390,
+        "roundtrip_1m_bps": 0.194,
+        "fillable_1m_pct": 0.0,
+        "trades_per_day": 933304
+      },
+      "BINANCE:ETH_USDT": {
+        "days": 28,
+        "spread_bps": 0.0592,
+        "top_of_book_jpy": 11290,
+        "roundtrip_1m_bps": null,
+        "fillable_1m_pct": 0.0,
+        "trades_per_day": 898694
+      },
+      "BINANCE:XRP_USDT": {
+        "days": 28,
+        "spread_bps": 0.8773,
+        "top_of_book_jpy": 9914,
+        "roundtrip_1m_bps": 13.829,
+        "fillable_1m_pct": 0.0,
+        "trades_per_day": 125181
+      }
+    }
+  }
+}

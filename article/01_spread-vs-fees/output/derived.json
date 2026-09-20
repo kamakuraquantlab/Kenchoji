@@ -1,0 +1,52 @@
+{
+  "gmo_spot_vs_leverage": {
+    "BTC": {
+      "spot_bps": 1.6123,
+      "leverage_bps": 2.2348,
+      "leverage_spread_wider_x": 1.39,
+      "leverage_trades_more_x": 3.59
+    },
+    "ETH": {
+      "spot_bps": 3.6384,
+      "leverage_bps": 6.3509,
+      "leverage_spread_wider_x": 1.75,
+      "leverage_trades_more_x": 2.12
+    },
+    "XRP": {
+      "spot_bps": 1.7515,
+      "leverage_bps": 4.5298,
+      "leverage_spread_wider_x": 2.59,
+      "leverage_trades_more_x": 2.13
+    }
+  },
+  "group_medians_bps": {
+    "negative maker fee": {
+      "median": 1.6123,
+      "min": 0.0551,
+      "max": 3.6384,
+      "n": 5
+    },
+    "zero fee": {
+      "median": 4.5298,
+      "min": 0.918,
+      "max": 14.774,
+      "n": 7
+    },
+    "positive maker fee (reference)": {
+      "median": 0.0592,
+      "min": 0.0016,
+      "max": 0.8773,
+      "n": 3
+    },
+    "zero_over_negative_x": 2.81
+  },
+  "fee_change": {
+    "spread_wider_x": 1235,
+    "depth_thinner_x": 5.4,
+    "trades_ratio_settled": 0.66,
+    "control_spread_change_x": 1.18
+  },
+  "scale": {
+    "binance_btc_over_gmo_leverage_trades_x": 23.6
+  }
+}
