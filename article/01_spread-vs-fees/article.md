@@ -308,6 +308,11 @@ pip install kamakuraquantlab-komachi kamakuraquantlab-hase
 - <https://github.com/kamakuraquantlab/Komachi>
 - <https://github.com/kamakuraquantlab/Hase>
 
+この記事のスクリプトと集計結果は、次の場所に置いてあります。
+下で走らせる `analysis.py` もここにあります。
+
+- <https://github.com/kamakuraquantlab/Kenchoji/tree/main/article/01_spread-vs-fees>
+
 初期設定でデータの置き場所を一度訊かれ、その答えが `~/.kamakuraquantlab.env` に
 書かれます。下の `analysis.py` はそこを読むので、パスの指定はいりません。
 
@@ -348,5 +353,5 @@ python3 analysis.py --start 2026-06-01 --days 28
 ---
 
 *データ: 鎌倉クオンツラボ。Binance 分は Binance Vision より取得。*
-*測定コードと出力: 上の「この記事のスクリプト」の表のとおり（`article/01_spread-vs-fees/`）*
+*測定コードと出力: <https://github.com/kamakuraquantlab/Kenchoji/tree/main/article/01_spread-vs-fees>（内訳は上の「この記事のスクリプト」の表）*
 *手数料率は測定値ではなく入力値です（`total_cost.py` の `FEES`）。*
