@@ -23,5 +23,6 @@
 | 記事 | 公開日 | Zenn | 本文・関連ファイル |
 |---|---|---|---|
 | 鎌倉散歩 — これから書くことについて | 2026-09-17 | [読む](https://zenn.dev/kamakuraquant/articles/2679ccc6c71416) | [本文](article/00_kamakura-sampo/article.md) |
+| スプレッドは手数料である — 国内 12 市場を手数料体系で分けて測る | 2026-09-27 | [読む](https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2) | [本文](article/01_spread-vs-fees/article.md)・[スクリプトと集計結果](article/01_spread-vs-fees/) |
 
 プロローグは今後の執筆方針を紹介する記事のため、分析スクリプトや数値の検証結果はありません。

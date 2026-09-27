@@ -1,8 +1,10 @@
 ---
 slate: 1
-publish: 1
-status: ready
+publish: 0
+status: published
 channel: Zenn
+published_at: 2026-09-27
+canonical_url: https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2
 ---
 
 # スプレッドは手数料である — 国内 12 市場を手数料体系で分けて測る
