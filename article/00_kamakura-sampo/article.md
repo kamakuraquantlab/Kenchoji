@@ -42,7 +42,7 @@ canonical_url: https://zenn.dev/kamakuraquant/articles/2679ccc6c71416
 決まった道が二つあります。
 
 ひとつは、**北鎌倉 (Kitakamakura) から鎌倉まで**。
-駅を出て、気が向けば明月院に寄り道してから、建長寺の前を通って
+駅を出て、気が向けば明月院に寄り道してから、建長寺 (Kenchoji) の前を通って
 鶴岡 (Tsurugaoka) 八幡宮へ出る。
 雪ノ下 (Yukinoshita) の交差点を渡り、小町 (Komachi) 通りをまっすぐ抜ければ鎌倉駅。
 一時間ほどの道です。
