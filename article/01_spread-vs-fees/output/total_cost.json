@@ -55,12 +55,12 @@
     "BITBANK:BTC_SPOT": {
       "spread_bps": 0.918,
       "maker_fee_pct": 0.0,
-      "taker_fee_pct": 0.0,
+      "taker_fee_pct": 0.1,
       "maker_fee_bps": 0.0,
-      "taker_fee_bps": 0.0,
-      "taker_roundtrip_bps": 0.918,
-      "fee_share_of_total_pct": 0.0,
-      "fee_status": "given, post-2026-02 change"
+      "taker_fee_bps": 10.0,
+      "taker_roundtrip_bps": 20.918,
+      "fee_share_of_total_pct": 95.6,
+      "fee_status": "confirmed on bitbank fee page 2026-10-03, post-2026-02 change"
     },
     "COINCHECK:BTC_SPOT": {
       "spread_bps": 2.0544,
@@ -127,10 +127,10 @@
     "tightest_spread_market": "BITBANK:XRP_SPOT",
     "tightest_spread_bps": 0.0551,
     "its_roundtrip_bps": 24.06,
-    "cheapest_roundtrip_market": "BITBANK:BTC_SPOT",
-    "cheapest_roundtrip_bps": 0.92,
-    "cheapest_roundtrip_spread_bps": 0.918,
-    "ratio": 26.2
+    "cheapest_roundtrip_market": "COINCHECK:BTC_SPOT",
+    "cheapest_roundtrip_bps": 2.05,
+    "cheapest_roundtrip_spread_bps": 2.0544,
+    "ratio": 11.7
   },
   "fee_change_taker_view": {
     "before": {
@@ -140,11 +140,11 @@
     },
     "after": {
       "spread_bps": 0.5877,
-      "taker_fee_bps": 0.0,
-      "roundtrip_bps": 0.5877
+      "taker_fee_bps": 10.0,
+      "roundtrip_bps": 20.5877
     },
     "spread_wider_x": 734.6,
-    "taker_roundtrip_cheaper_x": 40.8,
-    "caveat": "assumes bitbank BTC spot taker fee was 0.12% before and 0% after; unconfirmed"
+    "taker_roundtrip_cheaper_x": 1.2,
+    "caveat": "bitbank BTC spot taker fee was 0.12% before and 0.10% after; current fee checked 2026-10-03"
   }
 }

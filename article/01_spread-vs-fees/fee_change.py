@@ -15,7 +15,7 @@ Reproducing this:
     2. hase derive BookState   --market <MARKET> --start <START> --end <END>
        hase derive MarketPrice --market <MARKET> --start <START> --end <END> \
                               --execution-notional 1000000
-    3. python3 fee_change.py
+    3. python fee_change.py
 
 Step 2 is a cache rather than a prerequisite: what it writes, this script would
 otherwise derive in memory at about a quarter of a second per market-day.
@@ -41,6 +41,7 @@ WINDOWS = {
     "settled 2026-02-20..02-26": ("2026-02-20", "2026-02-26"),
 }
 CONTROL = "BITBANK:XRP_SPOT"  # kept its negative maker fee; should not step
+PLOT_WINDOW = ("2026-01-01", "2026-03-31")
 
 
 def week(market, lo, hi):
@@ -76,6 +77,18 @@ def week(market, lo, hi):
     }
 
 
+def daily_spread(market, lo, hi):
+    """Daily median spread over the full window used by the figure."""
+    out = []
+    for d in available_dates(ROOT, market, "OrderBook"):
+        if not (lo <= d <= hi):
+            continue
+        book = load(ROOT, "BookState", market, d)
+        if len(book) >= 500:
+            out.append([d, round(float(book["spread_bps"].median()), 4)])
+    return out
+
+
 out = {}
 for label, (lo, hi) in WINDOWS.items():
     r = week(MARKET, lo, hi)
@@ -91,6 +104,11 @@ for label, (lo, hi) in WINDOWS.items():
         f"trades/day {c['trades_per_day']:>7,}",
         flush=True,
     )
+
+out["daily_spread_bps_2026-01-01_2026-03-31"] = {
+    MARKET: daily_spread(MARKET, *PLOT_WINDOW),
+    CONTROL: daily_spread(CONTROL, *PLOT_WINDOW),
+}
 
 dest = pathlib.Path(__file__).parent / "output" / "fee_change.json"
 dest.write_text(json.dumps(out, indent=2) + "\n")

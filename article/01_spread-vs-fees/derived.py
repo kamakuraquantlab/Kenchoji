@@ -45,7 +45,7 @@ for name, grp in g.items():
         "n": len(v),
     }
 neg = out["group_medians_bps"]["negative maker fee"]["median"]
-zero = out["group_medians_bps"]["zero fee"]["median"]
+zero = out["group_medians_bps"]["zero maker fee"]["median"]
 out["group_medians_bps"]["zero_over_negative_x"] = round(zero / neg, 2)
 
 B = f["before  2026-01-29..02-04"]["BITBANK:BTC_SPOT"]

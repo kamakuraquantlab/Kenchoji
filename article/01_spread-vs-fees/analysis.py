@@ -3,12 +3,12 @@
 Two groups, classified by maker fee as of June 2026:
 
   negative maker  bitbank ETH/XRP spot, GMO BTC/ETH/XRP spot
-  zero fee        Coincheck spot, GMO leverage (*_JPY), bitbank BTC spot
+  zero maker fee  Coincheck spot, GMO leverage (*_JPY), bitbank BTC spot
 
 bitbank BTC spot is in the second group because it moved there: it paid a
-negative maker fee until early 2026 and pays nothing now. That makes it a
-natural experiment rather than just another row, and the event study at the
-bottom uses it.
+negative maker fee until early 2026 and now charges maker 0.00%, taker 0.10%.
+That makes it a natural experiment rather than just another row, and the event
+study at the bottom uses it.
 
 Binance is carried as the global reference. It charges a positive maker fee,
 so it sits on the far side of the same axis.
@@ -26,7 +26,7 @@ Reproducing this:
     2. hase derive BookState   --market <MARKET> --start <START> --end <END>
        hase derive MarketPrice --market <MARKET> --start <START> --end <END> \
                               --execution-notional 1000000
-    3. python3 analysis.py
+    3. python analysis.py
 
 Step 2 is a cache rather than a prerequisite: what it writes, this script would
 otherwise derive in memory at about a quarter of a second per market-day.
@@ -64,7 +64,7 @@ GROUPS = {
         "GMO:ETH_SPOT",
         "GMO:XRP_SPOT",
     ],
-    "zero fee": [
+    "zero maker fee": [
         "BITBANK:BTC_SPOT",
         "COINCHECK:BTC_SPOT",
         "COINCHECK:ETH_SPOT",
@@ -92,12 +92,14 @@ def measure(market, lo, hi):
     those. A day with ten times the snapshots would otherwise carry ten times
     the weight, and snapshot counts vary by venue and by day.
     """
-    spr, tob, cost, fills = [], [], [], []
+    spr, tob, cost, fills, daily_spread = [], [], [], [], []
     for d in days(market, "OrderBook", lo, hi):
         book = load(ROOT, "BookState", market, d)
         if len(book) < MIN_SNAPSHOTS:
             continue
-        spr.append(float(book["spread_bps"].median()))
+        spread = float(book["spread_bps"].median())
+        spr.append(spread)
+        daily_spread.append([d, round(spread, 4)])
         tob.append(float(book["top_of_book"].median()))
 
         # The walked spread at a cash amount: what the round trip really costs.
@@ -120,6 +122,7 @@ def measure(market, lo, hi):
     return {
         "days": len(spr),
         "spread_bps": round(statistics.median(spr), 4),
+        "daily_spread_bps": daily_spread,
         "top_of_book_jpy": round(statistics.median(tob)) if tob else None,
         "roundtrip_1m_bps": round(statistics.median(cost), 3) if cost else None,
         # The share of snapshots whose book could complete the round trip,

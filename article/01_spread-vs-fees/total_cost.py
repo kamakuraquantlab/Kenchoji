@@ -31,8 +31,8 @@ FEES = {
     "GMO:XRP_SPOT": {"maker_pct": -0.01, "taker_pct": 0.05, "status": "given"},
     "BITBANK:BTC_SPOT": {
         "maker_pct": 0.0,
-        "taker_pct": 0.0,
-        "status": "given, post-2026-02 change",
+        "taker_pct": 0.1,
+        "status": "confirmed on bitbank fee page 2026-10-03, post-2026-02 change",
     },
     "COINCHECK:BTC_SPOT": {
         "maker_pct": 0.0,
@@ -122,11 +122,11 @@ out["inversion"] = {
     "ratio": round(tight[0] / cheap[0], 1),
 }
 # The fee change, seen by a taker. bitbank BTC spot before: the maker rebate was
-# funded by a 0.12% taker fee. After: no fee either side, and a wider quote.
+# funded by a 0.12% taker fee. After: maker 0.00%, taker 0.10%, and a wider quote.
 fc = json.loads((here / "output" / "fee_change.json").read_text())
 before_spread = fc["before  2026-01-29..02-04"]["BITBANK:BTC_SPOT"]["spread_bps"]
 after_spread = fc["settled 2026-02-20..02-26"]["BITBANK:BTC_SPOT"]["spread_bps"]
-BEFORE_TAKER_BPS, AFTER_TAKER_BPS = 12.0, 0.0  # 0.12% -> 12 bps, then none
+BEFORE_TAKER_BPS, AFTER_TAKER_BPS = 12.0, 10.0  # 0.12% -> 12 bps; 0.10% -> 10 bps
 out["fee_change_taker_view"] = {
     "before": {
         "spread_bps": before_spread,
@@ -142,7 +142,7 @@ out["fee_change_taker_view"] = {
     "taker_roundtrip_cheaper_x": round(
         (before_spread + 2 * BEFORE_TAKER_BPS) / (after_spread + 2 * AFTER_TAKER_BPS), 1
     ),
-    "caveat": "assumes bitbank BTC spot taker fee was 0.12% before and 0% after; unconfirmed",
+    "caveat": "bitbank BTC spot taker fee was 0.12% before and 0.10% after; current fee checked 2026-10-03",
 }
 v = out["fee_change_taker_view"]
 print(
