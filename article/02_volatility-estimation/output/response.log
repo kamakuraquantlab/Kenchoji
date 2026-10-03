@@ -1,0 +1,12 @@
+window 2026-06-01 .. 2026-06-28  (28 days)
+BITBANK:ETH_SPOT       negative maker           1s b=0.00 r2=0.00  5s b=0.01 r2=0.00  15s b=0.07 r2=0.05  60s b=0.87 r2=0.62  300s b=0.94 r2=0.96
+BITBANK:XRP_SPOT       negative maker           1s b=0.00 r2=0.00  5s b=0.00 r2=0.00  15s b=0.01 r2=0.01  60s b=0.17 r2=0.17  300s b=0.90 r2=0.92
+BITBANK:BTC_SPOT       zero fee since 2026-02   1s b=0.00 r2=0.00  5s b=0.01 r2=0.00  15s b=0.06 r2=0.03  60s b=0.86 r2=0.68  300s b=0.93 r2=0.95
+COINCHECK:BTC_SPOT     zero fee                 1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.07 r2=0.07  60s b=0.95 r2=0.95  300s b=0.97 r2=0.98
+COINCHECK:ETH_SPOT     zero fee                 1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.06 r2=0.05  60s b=0.87 r2=0.85  300s b=0.94 r2=0.96
+COINCHECK:XRP_SPOT     zero fee                 1s b=0.00 r2=0.00  5s b=0.00 r2=0.00  15s b=0.01 r2=0.01  60s b=0.17 r2=0.17  300s b=0.88 r2=0.91
+GMO:BTC_JPY            zero fee, leverage       1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.07 r2=0.06  60s b=0.96 r2=0.94  300s b=0.97 r2=0.97
+GMO:ETH_JPY            zero fee, leverage       1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.08 r2=0.07  60s b=0.93 r2=0.92  300s b=0.97 r2=0.97
+GMO:XRP_JPY            zero fee, leverage       1s b=0.00 r2=0.00  5s b=0.00 r2=0.00  15s b=0.01 r2=0.01  60s b=0.20 r2=0.20  300s b=0.95 r2=0.96
+
+wrote output/response.json

@@ -1,0 +1,66 @@
+{
+  "base_interval_sec": 1800,
+  "note": "excess_pct is how far the candidate interval's RV sits above the 30-minute estimate. A sigma overstated by x% distorts a sigma-squared quantity by roughly 2x%.",
+  "markets": {
+    "BINANCE:BTC_USDT": {
+      "rv_1800s": 223.2,
+      "excess_at_60s_pct": 40.6,
+      "excess_at_300s_pct": 2.1
+    },
+    "BINANCE:ETH_USDT": {
+      "rv_1800s": 307.9,
+      "excess_at_60s_pct": 38.7,
+      "excess_at_300s_pct": -0.7
+    },
+    "BINANCE:XRP_USDT": {
+      "rv_1800s": 296.8,
+      "excess_at_60s_pct": 168.6,
+      "excess_at_300s_pct": 14.4
+    },
+    "BITBANK:BTC_SPOT": {
+      "rv_1800s": 214.6,
+      "excess_at_60s_pct": 15.1,
+      "excess_at_300s_pct": 4.2
+    },
+    "BITBANK:ETH_SPOT": {
+      "rv_1800s": 286.8,
+      "excess_at_60s_pct": 12.5,
+      "excess_at_300s_pct": 3.4
+    },
+    "BITBANK:XRP_SPOT": {
+      "rv_1800s": 281.2,
+      "excess_at_60s_pct": 17.3,
+      "excess_at_300s_pct": 15.2
+    },
+    "COINCHECK:BTC_SPOT": {
+      "rv_1800s": 216.1,
+      "excess_at_60s_pct": 2.0,
+      "excess_at_300s_pct": -0.4
+    },
+    "COINCHECK:ETH_SPOT": {
+      "rv_1800s": 293.8,
+      "excess_at_60s_pct": 0.1,
+      "excess_at_300s_pct": 0.0
+    },
+    "COINCHECK:XRP_SPOT": {
+      "rv_1800s": 273.9,
+      "excess_at_60s_pct": 9.6,
+      "excess_at_300s_pct": 7.5
+    },
+    "GMO:BTC_JPY": {
+      "rv_1800s": 217.6,
+      "excess_at_60s_pct": 3.0,
+      "excess_at_300s_pct": -1.1
+    },
+    "GMO:ETH_JPY": {
+      "rv_1800s": 294.3,
+      "excess_at_60s_pct": 1.6,
+      "excess_at_300s_pct": -0.4
+    },
+    "GMO:XRP_JPY": {
+      "rv_1800s": 285.6,
+      "excess_at_60s_pct": 14.5,
+      "excess_at_300s_pct": 6.7
+    }
+  }
+}

@@ -1,0 +1,4 @@
+tick-pinned 2025-07..2026-01     spread   0.0006bps  RV 1s   415.2  1800s   174.2  inflate  2.38x  AC(1)  -0.3624  moved  32.4%
+wide 2026-03..2026-08            spread   1.0600bps  RV 1s   555.2  1800s   157.3  inflate  3.53x  AC(1)  -0.4099  moved  53.0%
+
+wrote output/regimes.json

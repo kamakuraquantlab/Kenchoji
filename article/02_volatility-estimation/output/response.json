@@ -1,0 +1,245 @@
+{
+  "BITBANK:ETH_SPOT": {
+    "reference": "BINANCE:ETH_USDT",
+    "fee": "negative maker",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.001,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.011,
+        "r2": 0.002
+      },
+      "15": {
+        "beta": 0.067,
+        "r2": 0.047
+      },
+      "60": {
+        "beta": 0.869,
+        "r2": 0.622
+      },
+      "300": {
+        "beta": 0.937,
+        "r2": 0.965
+      }
+    }
+  },
+  "BITBANK:XRP_SPOT": {
+    "reference": "BINANCE:XRP_USDT",
+    "fee": "negative maker",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.0,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.002,
+        "r2": 0.0
+      },
+      "15": {
+        "beta": 0.01,
+        "r2": 0.007
+      },
+      "60": {
+        "beta": 0.172,
+        "r2": 0.17
+      },
+      "300": {
+        "beta": 0.899,
+        "r2": 0.918
+      }
+    }
+  },
+  "BITBANK:BTC_SPOT": {
+    "reference": "BINANCE:BTC_USDT",
+    "fee": "maker 0.00%, taker 0.10% since 2026-02",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.001,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.008,
+        "r2": 0.001
+      },
+      "15": {
+        "beta": 0.062,
+        "r2": 0.033
+      },
+      "60": {
+        "beta": 0.861,
+        "r2": 0.675
+      },
+      "300": {
+        "beta": 0.929,
+        "r2": 0.95
+      }
+    }
+  },
+  "COINCHECK:BTC_SPOT": {
+    "reference": "BINANCE:BTC_USDT",
+    "fee": "zero fee",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.001,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.012,
+        "r2": 0.01
+      },
+      "15": {
+        "beta": 0.072,
+        "r2": 0.066
+      },
+      "60": {
+        "beta": 0.95,
+        "r2": 0.951
+      },
+      "300": {
+        "beta": 0.972,
+        "r2": 0.98
+      }
+    }
+  },
+  "COINCHECK:ETH_SPOT": {
+    "reference": "BINANCE:ETH_USDT",
+    "fee": "zero fee",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.001,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.011,
+        "r2": 0.006
+      },
+      "15": {
+        "beta": 0.063,
+        "r2": 0.05
+      },
+      "60": {
+        "beta": 0.871,
+        "r2": 0.846
+      },
+      "300": {
+        "beta": 0.944,
+        "r2": 0.958
+      }
+    }
+  },
+  "COINCHECK:XRP_SPOT": {
+    "reference": "BINANCE:XRP_USDT",
+    "fee": "zero fee",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.0,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.002,
+        "r2": 0.001
+      },
+      "15": {
+        "beta": 0.01,
+        "r2": 0.009
+      },
+      "60": {
+        "beta": 0.17,
+        "r2": 0.169
+      },
+      "300": {
+        "beta": 0.881,
+        "r2": 0.913
+      }
+    }
+  },
+  "GMO:BTC_JPY": {
+    "reference": "BINANCE:BTC_USDT",
+    "fee": "zero fee, leverage",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.001,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.012,
+        "r2": 0.01
+      },
+      "15": {
+        "beta": 0.071,
+        "r2": 0.064
+      },
+      "60": {
+        "beta": 0.956,
+        "r2": 0.939
+      },
+      "300": {
+        "beta": 0.972,
+        "r2": 0.974
+      }
+    }
+  },
+  "GMO:ETH_JPY": {
+    "reference": "BINANCE:ETH_USDT",
+    "fee": "zero fee, leverage",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.001,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.015,
+        "r2": 0.013
+      },
+      "15": {
+        "beta": 0.077,
+        "r2": 0.073
+      },
+      "60": {
+        "beta": 0.931,
+        "r2": 0.923
+      },
+      "300": {
+        "beta": 0.97,
+        "r2": 0.974
+      }
+    }
+  },
+  "GMO:XRP_JPY": {
+    "reference": "BINANCE:XRP_USDT",
+    "fee": "zero fee, leverage",
+    "days": 28,
+    "by_horizon_sec": {
+      "1": {
+        "beta": 0.0,
+        "r2": 0.0
+      },
+      "5": {
+        "beta": 0.004,
+        "r2": 0.003
+      },
+      "15": {
+        "beta": 0.015,
+        "r2": 0.014
+      },
+      "60": {
+        "beta": 0.199,
+        "r2": 0.199
+      },
+      "300": {
+        "beta": 0.947,
+        "r2": 0.956
+      }
+    }
+  }
+}

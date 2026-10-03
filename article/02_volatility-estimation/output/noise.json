@@ -1,0 +1,65 @@
+{
+  "BITBANK:BTC_SPOT": {
+    "days": 28,
+    "ac1_1s_returns": -0.4314,
+    "pct_seconds_mid_moved": 54.9,
+    "median_move_bps": 0.3029,
+    "median_spread_bps": 0.918
+  },
+  "BITBANK:ETH_SPOT": {
+    "days": 28,
+    "ac1_1s_returns": -0.3808,
+    "pct_seconds_mid_moved": 45.3,
+    "median_move_bps": 0.4955,
+    "median_spread_bps": 0.2677
+  },
+  "BITBANK:XRP_SPOT": {
+    "days": 28,
+    "ac1_1s_returns": -0.4182,
+    "pct_seconds_mid_moved": 35.9,
+    "median_move_bps": 0.5899,
+    "median_spread_bps": 0.0551
+  },
+  "COINCHECK:BTC_SPOT": {
+    "days": 28,
+    "ac1_1s_returns": -0.0565,
+    "pct_seconds_mid_moved": 87.5,
+    "median_move_bps": 0.2091,
+    "median_spread_bps": 2.0544
+  },
+  "COINCHECK:ETH_SPOT": {
+    "days": 28,
+    "ac1_1s_returns": -0.1527,
+    "pct_seconds_mid_moved": 78.8,
+    "median_move_bps": 0.2353,
+    "median_spread_bps": 11.1651
+  },
+  "COINCHECK:XRP_SPOT": {
+    "days": 28,
+    "ac1_1s_returns": -0.1799,
+    "pct_seconds_mid_moved": 67.6,
+    "median_move_bps": 0.0542,
+    "median_spread_bps": 14.774
+  },
+  "GMO:BTC_JPY": {
+    "days": 28,
+    "ac1_1s_returns": -0.0637,
+    "pct_seconds_mid_moved": 80.3,
+    "median_move_bps": 0.2887,
+    "median_spread_bps": 2.2348
+  },
+  "GMO:ETH_JPY": {
+    "days": 28,
+    "ac1_1s_returns": 0.0383,
+    "pct_seconds_mid_moved": 80.6,
+    "median_move_bps": 0.2385,
+    "median_spread_bps": 6.3509
+  },
+  "GMO:XRP_JPY": {
+    "days": 28,
+    "ac1_1s_returns": -0.0218,
+    "pct_seconds_mid_moved": 82.4,
+    "median_move_bps": 0.4553,
+    "median_spread_bps": 4.5298
+  }
+}
