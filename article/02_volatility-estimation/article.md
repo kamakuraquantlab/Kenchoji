@@ -1,8 +1,10 @@
 ---
 slate: 6
 publish: 2
-status: ready
+status: published
 channel: Zenn
+published_at: 2026-10-03
+canonical_url: https://zenn.dev/kamakuraquant/articles/c054d44d00f04e
 ---
 
 # ボラティリティは「いくつ」ではない — 測る間隔で 3 倍変わり、長く取れば Binance に収束する
