@@ -118,6 +118,10 @@ bipower variation（ノイズに強い推定量）といった選択肢があり
 
 [*] 「1 秒」の降順（↓）で並べています。
 
+![市場別のボラティリティ・シグネチャープロット](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/article/02_volatility-estimation/output/signature_plot.png)
+
+*横軸は測定間隔、縦軸は 1 日あたりの実現ボラティリティ。両軸とも対数目盛です。*
+
 **いちばん膨らむのは Binance でした。** 最大 28.4 倍。
 更新が 100 ms ごとに届くので、1 秒に刻んだ時点で気配の揺れを大量に拾ってしまう。
 流動性が高い市場ほど高頻度のノイズが多い、というのは直感に反します。
@@ -207,6 +211,10 @@ R² のほうは「国内の動きのうち Binance で説明がつく割合」�
 
 [*] β の降順（↓）で並べています。
 
+![時間幅ごとのβとR²](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/article/02_volatility-estimation/output/response_by_horizon.png)
+
+*実線が β、破線が R²。どの銘柄も短い時間幅では低く、5 分でほぼ 1 に揃います。*
+
 **bitbank ETH と Coincheck ETH は、β が同じ 0.87 です。**
 動きの大きさは揃っている。ところが R² は 0.62 と 0.85。
 bitbank は「同じだけ動くが、Binance とは揃っていない」市場でした。
@@ -277,6 +285,10 @@ bitbank BTC のスプレッドを月ごとに追うと、記録の途中で性�
 | 月 | 2025-07 | 2025-10 | 2026-01 | **2026-02** | 2026-03 | 2026-08 |
 |---|---|---|---|---|---|---|
 | スプレッド | 0.0006 | 0.0006 | 0.0007 | **0.3467** | 1.3066 | 1.2337 |
+
+![bitbank BTCの月次スプレッド](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/article/02_volatility-estimation/output/bitbank_btc_spread_history.png)
+
+*縦軸は対数目盛。破線は手数料体系が変わった 2026 年 2 月です。*
 
 2026 年 2 月におよそ 500 倍まで開き、そのまま戻っていません。
 原因は手数料体系の変更です（[スプレッドと手数料の記事](https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2)）。
@@ -422,7 +434,7 @@ Komachi は取り込みの時点で日本時間へ切り直すので、4 章の�
 python regimes.py
 ```
 
-**この記事のスクリプトは 6 本です。**
+**この記事のスクリプトは 7 本です。**
 
 | 節 | スクリプト | 読むもの | 出力 |
 |---|---|---|---|
@@ -432,8 +444,10 @@ python regimes.py
 | §6 | `spread_history.py` | 板 | `output/spread_history.json` |
 | §6 | `regimes.py` | 板 | `output/regimes.json` |
 | §7.1, §8 | `sigma_guidance.py` | vol.json | `output/sigma_guidance.json` |
+| §3, §5.1, §6 | `plots.py` | vol.json・response.json・spread_history.json | `output/*.png` |
 
-`sigma_guidance.py` だけは `analysis.py` の出力を読むので、最後に走らせてください。
+`sigma_guidance.py` は `analysis.py` の出力を読みます。
+`plots.py` は 3 つの JSON を読むので、測定スクリプトのあとに `python plots.py` を実行してください。
 
 ---
 
