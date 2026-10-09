@@ -20,6 +20,7 @@ from hase.layout import available_dates
 
 ROOT = komachi.data_root()
 MARKETS = [
+    "BINANCE:BTC_USDT", "BINANCE:ETH_USDT", "BINANCE:XRP_USDT",
     "BITBANK:BTC_SPOT", "BITBANK:ETH_SPOT", "BITBANK:XRP_SPOT",
     "COINCHECK:BTC_SPOT", "COINCHECK:ETH_SPOT", "COINCHECK:XRP_SPOT",
     "GMO:BTC_JPY", "GMO:ETH_JPY", "GMO:XRP_JPY",

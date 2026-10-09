@@ -1,12 +1,12 @@
 window 2026-06-01 .. 2026-06-28  (28 days)
-BITBANK:ETH_SPOT       negative maker           1s b=0.00 r2=0.00  5s b=0.01 r2=0.00  15s b=0.07 r2=0.05  60s b=0.87 r2=0.62  300s b=0.94 r2=0.96
-BITBANK:XRP_SPOT       negative maker           1s b=0.00 r2=0.00  5s b=0.00 r2=0.00  15s b=0.01 r2=0.01  60s b=0.17 r2=0.17  300s b=0.90 r2=0.92
-BITBANK:BTC_SPOT       zero fee since 2026-02   1s b=0.00 r2=0.00  5s b=0.01 r2=0.00  15s b=0.06 r2=0.03  60s b=0.86 r2=0.68  300s b=0.93 r2=0.95
-COINCHECK:BTC_SPOT     zero fee                 1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.07 r2=0.07  60s b=0.95 r2=0.95  300s b=0.97 r2=0.98
-COINCHECK:ETH_SPOT     zero fee                 1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.06 r2=0.05  60s b=0.87 r2=0.85  300s b=0.94 r2=0.96
-COINCHECK:XRP_SPOT     zero fee                 1s b=0.00 r2=0.00  5s b=0.00 r2=0.00  15s b=0.01 r2=0.01  60s b=0.17 r2=0.17  300s b=0.88 r2=0.91
-GMO:BTC_JPY            zero fee, leverage       1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.07 r2=0.06  60s b=0.96 r2=0.94  300s b=0.97 r2=0.97
-GMO:ETH_JPY            zero fee, leverage       1s b=0.00 r2=0.00  5s b=0.01 r2=0.01  15s b=0.08 r2=0.07  60s b=0.93 r2=0.92  300s b=0.97 r2=0.97
-GMO:XRP_JPY            zero fee, leverage       1s b=0.00 r2=0.00  5s b=0.00 r2=0.00  15s b=0.01 r2=0.01  60s b=0.20 r2=0.20  300s b=0.95 r2=0.96
+BITBANK:ETH_SPOT       negative maker           1s b=0.28 r2=0.10  5s b=0.61 r2=0.49  15s b=0.76 r2=0.72  60s b=0.88 r2=0.89  300s b=0.94 r2=0.97
+BITBANK:XRP_SPOT       negative maker           1s b=0.20 r2=0.06  5s b=0.48 r2=0.34  15s b=0.65 r2=0.62  60s b=0.83 r2=0.85  300s b=0.92 r2=0.95
+BITBANK:BTC_SPOT       maker 0.00%, taker 0.10% since 2026-02 1s b=0.29 r2=0.07  5s b=0.63 r2=0.41  15s b=0.77 r2=0.68  60s b=0.87 r2=0.88  300s b=0.93 r2=0.95
+COINCHECK:BTC_SPOT     zero fee                 1s b=0.63 r2=0.25  5s b=0.92 r2=0.74  15s b=0.94 r2=0.88  60s b=0.96 r2=0.95  300s b=0.97 r2=0.98
+COINCHECK:ETH_SPOT     zero fee                 1s b=0.31 r2=0.05  5s b=0.61 r2=0.34  15s b=0.76 r2=0.60  60s b=0.88 r2=0.86  300s b=0.94 r2=0.96
+COINCHECK:XRP_SPOT     zero fee                 1s b=0.17 r2=0.02  5s b=0.44 r2=0.26  15s b=0.62 r2=0.55  60s b=0.80 r2=0.81  300s b=0.91 r2=0.94
+GMO:BTC_JPY            zero fee, leverage       1s b=0.58 r2=0.22  5s b=0.90 r2=0.73  15s b=0.94 r2=0.87  60s b=0.96 r2=0.94  300s b=0.97 r2=0.97
+GMO:ETH_JPY            zero fee, leverage       1s b=0.36 r2=0.13  5s b=0.80 r2=0.68  15s b=0.90 r2=0.86  60s b=0.96 r2=0.94  300s b=0.97 r2=0.97
+GMO:XRP_JPY            zero fee, leverage       1s b=0.40 r2=0.15  5s b=0.81 r2=0.69  15s b=0.89 r2=0.85  60s b=0.94 r2=0.94  300s b=0.97 r2=0.97
 
-wrote output/response.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/response.json

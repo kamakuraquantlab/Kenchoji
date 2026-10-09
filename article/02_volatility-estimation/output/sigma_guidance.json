@@ -4,33 +4,33 @@
   "markets": {
     "BINANCE:BTC_USDT": {
       "rv_1800s": 223.2,
-      "excess_at_60s_pct": 40.6,
+      "excess_at_60s_pct": 1.8,
       "excess_at_300s_pct": 2.1
     },
     "BINANCE:ETH_USDT": {
       "rv_1800s": 307.9,
-      "excess_at_60s_pct": 38.7,
+      "excess_at_60s_pct": 0.4,
       "excess_at_300s_pct": -0.7
     },
     "BINANCE:XRP_USDT": {
       "rv_1800s": 296.8,
-      "excess_at_60s_pct": 168.6,
-      "excess_at_300s_pct": 14.4
+      "excess_at_60s_pct": 14.8,
+      "excess_at_300s_pct": 6.9
     },
     "BITBANK:BTC_SPOT": {
-      "rv_1800s": 214.6,
-      "excess_at_60s_pct": 15.1,
-      "excess_at_300s_pct": 4.2
+      "rv_1800s": 214.4,
+      "excess_at_60s_pct": 0.5,
+      "excess_at_300s_pct": -3.5
     },
     "BITBANK:ETH_SPOT": {
-      "rv_1800s": 286.8,
-      "excess_at_60s_pct": 12.5,
-      "excess_at_300s_pct": 3.4
+      "rv_1800s": 287.1,
+      "excess_at_60s_pct": -0.3,
+      "excess_at_300s_pct": 0.5
     },
     "BITBANK:XRP_SPOT": {
-      "rv_1800s": 281.2,
-      "excess_at_60s_pct": 17.3,
-      "excess_at_300s_pct": 15.2
+      "rv_1800s": 279.9,
+      "excess_at_60s_pct": 8.0,
+      "excess_at_300s_pct": 6.3
     },
     "COINCHECK:BTC_SPOT": {
       "rv_1800s": 216.1,

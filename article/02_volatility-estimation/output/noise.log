@@ -1,12 +1,15 @@
 window 2026-06-01 .. 2026-06-28
-BITBANK:BTC_SPOT       AC(1)  -0.4314   moved  54.9% of sec   typical move   0.3029bps   spread   0.9180bps
-BITBANK:ETH_SPOT       AC(1)  -0.3808   moved  45.3% of sec   typical move   0.4955bps   spread   0.2677bps
-BITBANK:XRP_SPOT       AC(1)  -0.4182   moved  35.9% of sec   typical move   0.5899bps   spread   0.0551bps
-COINCHECK:BTC_SPOT     AC(1)  -0.0565   moved  87.5% of sec   typical move   0.2091bps   spread   2.0544bps
-COINCHECK:ETH_SPOT     AC(1)  -0.1527   moved  78.8% of sec   typical move   0.2353bps   spread  11.1651bps
-COINCHECK:XRP_SPOT     AC(1)  -0.1799   moved  67.6% of sec   typical move   0.0542bps   spread  14.7740bps
+BINANCE:BTC_USDT       AC(1)   0.1034   moved  25.9% of sec   typical move   0.6286bps   spread   0.0016bps
+BINANCE:ETH_USDT       AC(1)   0.0904   moved  31.8% of sec   typical move   0.8032bps   spread   0.0592bps
+BINANCE:XRP_USDT       AC(1)   0.0724   moved  24.7% of sec   typical move   0.9045bps   spread   0.8773bps
+BITBANK:BTC_SPOT       AC(1)  -0.0391   moved  48.2% of sec   typical move   0.2718bps   spread   0.6308bps
+BITBANK:ETH_SPOT       AC(1)   0.0737   moved  38.6% of sec   typical move   0.4456bps   spread   0.0386bps
+BITBANK:XRP_SPOT       AC(1)   0.0432   moved  31.1% of sec   typical move   0.5524bps   spread   0.0549bps
+COINCHECK:BTC_SPOT     AC(1)  -0.0554   moved  87.5% of sec   typical move   0.2091bps   spread   2.0544bps
+COINCHECK:ETH_SPOT     AC(1)  -0.1440   moved  78.7% of sec   typical move   0.2353bps   spread  11.1650bps
+COINCHECK:XRP_SPOT     AC(1)  -0.1769   moved  67.6% of sec   typical move   0.0542bps   spread  14.7740bps
 GMO:BTC_JPY            AC(1)  -0.0637   moved  80.3% of sec   typical move   0.2887bps   spread   2.2348bps
-GMO:ETH_JPY            AC(1)   0.0383   moved  80.6% of sec   typical move   0.2385bps   spread   6.3509bps
+GMO:ETH_JPY            AC(1)   0.0399   moved  80.6% of sec   typical move   0.2385bps   spread   6.3509bps
 GMO:XRP_JPY            AC(1)  -0.0218   moved  82.4% of sec   typical move   0.4553bps   spread   4.5298bps
 
 wrote output/noise.json
