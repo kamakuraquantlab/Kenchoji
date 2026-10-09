@@ -1,8 +1,10 @@
 """Is the high-frequency volatility real movement, or quote noise?
 
 Microstructure noise leaves a signature: an up-tick followed by a down-tick,
-which shows up as NEGATIVE first-order autocorrelation in high-frequency
-returns. Real price movement has autocorrelation near zero.
+which shows up as NEGATIVE first-order autocorrelation in short-interval
+returns; a price that creeps toward its new level shows up as POSITIVE. Real
+price movement has autocorrelation near zero. Measured on 10-second returns,
+the shortest interval the article uses.
 
 Also measures how the quote behaves -- how often the midpoint moves at all, and
 how far when it does -- because a narrow quote that flickers is a different
@@ -17,12 +19,14 @@ import numpy as np
 import komachi
 from hase.dataset import load
 from hase.layout import available_dates
+from rv import has_outage
 
 ROOT = komachi.data_root()
 MARKETS = [
     "BINANCE:BTC_USDT", "BINANCE:ETH_USDT", "BINANCE:XRP_USDT",
     "BITBANK:BTC_SPOT", "BITBANK:ETH_SPOT", "BITBANK:XRP_SPOT",
     "COINCHECK:BTC_SPOT", "COINCHECK:ETH_SPOT", "COINCHECK:XRP_SPOT",
+    "GMO:BTC_SPOT", "GMO:ETH_SPOT", "GMO:XRP_SPOT",
     "GMO:BTC_JPY", "GMO:ETH_JPY", "GMO:XRP_JPY",
 ]
 # One window, matching analysis.py, so bitbank BTC does not straddle its
@@ -50,7 +54,7 @@ for market in MARKETS:
     acs, moves, jumps, spr = [], [], [], []
     for d in ds:
         book = load(ROOT, "BookState", market, d)
-        if len(book) < 500:
+        if len(book) < 500 or has_outage(book):
             continue
         g = load(ROOT, "VolSpread", market, d)["mid"].to_numpy()
         with np.errstate(invalid="ignore", divide="ignore"):
@@ -58,8 +62,11 @@ for market in MARKETS:
         r = r[np.isfinite(r)]
         if len(r) < 10_000:
             continue
-        # first-order autocorrelation of 1-second returns
-        x, y = r[:-1], r[1:]
+        # first-order autocorrelation of 10-second returns
+        with np.errstate(invalid="ignore", divide="ignore"):
+            r10 = np.diff(np.log(g[::10]))
+        r10 = r10[np.isfinite(r10)]
+        x, y = r10[:-1], r10[1:]
         if x.std() > 0 and y.std() > 0:
             acs.append(float(np.corrcoef(x, y)[0, 1]))
         moves.append(float((r != 0).mean() * 100))          # % of seconds the mid moved
@@ -72,13 +79,13 @@ for market in MARKETS:
         print(f"{market:22} no usable days", flush=True); continue
     out[market] = {
         "days": len(acs),
-        "ac1_1s_returns": round(statistics.median(acs), 4),
+        "ac1_10s_returns": round(statistics.median(acs), 4),
         "pct_seconds_mid_moved": round(statistics.median(moves), 1),
         "median_move_bps": round(statistics.median(jumps), 4),
         "median_spread_bps": round(statistics.median(spr), 4),
     }
     r = out[market]
-    print(f"{market:22} AC(1) {r['ac1_1s_returns']:>8.4f}   moved {r['pct_seconds_mid_moved']:>5.1f}% of sec   "
+    print(f"{market:22} AC(1) {r['ac1_10s_returns']:>8.4f}   moved {r['pct_seconds_mid_moved']:>5.1f}% of sec   "
           f"typical move {r['median_move_bps']:>8.4f}bps   spread {r['median_spread_bps']:>8.4f}bps", flush=True)
 
 dest = pathlib.Path(__file__).parent / "output" / "noise.json"

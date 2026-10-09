@@ -1,66 +1,207 @@
 {
-  "base_interval_sec": 1800,
-  "note": "excess_pct is how far the candidate interval's RV sits above the 30-minute estimate. A sigma overstated by x% distorts a sigma-squared quantity by roughly 2x%.",
+  "level_intervals_sec": [
+    300,
+    600,
+    1800
+  ],
+  "tolerance": 0.95,
+  "sync_r2": 0.9,
+  "note": "share_of_level is RV at the interval over the pooled 5-30 minute RV. usable_from_sec is the shortest interval from which every longer one is within the tolerance.",
   "markets": {
     "BINANCE:BTC_USDT": {
-      "rv_1800s": 223.2,
-      "excess_at_60s_pct": 1.8,
-      "excess_at_300s_pct": 2.1
+      "level_bps": 275.7,
+      "share_of_level": {
+        "10": 0.938,
+        "30": 0.977,
+        "60": 0.993,
+        "300": 0.998,
+        "600": 0.98,
+        "1800": 1.022
+      },
+      "usable_from_sec": 30,
+      "sync_from_sec": null
     },
     "BINANCE:ETH_USDT": {
-      "rv_1800s": 307.9,
-      "excess_at_60s_pct": 0.4,
-      "excess_at_300s_pct": -0.7
+      "level_bps": 358.4,
+      "share_of_level": {
+        "10": 0.964,
+        "30": 0.982,
+        "60": 0.989,
+        "300": 0.998,
+        "600": 0.978,
+        "1800": 1.023
+      },
+      "usable_from_sec": 10,
+      "sync_from_sec": null
     },
     "BINANCE:XRP_USDT": {
-      "rv_1800s": 296.8,
-      "excess_at_60s_pct": 14.8,
-      "excess_at_300s_pct": 6.9
+      "level_bps": 353.8,
+      "share_of_level": {
+        "10": 0.967,
+        "30": 0.98,
+        "60": 0.989,
+        "300": 1.003,
+        "600": 0.984,
+        "1800": 1.013
+      },
+      "usable_from_sec": 10,
+      "sync_from_sec": null
     },
     "BITBANK:BTC_SPOT": {
-      "rv_1800s": 214.4,
-      "excess_at_60s_pct": 0.5,
-      "excess_at_300s_pct": -3.5
+      "level_bps": 268.5,
+      "share_of_level": {
+        "10": 0.913,
+        "30": 0.946,
+        "60": 0.972,
+        "300": 0.988,
+        "600": 0.981,
+        "1800": 1.03
+      },
+      "usable_from_sec": 60,
+      "sync_from_sec": 300
     },
     "BITBANK:ETH_SPOT": {
-      "rv_1800s": 287.1,
-      "excess_at_60s_pct": -0.3,
-      "excess_at_300s_pct": 0.5
+      "level_bps": 348.2,
+      "share_of_level": {
+        "10": 0.89,
+        "30": 0.934,
+        "60": 0.96,
+        "300": 0.994,
+        "600": 0.979,
+        "1800": 1.026
+      },
+      "usable_from_sec": 60,
+      "sync_from_sec": 300
     },
     "BITBANK:XRP_SPOT": {
-      "rv_1800s": 279.9,
-      "excess_at_60s_pct": 8.0,
-      "excess_at_300s_pct": 6.3
+      "level_bps": 341.7,
+      "share_of_level": {
+        "10": 0.842,
+        "30": 0.9,
+        "60": 0.942,
+        "300": 0.991,
+        "600": 0.982,
+        "1800": 1.026
+      },
+      "usable_from_sec": 300,
+      "sync_from_sec": 300
     },
     "COINCHECK:BTC_SPOT": {
-      "rv_1800s": 216.1,
-      "excess_at_60s_pct": 2.0,
-      "excess_at_300s_pct": -0.4
+      "level_bps": 271.0,
+      "share_of_level": {
+        "10": 0.966,
+        "30": 0.973,
+        "60": 0.99,
+        "300": 1.0,
+        "600": 0.98,
+        "1800": 1.019
+      },
+      "usable_from_sec": 10,
+      "sync_from_sec": 30
     },
     "COINCHECK:ETH_SPOT": {
-      "rv_1800s": 293.8,
-      "excess_at_60s_pct": 0.1,
-      "excess_at_300s_pct": 0.0
+      "level_bps": 351.0,
+      "share_of_level": {
+        "10": 0.961,
+        "30": 0.957,
+        "60": 0.968,
+        "300": 0.997,
+        "600": 0.98,
+        "1800": 1.023
+      },
+      "usable_from_sec": 10,
+      "sync_from_sec": 300
     },
     "COINCHECK:XRP_SPOT": {
-      "rv_1800s": 273.9,
-      "excess_at_60s_pct": 9.6,
-      "excess_at_300s_pct": 7.5
+      "level_bps": 340.3,
+      "share_of_level": {
+        "10": 0.866,
+        "30": 0.893,
+        "60": 0.93,
+        "300": 0.991,
+        "600": 0.981,
+        "1800": 1.028
+      },
+      "usable_from_sec": 300,
+      "sync_from_sec": 300
+    },
+    "GMO:BTC_SPOT": {
+      "level_bps": 262.4,
+      "share_of_level": {
+        "10": 0.864,
+        "30": 0.925,
+        "60": 0.957,
+        "300": 0.984,
+        "600": 0.978,
+        "1800": 1.037
+      },
+      "usable_from_sec": 60,
+      "sync_from_sec": 300
+    },
+    "GMO:ETH_SPOT": {
+      "level_bps": 339.4,
+      "share_of_level": {
+        "10": 0.853,
+        "30": 0.916,
+        "60": 0.948,
+        "300": 0.983,
+        "600": 0.978,
+        "1800": 1.039
+      },
+      "usable_from_sec": 300,
+      "sync_from_sec": 300
+    },
+    "GMO:XRP_SPOT": {
+      "level_bps": 334.6,
+      "share_of_level": {
+        "10": 0.811,
+        "30": 0.876,
+        "60": 0.924,
+        "300": 0.986,
+        "600": 0.983,
+        "1800": 1.031
+      },
+      "usable_from_sec": 300,
+      "sync_from_sec": 300
     },
     "GMO:BTC_JPY": {
-      "rv_1800s": 217.6,
-      "excess_at_60s_pct": 3.0,
-      "excess_at_300s_pct": -1.1
+      "level_bps": 264.1,
+      "share_of_level": {
+        "10": 0.95,
+        "30": 0.97,
+        "60": 0.989,
+        "300": 0.991,
+        "600": 0.98,
+        "1800": 1.028
+      },
+      "usable_from_sec": 30,
+      "sync_from_sec": 30
     },
     "GMO:ETH_JPY": {
-      "rv_1800s": 294.3,
-      "excess_at_60s_pct": 1.6,
-      "excess_at_300s_pct": -0.4
+      "level_bps": 341.1,
+      "share_of_level": {
+        "10": 0.943,
+        "30": 0.972,
+        "60": 0.988,
+        "300": 0.992,
+        "600": 0.977,
+        "1800": 1.031
+      },
+      "usable_from_sec": 30,
+      "sync_from_sec": 30
     },
     "GMO:XRP_JPY": {
-      "rv_1800s": 285.6,
-      "excess_at_60s_pct": 14.5,
-      "excess_at_300s_pct": 6.7
+      "level_bps": 339.2,
+      "share_of_level": {
+        "10": 0.933,
+        "30": 0.952,
+        "60": 0.979,
+        "300": 0.997,
+        "600": 0.983,
+        "1800": 1.02
+      },
+      "usable_from_sec": 30,
+      "sync_from_sec": 30
     }
   }
 }

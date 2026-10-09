@@ -1,15 +1,18 @@
 window 2026-06-01 .. 2026-06-28
-BINANCE:BTC_USDT       AC(1)   0.1034   moved  25.9% of sec   typical move   0.6286bps   spread   0.0016bps
-BINANCE:ETH_USDT       AC(1)   0.0904   moved  31.8% of sec   typical move   0.8032bps   spread   0.0592bps
-BINANCE:XRP_USDT       AC(1)   0.0724   moved  24.7% of sec   typical move   0.9045bps   spread   0.8773bps
-BITBANK:BTC_SPOT       AC(1)  -0.0391   moved  48.2% of sec   typical move   0.2718bps   spread   0.6308bps
-BITBANK:ETH_SPOT       AC(1)   0.0737   moved  38.6% of sec   typical move   0.4456bps   spread   0.0386bps
-BITBANK:XRP_SPOT       AC(1)   0.0432   moved  31.1% of sec   typical move   0.5524bps   spread   0.0549bps
-COINCHECK:BTC_SPOT     AC(1)  -0.0554   moved  87.5% of sec   typical move   0.2091bps   spread   2.0544bps
-COINCHECK:ETH_SPOT     AC(1)  -0.1440   moved  78.7% of sec   typical move   0.2353bps   spread  11.1650bps
-COINCHECK:XRP_SPOT     AC(1)  -0.1769   moved  67.6% of sec   typical move   0.0542bps   spread  14.7740bps
-GMO:BTC_JPY            AC(1)  -0.0637   moved  80.3% of sec   typical move   0.2887bps   spread   2.2348bps
-GMO:ETH_JPY            AC(1)   0.0399   moved  80.6% of sec   typical move   0.2385bps   spread   6.3509bps
-GMO:XRP_JPY            AC(1)  -0.0218   moved  82.4% of sec   typical move   0.4553bps   spread   4.5298bps
+BINANCE:BTC_USDT       AC(1)   0.0587   moved  25.9% of sec   typical move   0.6286bps   spread   0.0016bps
+BINANCE:ETH_USDT       AC(1)   0.0306   moved  31.8% of sec   typical move   0.8032bps   spread   0.0592bps
+BINANCE:XRP_USDT       AC(1)   0.0193   moved  24.7% of sec   typical move   0.9088bps   spread   0.8777bps
+BITBANK:BTC_SPOT       AC(1)   0.0156   moved  48.2% of sec   typical move   0.2752bps   spread   0.6456bps
+BITBANK:ETH_SPOT       AC(1)   0.0555   moved  38.7% of sec   typical move   0.4448bps   spread   0.0388bps
+BITBANK:XRP_SPOT       AC(1)   0.0673   moved  30.7% of sec   typical move   0.5446bps   spread   0.0549bps
+COINCHECK:BTC_SPOT     AC(1)  -0.0017   moved  87.5% of sec   typical move   0.2091bps   spread   2.0544bps
+COINCHECK:ETH_SPOT     AC(1)  -0.0480   moved  78.7% of sec   typical move   0.2353bps   spread  11.1650bps
+COINCHECK:XRP_SPOT     AC(1)   0.0161   moved  67.6% of sec   typical move   0.0542bps   spread  14.7740bps
+GMO:BTC_SPOT           AC(1)   0.0918   moved  53.9% of sec   typical move   0.0248bps   spread   1.5292bps
+GMO:ETH_SPOT           AC(1)   0.0863   moved  57.7% of sec   typical move   0.3014bps   spread   3.5940bps
+GMO:XRP_SPOT           AC(1)   0.0919   moved  53.9% of sec   typical move   0.2531bps   spread   1.7210bps
+GMO:BTC_JPY            AC(1)   0.0119   moved  79.5% of sec   typical move   0.2856bps   spread   2.2062bps
+GMO:ETH_JPY            AC(1)   0.0362   moved  80.6% of sec   typical move   0.2358bps   spread   6.3479bps
+GMO:XRP_JPY            AC(1)   0.0072   moved  82.4% of sec   typical move   0.4508bps   spread   4.5226bps
 
-wrote output/noise.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/noise.json

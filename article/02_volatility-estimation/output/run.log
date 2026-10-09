@@ -1,27 +1,33 @@
 window 2026-06-01 .. 2026-06-28  (28 days)
-BINANCE:BTC_USDT       mid RV 1s    181.4  60s   227.2  300s   227.9  1800s   223.2   inflate 0.81x   trade/mid@1s 1.0
-BINANCE:ETH_USDT       mid RV 1s    267.5  60s   309.1  300s   305.7  1800s   307.9   inflate 0.87x   trade/mid@1s 1.0
-BINANCE:XRP_USDT       mid RV 1s    301.0  60s   340.6  300s   317.4  1800s   296.8   inflate 1.01x   trade/mid@1s 1.01
-BITBANK:BTC_SPOT       mid RV 1s    215.6  60s   215.5  300s   207.0  1800s   214.4   inflate 1.01x   trade/mid@1s 0.98
-BITBANK:ETH_SPOT       mid RV 1s    239.6  60s   286.3  300s   288.4  1800s   287.1   inflate 0.83x   trade/mid@1s 1.0
-BITBANK:XRP_SPOT       mid RV 1s    239.9  60s   302.4  300s   297.4  1800s   279.9   inflate 0.86x   trade/mid@1s 0.95
-COINCHECK:BTC_SPOT     mid RV 1s    228.7  60s   220.5  300s   215.3  1800s   216.1   inflate 1.06x   trade/mid@1s 1.01
-COINCHECK:ETH_SPOT     mid RV 1s    369.2  60s   294.1  300s   293.8  1800s   293.8   inflate 1.26x   trade/mid@1s 0.99
-COINCHECK:XRP_SPOT     mid RV 1s    338.7  60s   300.1  300s   294.4  1800s   273.9   inflate 1.24x   trade/mid@1s 1.24
-GMO:BTC_JPY            mid RV 1s    220.9  60s   224.2  300s   215.1  1800s   217.6   inflate 1.02x   trade/mid@1s 1.26
-GMO:ETH_JPY            mid RV 1s    261.3  60s   299.0  300s   293.2  1800s   294.3   inflate 0.89x   trade/mid@1s 1.33
-GMO:XRP_JPY            mid RV 1s    311.8  60s   327.0  300s   304.8  1800s   285.6   inflate 1.09x   trade/mid@1s 1.14
+BINANCE:BTC_USDT       days 28 mid RV 10s  258.5  30s  269.3  60s  273.7  300s  275.0  600s  270.1  1800s  281.8   10s/1800s 0.92x   trade/mid@10s 1.0
+BINANCE:ETH_USDT       days 28 mid RV 10s  345.5  30s  352.0  60s  354.3  300s  357.8  600s  350.4  1800s  366.8   10s/1800s 0.94x   trade/mid@10s 1.0
+BINANCE:XRP_USDT       days 26 mid RV 10s  342.1  30s  346.7  60s  349.9  300s  354.9  600s  348.0  1800s  358.4   10s/1800s 0.95x   trade/mid@10s 1.0   dropped 06-02,06-08
+BITBANK:BTC_SPOT       days 27 mid RV 10s  245.1  30s  253.9  60s  261.0  300s  265.3  600s  263.4  1800s  276.6   10s/1800s 0.89x   trade/mid@10s 1.04   dropped 06-16
+BITBANK:ETH_SPOT       days 27 mid RV 10s  309.9  30s  325.1  60s  334.2  300s  346.1  600s  340.9  1800s  357.4   10s/1800s 0.87x   trade/mid@10s 1.04   dropped 06-16
+BITBANK:XRP_SPOT       days 27 mid RV 10s  287.8  30s  307.5  60s  322.0  300s  338.8  600s  335.6  1800s  350.6   10s/1800s 0.82x   trade/mid@10s 0.99   dropped 06-16
+COINCHECK:BTC_SPOT     days 28 mid RV 10s  261.7  30s  263.7  60s  268.4  300s  271.1  600s  265.6  1800s  276.3   10s/1800s 0.95x   trade/mid@10s 1.02
+COINCHECK:ETH_SPOT     days 28 mid RV 10s  337.5  30s  335.9  60s  339.9  300s  349.8  600s  343.9  1800s  359.2   10s/1800s 0.94x   trade/mid@10s 1.18
+COINCHECK:XRP_SPOT     days 28 mid RV 10s  294.6  30s  304.0  60s  316.4  300s  337.2  600s  333.9  1800s  349.7   10s/1800s 0.84x   trade/mid@10s 1.45
+GMO:BTC_SPOT           days 27 mid RV 10s  226.8  30s  242.7  60s  251.1  300s  258.2  600s  256.7  1800s  272.0   10s/1800s 0.83x   trade/mid@10s 1.09   dropped 06-06
+GMO:ETH_SPOT           days 27 mid RV 10s  289.6  30s  310.8  60s  321.9  300s  333.5  600s  331.8  1800s  352.6   10s/1800s 0.82x   trade/mid@10s 1.11   dropped 06-06
+GMO:XRP_SPOT           days 27 mid RV 10s  271.4  30s  293.3  60s  309.3  300s  330.0  600s  328.8  1800s  344.9   10s/1800s 0.79x   trade/mid@10s 1.08   dropped 06-06
+GMO:BTC_JPY            days 27 mid RV 10s  250.8  30s  256.1  60s  261.3  300s  261.8  600s  258.9  1800s  271.4   10s/1800s 0.92x   trade/mid@10s 1.08   dropped 06-06
+GMO:ETH_JPY            days 27 mid RV 10s  321.5  30s  331.5  60s  336.9  300s  338.2  600s  333.2  1800s  351.5   10s/1800s 0.91x   trade/mid@10s 1.11   dropped 06-06
+GMO:XRP_JPY            days 27 mid RV 10s  316.3  30s  323.0  60s  331.9  300s  338.3  600s  333.3  1800s  345.8   10s/1800s 0.91x   trade/mid@10s 1.1   dropped 06-06
 
-=== RV relative to the Binance market in the same asset ===
-market                       1s       5s      30s      60s     300s    1800s
-BITBANK:BTC_SPOT           1.19     1.01     0.96     0.95     0.91     0.96
-BITBANK:ETH_SPOT           0.90     0.89     0.91     0.93     0.94     0.93
-BITBANK:XRP_SPOT           0.80     0.79     0.85     0.89     0.94     0.94
-COINCHECK:BTC_SPOT         1.26     1.07     0.99     0.97     0.94     0.97
-COINCHECK:ETH_SPOT         1.38     1.07     0.96     0.95     0.96     0.95
-COINCHECK:XRP_SPOT         1.12     0.88     0.85     0.88     0.93     0.92
-GMO:BTC_JPY                1.22     1.05     0.99     0.99     0.94     0.97
-GMO:ETH_JPY                0.98     0.97     0.97     0.97     0.96     0.96
-GMO:XRP_JPY                1.04     0.96     0.94     0.96     0.96     0.96
+=== RV relative to the Binance market in the same asset (± bootstrap SE) ===
+market                          10s          30s          60s         300s         600s        1800s
+BITBANK:BTC_SPOT         0.94±0.7%   0.94±0.5%   0.95±0.6%   0.96±0.5%   0.97±0.6%   0.97±0.5%
+BITBANK:ETH_SPOT         0.89±0.4%   0.92±0.6%   0.94±0.7%   0.97±0.6%   0.97±0.5%   0.97±0.4%
+BITBANK:XRP_SPOT         0.84±0.8%   0.89±0.9%   0.92±0.9%   0.96±0.7%   0.97±0.6%   0.98±0.4%
+COINCHECK:BTC_SPOT       1.01±0.3%   0.98±0.3%   0.98±0.3%   0.99±0.4%   0.98±0.4%   0.98±0.4%
+COINCHECK:ETH_SPOT       0.98±0.9%   0.95±0.4%   0.96±0.6%   0.98±0.5%   0.98±0.4%   0.98±0.5%
+COINCHECK:XRP_SPOT       0.86±0.6%   0.87±0.6%   0.90±0.6%   0.95±0.6%   0.96±0.6%   0.97±0.6%
+GMO:BTC_SPOT             0.91±0.7%   0.93±0.6%   0.95±0.6%   0.97±0.4%   0.98±0.6%   0.98±0.7%
+GMO:ETH_SPOT             0.88±0.6%   0.92±0.6%   0.95±0.8%   0.97±0.4%   0.98±0.5%   0.99±0.7%
+GMO:XRP_SPOT             0.82±0.6%   0.87±0.7%   0.91±0.7%   0.96±0.5%   0.98±0.6%   0.99±0.7%
+GMO:BTC_JPY              1.01±0.4%   0.98±0.3%   0.99±0.3%   0.98±0.4%   0.99±0.4%   0.98±0.5%
+GMO:ETH_JPY              0.97±0.4%   0.98±0.4%   0.99±0.5%   0.99±0.5%   0.99±0.3%   0.98±0.4%
+GMO:XRP_JPY              0.95±0.3%   0.96±0.3%   0.98±0.4%   0.99±0.3%   0.99±0.4%   0.99±0.5%
 
 wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/vol.json

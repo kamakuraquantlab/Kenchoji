@@ -1,0 +1,130 @@
+{
+  "BITBANK:BTC_SPOT": {
+    "2025-07": {
+      "days": 12,
+      "rv_bps_by_interval_sec": {
+        "10": 130.6,
+        "1800": 152.3
+      },
+      "ratio_10s_over_1800s": 0.86,
+      "median_spread_bps": 0.0006
+    },
+    "2025-08": {
+      "days": 10,
+      "rv_bps_by_interval_sec": {
+        "10": 123.0,
+        "1800": 140.1
+      },
+      "ratio_10s_over_1800s": 0.88,
+      "median_spread_bps": 0.0006
+    },
+    "2025-09": {
+      "days": 12,
+      "rv_bps_by_interval_sec": {
+        "10": 122.6,
+        "1800": 150.8
+      },
+      "ratio_10s_over_1800s": 0.81,
+      "median_spread_bps": 0.0006
+    },
+    "2025-10": {
+      "days": 11,
+      "rv_bps_by_interval_sec": {
+        "10": 227.6,
+        "1800": 289.9
+      },
+      "ratio_10s_over_1800s": 0.79,
+      "median_spread_bps": 0.0006
+    },
+    "2025-11": {
+      "days": 10,
+      "rv_bps_by_interval_sec": {
+        "10": 232.3,
+        "1800": 260.5
+      },
+      "ratio_10s_over_1800s": 0.89,
+      "median_spread_bps": 0.0007
+    },
+    "2025-12": {
+      "days": 10,
+      "rv_bps_by_interval_sec": {
+        "10": 186.7,
+        "1800": 220.8
+      },
+      "ratio_10s_over_1800s": 0.85,
+      "median_spread_bps": 0.0007
+    },
+    "2026-01": {
+      "days": 30,
+      "rv_bps_by_interval_sec": {
+        "10": 165.6,
+        "1800": 191.5
+      },
+      "ratio_10s_over_1800s": 0.86,
+      "median_spread_bps": 0.0007
+    },
+    "2026-02": {
+      "days": 26,
+      "rv_bps_by_interval_sec": {
+        "10": 341.3,
+        "1800": 356.5
+      },
+      "ratio_10s_over_1800s": 0.96,
+      "median_spread_bps": 0.0243
+    },
+    "2026-03": {
+      "days": 29,
+      "rv_bps_by_interval_sec": {
+        "10": 244.2,
+        "1800": 247.3
+      },
+      "ratio_10s_over_1800s": 0.99,
+      "median_spread_bps": 1.1447
+    },
+    "2026-04": {
+      "days": 7,
+      "rv_bps_by_interval_sec": {
+        "10": 172.6,
+        "1800": 177.1
+      },
+      "ratio_10s_over_1800s": 0.97,
+      "median_spread_bps": 0.6754
+    },
+    "2026-05": {
+      "days": 10,
+      "rv_bps_by_interval_sec": {
+        "10": 148.4,
+        "1800": 156.2
+      },
+      "ratio_10s_over_1800s": 0.95,
+      "median_spread_bps": 0.1528
+    },
+    "2026-06": {
+      "days": 28,
+      "rv_bps_by_interval_sec": {
+        "10": 245.8,
+        "1800": 275.7
+      },
+      "ratio_10s_over_1800s": 0.89,
+      "median_spread_bps": 0.6308
+    },
+    "2026-07": {
+      "days": 12,
+      "rv_bps_by_interval_sec": {
+        "10": 167.0,
+        "1800": 165.8
+      },
+      "ratio_10s_over_1800s": 1.01,
+      "median_spread_bps": 0.7528
+    },
+    "2026-08": {
+      "days": 11,
+      "rv_bps_by_interval_sec": {
+        "10": 176.8,
+        "1800": 194.3
+      },
+      "ratio_10s_over_1800s": 0.91,
+      "median_spread_bps": 0.9138
+    }
+  }
+}

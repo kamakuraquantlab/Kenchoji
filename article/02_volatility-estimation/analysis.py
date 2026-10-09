@@ -1,11 +1,12 @@
-"""How much volatility is there, and how much of it is the spread?
+"""How much volatility is there at each sampling interval, and how does each
+domestic market compare with Binance?
 
 Realized volatility is the square root of the sum of squared returns, and it
-depends on how often you sample. Sample fast enough and every observation
-carries the bid-ask bounce, which is not price movement: the estimator inflates
-without bound as the interval shrinks. The classic diagnostic is the volatility
-signature plot -- RV against sampling interval -- and its slope is set by the
-spread, so this is article 1's finding showing up somewhere unexpected.
+depends on how often you sample. Quote noise that bounces back pushes it up as
+the interval shrinks; a price that creeps toward its new level pulls it down.
+The classic diagnostic is the volatility signature plot -- RV against sampling
+interval. From 10 seconds up, every market here comes out smaller at the short
+end, and every domestic market sits just below Binance.
 
 Three series per market:
   mid    the book midpoint, which has no bounce of its own
@@ -27,7 +28,7 @@ otherwise derive in memory at about a quarter of a second per market-day.
 Nothing here writes, so step 3 against the seller's warehouse reads what is
 already there and cannot overwrite it.
 
-Reproduces: §3, §4, §5. Writes output/vol.json.
+Reproduces: §2, §3, §4. Writes output/vol.json.
 """
 import argparse, datetime as dt, json, math, pathlib, statistics
 
@@ -35,15 +36,17 @@ import numpy as np
 
 import komachi
 from hase.dataset import load
-from hase.derive.vol_spread import realized_vol_bps, second_grid
+from hase.derive.vol_spread import second_grid
 from hase.layout import available_dates
 from hase.store import MissingDataError, load_trades
+from rv import has_outage, pooled, rv_bps
 
 ROOT = komachi.data_root()
 MARKETS = [
     "BINANCE:BTC_USDT", "BINANCE:ETH_USDT", "BINANCE:XRP_USDT",
     "BITBANK:BTC_SPOT", "BITBANK:ETH_SPOT", "BITBANK:XRP_SPOT",
     "COINCHECK:BTC_SPOT", "COINCHECK:ETH_SPOT", "COINCHECK:XRP_SPOT",
+    "GMO:BTC_SPOT", "GMO:ETH_SPOT", "GMO:XRP_SPOT",
     "GMO:BTC_JPY", "GMO:ETH_JPY", "GMO:XRP_JPY",
 ]
 # RV is built from log returns, so it is unit-free and a JPY-quoted market is
@@ -53,7 +56,8 @@ REFERENCE = {"BTC": "BINANCE:BTC_USDT", "ETH": "BINANCE:ETH_USDT", "XRP": "BINAN
 
 def asset_of(market):
     return market.split(":")[1].split("_")[0]
-INTERVALS = [1, 2, 5, 10, 30, 60, 300, 600, 1800]   # seconds
+INTERVALS = [10, 30, 60, 300, 600, 1800]   # seconds; below 10s the leader's own
+                                           # 1s RV is distorted, so ratios mislead
 MIN_SNAPSHOTS = 500      # a day with fewer quotes than this is not measured
 MIN_SECONDS = 1_000      # nor one whose grid was filled from almost nothing.
                          # Counted before the fill: afterwards every second
@@ -76,12 +80,12 @@ def dates(market, dataset):
     return available_dates(ROOT, market, dataset)
 
 
-# `second_grid` and `realized_vol_bps` are Hase's. They were written out here
-# three times over -- once in this file, once in `noise.py`, once in
-# `regimes.py` -- and they are the same two functions each time.
-rv_bps = realized_vol_bps
+# `second_grid` is Hase's. `rv_bps`, `pooled` and `has_outage` are local, in
+# rv.py: every interval scaled to the same 24 hours, days combined by their
+# variance, and days with a feed outage left out. See there for why.
 
 
+daily = {}            # market -> date -> {interval: mid RV}
 result = {}
 for market in MARKETS:
     have = set(dates(market, "OrderBook"))
@@ -89,19 +93,21 @@ for market in MARKETS:
     if not sample:
         continue
 
-    mid_rv = {k: [] for k in INTERVALS}
-    trd_rv = {k: [] for k in INTERVALS}
-    daily_close = []
+    days, trd_rv, daily_close, dropped = {}, {k: [] for k in INTERVALS}, [], []
     for d in sample:
         # `sample` is drawn from what is downloaded, so the day exists; what
         # is still worth checking is whether it holds enough to measure.
-        if len(load(ROOT, "BookState", market, d)) < MIN_SNAPSHOTS:
+        book = load(ROOT, "BookState", market, d)
+        if len(book) < MIN_SNAPSHOTS:
+            continue
+        if has_outage(book):
+            dropped.append(d)
             continue
         g = load(ROOT, "VolSpread", market, d)["mid"].to_numpy()
-        for k in INTERVALS:
-            v = rv_bps(g, k)
-            if v is not None:
-                mid_rv[k].append(v)
+        row = {k: rv_bps(g, k) for k in INTERVALS}
+        if any(v is None for v in row.values()):
+            continue
+        days[d] = row
         last = g[np.isfinite(g)]
         if len(last):
             daily_close.append(float(last[-1]))
@@ -119,53 +125,76 @@ for market in MARKETS:
                     if v is not None:
                         trd_rv[k].append(v)
 
-    if not mid_rv[60]:
+    if not days:
         print(f"{market:22} no usable days", flush=True); continue
+    daily[market] = days
 
-    mid = {k: round(statistics.median(v), 1) for k, v in mid_rv.items() if v}
-    trd = {k: round(statistics.median(v), 1) for k, v in trd_rv.items() if v}
+    mid = {k: round(pooled([r[k] for r in days.values()]), 1) for k in INTERVALS}
+    trd = {k: round(pooled(v), 1) for k, v in trd_rv.items() if v}
     # close-to-close across the sampled days, scaled to one day
     cc = None
     if len(daily_close) > 3:
         r = np.diff(np.log(np.array(daily_close)))
         cc = round(float(r.std(ddof=1) * 1e4), 1)
 
-    base = mid.get(1800)
     result[market] = {
-        "days": len(mid_rv[60]),
+        "days": len(days),
+        "days_dropped_for_outage": dropped,
         "rv_bps_mid_by_interval_sec": mid,
         "rv_bps_trade_by_interval_sec": trd,
         "daily_close_to_close_bps": cc,
-        "inflation_1s_over_1800s": round(mid[1] / base, 2) if base and 1 in mid else None,
-        "inflation_1s_over_300s": round(mid[1] / mid[300], 2) if 1 in mid and 300 in mid else None,
-        "trade_over_mid_at_1s": round(trd[1] / mid[1], 2) if trd.get(1) and mid.get(1) else None,
+        "ratio_10s_over_1800s": round(mid[10] / mid[1800], 2),
+        "trade_over_mid_at_10s": round(trd[10] / mid[10], 2) if trd.get(10) else None,
     }
     r = result[market]
-    print(f"{market:22} mid RV 1s {mid.get(1):>8.1f}  60s {mid.get(60):>7.1f}  "
-          f"300s {mid.get(300):>7.1f}  1800s {mid.get(1800):>7.1f}   "
-          f"inflate {r['inflation_1s_over_1800s']}x   trade/mid@1s {r['trade_over_mid_at_1s']}", flush=True)
+    print(f"{market:22} days {len(days):>2} mid RV " + "  ".join(f"{k}s {mid[k]:>6.1f}" for k in INTERVALS) +
+          f"   10s/1800s {r['ratio_10s_over_1800s']}x   trade/mid@10s {r['trade_over_mid_at_10s']}"
+          + (f"   dropped {','.join(x[5:] for x in dropped)}" if dropped else ""), flush=True)
 
-# Ratio to the Binance reference for the same asset, interval by interval.
-# If the JP markets track Binance, the ratio should approach 1 as the interval
-# grows. Where it does not at short intervals, that is the market's own
-# behaviour rather than the asset's.
+
+def bootstrap_se(num, den, n_boot=2000, seed=0):
+    """Standard error of pooled(num) / pooled(den), resampling whole days."""
+    num, den = np.asarray(num), np.asarray(den)
+    rng = np.random.default_rng(seed)
+    idx = rng.integers(0, len(num), (n_boot, len(num)))
+    ratios = np.sqrt((num[idx] ** 2).mean(1) / (den[idx] ** 2).mean(1))
+    return float(ratios.std())
+
+
+# Ratio to the Binance reference for the same asset, interval by interval, on
+# the days both markets were measured. Pooled over those same days, so the
+# day-to-day swing in volatility cancels and the ratio is tight; the bootstrap
+# says how tight.
 ratios = {}
-for m, r in result.items():
+for m in result:
     if m.startswith("BINANCE"):
         continue
     ref = REFERENCE.get(asset_of(m))
-    if ref not in result:
+    if ref not in daily:
         continue
-    rv, rvref = r["rv_bps_mid_by_interval_sec"], result[ref]["rv_bps_mid_by_interval_sec"]
-    ratios[m] = {str(k): round(rv[k] / rvref[k], 3)
-                 for k in sorted(set(rv) & set(rvref), key=int)}
+    common = sorted(set(daily[m]) & set(daily[ref]))
+    ratios[m] = {"days": len(common)}
+    for k in INTERVALS:
+        a = [daily[m][d][k] for d in common]
+        b = [daily[ref][d][k] for d in common]
+        ratios[m][str(k)] = {"ratio": round(pooled(a) / pooled(b), 3),
+                             "se": round(bootstrap_se(a, b), 3)}
 result["_ratio_to_binance"] = ratios
 
-print("\n=== RV relative to the Binance market in the same asset ===")
-cols = [1, 5, 30, 60, 300, 1800]
-print(f"{'market':22}" + "".join(f"{str(c)+'s':>9}" for c in cols))
+# Each market against its own 30-minute RV, with the same bootstrap. The
+# 30-minute RV holds 48 returns a day, so this one is far noisier.
+for m, days in daily.items():
+    vals = list(days.values())
+    base = [r[1800] for r in vals]
+    result[m]["ratio_to_1800s"] = {
+        str(k): {"ratio": round(pooled([r[k] for r in vals]) / pooled(base), 3),
+                 "se": round(bootstrap_se([r[k] for r in vals], base), 3)}
+        for k in INTERVALS if k != 1800}
+
+print("\n=== RV relative to the Binance market in the same asset (± bootstrap SE) ===")
+print(f"{'market':22}" + "".join(f"{str(c)+'s':>13}" for c in INTERVALS))
 for m, r in ratios.items():
-    print(f"{m:22}" + "".join(f"{r.get(str(c), float('nan')):>9.2f}" for c in cols), flush=True)
+    print(f"{m:22}" + "".join(f"{r[str(c)]['ratio']:>7.2f}±{r[str(c)]['se']*100:.1f}%" for c in INTERVALS), flush=True)
 
 dest = pathlib.Path(__file__).parent / "output" / "vol.json"
 dest.write_text(json.dumps(result, indent=2) + "\n")

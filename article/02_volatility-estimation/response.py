@@ -27,6 +27,7 @@ import numpy as np
 import komachi
 from hase.dataset import load
 from hase.layout import available_dates
+from rv import has_outage
 
 ROOT = komachi.data_root()
 PAIRS = [
@@ -36,11 +37,15 @@ PAIRS = [
     ("COINCHECK:BTC_SPOT", "BINANCE:BTC_USDT", "zero fee"),
     ("COINCHECK:ETH_SPOT", "BINANCE:ETH_USDT", "zero fee"),
     ("COINCHECK:XRP_SPOT", "BINANCE:XRP_USDT", "zero fee"),
+    ("GMO:BTC_SPOT", "BINANCE:BTC_USDT", "maker -0.01%, taker 0.05%"),
+    ("GMO:ETH_SPOT", "BINANCE:ETH_USDT", "maker -0.01%, taker 0.05%"),
+    ("GMO:XRP_SPOT", "BINANCE:XRP_USDT", "maker -0.01%, taker 0.05%"),
     ("GMO:BTC_JPY", "BINANCE:BTC_USDT", "zero fee, leverage"),
     ("GMO:ETH_JPY", "BINANCE:ETH_USDT", "zero fee, leverage"),
     ("GMO:XRP_JPY", "BINANCE:XRP_USDT", "zero fee, leverage"),
 ]
-HORIZONS = [1, 5, 15, 60, 300]
+HORIZONS = [10, 30, 60, 300, 600]   # the same intervals as analysis.py; 1800s
+                                    # leaves 48 returns a day, too few to fit
 MIN_SNAPSHOTS = 5_000
 
 
@@ -53,7 +58,8 @@ def grid(market, date):
     """
     if date not in available_dates(ROOT, market, "OrderBook"):
         return None
-    if len(load(ROOT, "BookState", market, date)) < MIN_SNAPSHOTS:
+    book = load(ROOT, "BookState", market, date)
+    if len(book) < MIN_SNAPSHOTS or has_outage(book):
         return None
     return load(ROOT, "VolSpread", market, date)["mid"].to_numpy()
 

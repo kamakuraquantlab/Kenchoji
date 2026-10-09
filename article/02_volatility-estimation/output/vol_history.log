@@ -1,0 +1,16 @@
+2025-07  days 12  RV 10s  130.6  1800s  152.3  10s/1800s 0.86  spread 0.0006bps
+2025-08  days 10  RV 10s  123.0  1800s  140.1  10s/1800s 0.88  spread 0.0006bps
+2025-09  days 12  RV 10s  122.6  1800s  150.8  10s/1800s 0.81  spread 0.0006bps
+2025-10  days 11  RV 10s  227.6  1800s  289.9  10s/1800s 0.79  spread 0.0006bps
+2025-11  days 10  RV 10s  232.3  1800s  260.5  10s/1800s 0.89  spread 0.0007bps
+2025-12  days 10  RV 10s  186.7  1800s  220.8  10s/1800s 0.85  spread 0.0007bps
+2026-01  days 30  RV 10s  165.6  1800s  191.5  10s/1800s 0.86  spread 0.0007bps
+2026-02  days 26  RV 10s  341.3  1800s  356.5  10s/1800s 0.96  spread 0.0243bps
+2026-03  days 29  RV 10s  244.2  1800s  247.3  10s/1800s 0.99  spread 1.1447bps
+2026-04  days  7  RV 10s  172.6  1800s  177.1  10s/1800s 0.97  spread 0.6754bps
+2026-05  days 10  RV 10s  148.4  1800s  156.2  10s/1800s 0.95  spread 0.1528bps
+2026-06  days 28  RV 10s  245.8  1800s  275.7  10s/1800s 0.89  spread 0.6308bps
+2026-07  days 12  RV 10s  167.0  1800s  165.8  10s/1800s 1.01  spread 0.7528bps
+2026-08  days 11  RV 10s  176.8  1800s  194.3  10s/1800s 0.91  spread 0.9138bps
+
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/vol_history.json

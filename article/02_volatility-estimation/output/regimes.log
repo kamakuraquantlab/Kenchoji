@@ -1,4 +1,4 @@
-tick-pinned 2025-07..2026-01     spread   0.0006bps  RV 1s   157.8  1800s   173.9  inflate  0.91x  AC(1)  -0.1091  moved  25.1%
-wide 2026-03..2026-08            spread   0.7438bps  RV 1s   187.3  1800s   157.2  inflate  1.19x  AC(1)  -0.0491  moved  44.8%
+tick-pinned 2025-07..2026-01     spread   0.0006bps  10s  172.2  30s  180.3  60s  184.3  300s  202.0  600s  205.1  1800s  203.6  10s/1800s  0.85x  AC(1)  -0.0040
+wide 2026-03..2026-08            spread   0.7611bps  10s  216.1  30s  221.2  60s  225.3  300s  229.7  600s  230.5  1800s  229.6  10s/1800s  0.94x  AC(1)   0.0052
 
-wrote output/regimes.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/regimes.json
