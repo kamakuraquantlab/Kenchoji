@@ -22,13 +22,13 @@
   "group_medians_bps": {
     "negative maker fee": {
       "median": 1.6123,
-      "min": 0.0551,
+      "min": 0.0386,
       "max": 3.6384,
       "n": 5
     },
     "zero maker fee": {
       "median": 4.5298,
-      "min": 0.918,
+      "min": 0.6308,
       "max": 14.774,
       "n": 7
     },
@@ -41,12 +41,12 @@
     "zero_over_negative_x": 2.81
   },
   "fee_change": {
-    "spread_wider_x": 1235,
-    "depth_thinner_x": 5.4,
+    "spread_wider_x": 1119,
+    "depth_thinner_x": 5.5,
     "trades_ratio_settled": 0.66,
     "control_spread_change_x": 1.18
   },
   "scale": {
-    "binance_btc_over_gmo_leverage_trades_x": 23.6
+    "binance_btc_over_gmo_leverage_trades_x": 91.6
   }
 }

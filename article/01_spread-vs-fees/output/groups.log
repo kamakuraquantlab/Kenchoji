@@ -1,27 +1,27 @@
 window 2026-06-01 .. 2026-06-28  (28 days)
 
-=== negative maker fee (2026-06-01 .. 2026-06-28)
+=== negative maker fee (2026-06-01 .. 2026-06-28) 
 market                  spread bps   top-of-book  RT 1M bps  trades/day
-BITBANK:ETH_SPOT            0.2677        49,733      3.118       6,166
-BITBANK:XRP_SPOT            0.0551        90,217      2.588      13,546
+BITBANK:ETH_SPOT            0.0386        68,222      2.962       6,166
+BITBANK:XRP_SPOT            0.0549        98,271      2.530      13,546
 GMO:BTC_SPOT                1.6123        83,354      4.285      11,009
 GMO:ETH_SPOT                3.6384        90,868      6.557       4,928
 GMO:XRP_SPOT                1.7515        36,555      6.801       5,486
 
-=== zero maker fee (2026-06-01 .. 2026-06-28)
+=== zero maker fee (2026-06-01 .. 2026-06-28) 
 market                  spread bps   top-of-book  RT 1M bps  trades/day
-BITBANK:BTC_SPOT            0.9180        72,552      2.924       7,772
+BITBANK:BTC_SPOT            0.6308        88,494      2.767       7,772
 COINCHECK:BTC_SPOT          2.0544       102,072      3.311      30,670
-COINCHECK:ETH_SPOT         11.1651        31,967     33.368       3,320
+COINCHECK:ETH_SPOT         11.1650        31,967     33.368       3,320
 COINCHECK:XRP_SPOT         14.7740        19,250     43.432       3,144
-GMO:BTC_JPY                 2.2348       101,336      3.820      39,524
-GMO:ETH_JPY                 6.3509        26,906     10.281      10,453
-GMO:XRP_JPY                 4.5298        54,217      7.916      11,676
+GMO:BTC_JPY                 2.2348       101,336      3.820      39,526
+GMO:ETH_JPY                 6.3509        26,906     10.281      10,454
+GMO:XRP_JPY                 4.5298        54,217      7.916      11,678
 
-=== positive maker fee (reference) (2026-06-01 .. 2026-06-28)
+=== positive maker fee (reference) (2026-06-01 .. 2026-06-28) 
 market                  spread bps   top-of-book  RT 1M bps  trades/day
-BINANCE:BTC_USDT            0.0016        37,390      0.194     933,304
-BINANCE:ETH_USDT            0.0592        11,290        nan     898,694
-BINANCE:XRP_USDT            0.8773         9,914     13.829     125,181
+BINANCE:BTC_USDT            0.0016        37,521      0.194   3,618,720
+BINANCE:ETH_USDT            0.0592        11,321        nan   3,699,980
+BINANCE:XRP_USDT            0.8773         9,902     13.829     766,464
 
-wrote output/groups_2026-06.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/01_spread-vs-fees/output/groups_2026-06.json

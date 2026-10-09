@@ -4,10 +4,10 @@ bitbank paid a negative maker fee on BTC spot and stopped. If the spread is a
 form of payment to whoever provides the quote, removing the payment should
 widen it, and the archive should show the step.
 
-The step in the data is 2026-02-05, not January, and the fortnight after it is
-unstable: the tight quote comes back for six days from 02-12 before going for
-good. Three windows rather than two, so the transition is visible instead of
-averaged away.
+The step in the data is 2026-02-05, not January, and the weeks after it are
+unstable: the tight quote comes back from 02-12 to 02-18 and again from 02-25
+to 02-28, and only from 03-01 is it gone for good. Three windows rather than
+two, so the transition is visible instead of averaged away.
 
 Reproducing this:
 
