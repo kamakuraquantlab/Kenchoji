@@ -124,49 +124,41 @@ out["inversion"] = {
 # The fee change, seen by a taker. bitbank BTC spot before: the maker rebate was
 # funded by a 0.12% taker fee. After: maker 0.00%, taker 0.10%, and a wider quote.
 fc = json.loads((here / "output" / "fee_change.json").read_text())
-fc_before = fc["windows"]["before 2026-01-19..02-01"]["BITBANK:BTC_SPOT"]
-# March: where the book settled, away from the 02-05..08 sell-off.
-fc_after = fc["windows"]["march  2026-03-01..03-31"]["BITBANK:BTC_SPOT"]
-before_spread = fc_before["spread_bps"]
-after_spread = fc_after["spread_bps"]
+# The windows are fee_change.py's: 2025-11..2026-01 and 2026-03..06, clear of
+# the change and of the 02-05 sell-off. The spread is the mean, as in section 3:
+# what a taker arriving at a random moment pays on average. The median is kept
+# beside it; it flips between the book's tight and wide states.
+fc = fc["windows"]
+fc_before = fc["before 2025-11-01..2026-02-01"]["BITBANK:BTC_SPOT"]
+fc_after = fc["after 2026-03-01..2026-06-30"]["BITBANK:BTC_SPOT"]
 BEFORE_TAKER_BPS, AFTER_TAKER_BPS = 12.0, 10.0  # 0.12% -> 12 bps; 0.10% -> 10 bps
+
+
+def leg(w, taker):
+    return {
+        "spread_mean_bps": w["spread_mean_bps"],
+        "spread_median_bps": w["spread_median_bps"],
+        "taker_fee_bps": taker,
+        "roundtrip_bps": round(w["spread_mean_bps"] + 2 * taker, 2),
+        "roundtrip_with_median_bps": round(w["spread_median_bps"] + 2 * taker, 2),
+    }
+
+
+b, a = leg(fc_before, BEFORE_TAKER_BPS), leg(fc_after, AFTER_TAKER_BPS)
 out["fee_change_taker_view"] = {
-    "before": {
-        "spread_bps": before_spread,
-        "taker_fee_bps": BEFORE_TAKER_BPS,
-        "roundtrip_bps": round(before_spread + 2 * BEFORE_TAKER_BPS, 4),
-    },
-    "after": {
-        "spread_bps": after_spread,
-        "taker_fee_bps": AFTER_TAKER_BPS,
-        "roundtrip_bps": round(after_spread + 2 * AFTER_TAKER_BPS, 4),
-    },
-    "spread_wider_x": round(after_spread / before_spread, 1),
-    "taker_roundtrip_cheaper_x": round(
-        (before_spread + 2 * BEFORE_TAKER_BPS) / (after_spread + 2 * AFTER_TAKER_BPS), 1
-    ),
+    "before": b,
+    "after": a,
+    "spread_wider_x": round(a["spread_mean_bps"] / b["spread_mean_bps"], 2),
+    "taker_roundtrip_cheaper_pct": round((1 - a["roundtrip_bps"] / b["roundtrip_bps"]) * 100, 1),
+    "taker_roundtrip_cheaper_pct_with_median": round(
+        (1 - a["roundtrip_with_median_bps"] / b["roundtrip_with_median_bps"]) * 100, 1),
     "caveat": "bitbank BTC spot taker fee was 0.12% before and 0.10% after; current fee checked 2026-10-03",
 }
-# The same with the mean spread. The median flips between the book's tight and
-# wide states (see fee_change.py); the mean is what a taker arriving at a random
-# moment pays on average, and it moves the round trip by about a bps.
-mb, ma = fc_before["spread_mean_bps"], fc_after["spread_mean_bps"]
-rb, ra = mb + 2 * BEFORE_TAKER_BPS, ma + 2 * AFTER_TAKER_BPS
-out["fee_change_taker_view"]["with_mean_spread"] = {
-    "before_roundtrip_bps": round(rb, 2),
-    "after_roundtrip_bps": round(ra, 2),
-    "spread_wider_x": round(ma / mb, 2),
-    "taker_roundtrip_cheaper_pct": round((1 - ra / rb) * 100, 1),
-}
-v = out["fee_change_taker_view"]
-v["taker_roundtrip_cheaper_pct"] = round(
-    (1 - v["after"]["roundtrip_bps"] / v["before"]["roundtrip_bps"]) * 100, 1
-)
 v = out["fee_change_taker_view"]
 print(
     f"\nfee change, taker view: before {v['before']['roundtrip_bps']:.2f} bps"
     f" -> after {v['after']['roundtrip_bps']:.2f} bps"
-    f"  (spread {v['spread_wider_x']}x wider, round trip {v['taker_roundtrip_cheaper_x']}x cheaper)"
+    f"  (mean spread {v['spread_wider_x']}x wider, round trip {v['taker_roundtrip_cheaper_pct']}% cheaper)"
 )
 
 dest = here / "output" / "total_cost.json"

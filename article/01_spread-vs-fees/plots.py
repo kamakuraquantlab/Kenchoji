@@ -3,7 +3,7 @@
 Run ``python plots.py`` after ``analysis.py`` and ``fee_change.py``.
 
 Reproduces: §2, §3. Writes output/gmo_spread_distribution.png and
-output/bitbank_fee_change_daily.png.
+output/bitbank_fee_change_weekly.png.
 """
 import datetime as dt
 import json
@@ -62,59 +62,51 @@ def gmo_distribution():
     finish(fig, "gmo_spread_distribution.png")
 
 
-def bitbank_daily():
-    """Daily median above, daily mean below, on the same dates.
+def bitbank_weekly():
+    """Weekly mean spread, BTC against XRP, November 2025 to June 2026.
 
-    The books are bimodal (one tick wide most of the time, 2-6 bps the rest), so
-    the median jumps by three orders of magnitude when the wide share passes one
-    half while the mean, the average a taker pays, moves under twofold. Showing
-    only the first is what made the change look a thousandfold.
+    Weeks run Thursday to Wednesday so the market-wide sell-off of 02-05..02-11
+    is one point. Hollow markers are weeks the archive holds fewer than five
+    days of. The flat segments are the before and after windows' averages.
     """
     data = json.loads((OUTPUT / "fee_change.json").read_text())
-    series = data["daily_spread_bps_2026-01-01_2026-03-31"]
-    fig, (top, bottom) = plt.subplots(2, 1, figsize=(9.5, 7.2), sharex=True,
-                                      gridspec_kw={"height_ratios": [1.15, 1]})
-    # Each day is plotted at its noon, so the change at noon on 02-02 falls on
-    # that day's point rather than between two days.
-    day = lambda s: dt.datetime.fromisoformat(s)
+    day = dt.date.fromisoformat
+    fig, ax = plt.subplots(figsize=(9.5, 4.8))
     for market, color, label in (("BITBANK:BTC_SPOT", BTC, "BTC"),
-                                 ("BITBANK:XRP_SPOT", XRP, "XRP (control)")):
-        rows = series[market]
-        dates = [day(r[0]) + dt.timedelta(hours=12) for r in rows]
-        for ax, col in ((top, 1), (bottom, 2)):
-            ax.plot(dates, [r[col] for r in rows], color=color, linewidth=1.8,
-                    marker="o", markersize=2.5, label=label)
+                                 ("BITBANK:XRP_SPOT", XRP, "XRP (control, fee unchanged)")):
+        rows = data["weekly"][market]
+        mid = [day(w) + dt.timedelta(days=3) for w, _, _ in rows]
+        vals = [v for _, _, v in rows]
+        ax.plot(mid, vals, color=color, linewidth=1.8, label=label, zorder=2)
+        for x, (_, n, v) in zip(mid, rows):
+            ax.plot(x, v, marker="o", markersize=4.5, color=color,
+                    markerfacecolor=color if n >= 5 else "white", zorder=3)
+        for name, w in data["windows"].items():
+            lo, hi = name.split()[1].split("..")
+            ax.plot([day(lo), day(hi)], [w[market]["spread_mean_bps"]] * 2, color=color,
+                    linestyle=":", linewidth=1.4, alpha=0.8, zorder=1)
     change = dt.datetime(2026, 2, 2, 12)
-    selloff = [day(d) for d in data["selloff_excluded"]]
-    for ax in (top, bottom):
-        for label in data["windows"]:
-            lo, hi = label.split()[1].split("..")
-            ax.axvspan(day(lo), day(lo[:5] + hi) + dt.timedelta(days=1),
-                       color="#0072b2", alpha=0.06, linewidth=0)
-        ax.axvspan(selloff[0], selloff[1] + dt.timedelta(days=1), color="#999999",
-                   alpha=0.28, linewidth=0)
-        ax.axvline(change, color="#d55e00", linestyle="--", linewidth=1.5)
-        ax.grid(True, which="both", alpha=0.22)
-    top.text(change, 1.02, "Fee change\n(02-02 12:00) ", transform=top.get_xaxis_transform(),
-             color="#d55e00", ha="right", va="bottom")
-    top.text(selloff[0], 1.02, " Market-wide\n sell-off", transform=top.get_xaxis_transform(),
-             color="#666666", ha="left", va="bottom")
-    top.set_yscale("log")
-    top.set_ylabel("Daily median spread\n(bps, log scale)")
-    top.legend(frameon=False, loc="upper left")
-    bottom.set_ylim(bottom=0)
-    bottom.set_ylabel("Daily mean spread\n(bps)")
-    bottom.set_xlabel("Date")
-    bottom.xaxis.set_major_locator(mdates.MonthLocator())
-    bottom.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    fig.suptitle("bitbank daily spread around the BTC fee change: median vs mean\n"
-                 "(light bands: the before, after and March windows)")
+    ax.axvline(change, color="#d55e00", linestyle="--", linewidth=1.5)
+    ax.text(change, 0.97, "Fee change \n(2026-02-02) ", transform=ax.get_xaxis_transform(),
+            color="#d55e00", ha="right", va="top")
+    sell = day(data["selloff_week"]) + dt.timedelta(days=3)
+    peak = next(v for w, _, v in data["weekly"]["BITBANK:BTC_SPOT"] if w == data["selloff_week"])
+    ax.annotate("Global sell-off week\n(02-05..02-11)", xy=(sell, peak),
+                xytext=(sell + dt.timedelta(days=14), peak + 0.25), color="#444444",
+                arrowprops={"arrowstyle": "->", "color": "#444444"})
+    ax.set_ylim(0, 2.3)
+    ax.set_ylabel("Weekly mean spread (bps)")
+    ax.xaxis.set_major_locator(mdates.MonthLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
+    ax.grid(True, alpha=0.22)
+    ax.legend(frameon=False, loc="lower left")
+    ax.set_title("bitbank weekly mean spread around the BTC fee change")
     fig.tight_layout()
-    finish(fig, "bitbank_fee_change_daily.png")
+    finish(fig, "bitbank_fee_change_weekly.png")
 
 
 if __name__ == "__main__":
     gmo_distribution()
-    bitbank_daily()
+    bitbank_weekly()
     print("wrote", OUTPUT / "gmo_spread_distribution.png")
-    print("wrote", OUTPUT / "bitbank_fee_change_daily.png")
+    print("wrote", OUTPUT / "bitbank_fee_change_weekly.png")

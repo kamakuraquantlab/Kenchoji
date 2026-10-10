@@ -42,22 +42,33 @@
   },
   "fee_change": {
     "change": "2026-02-02 12:00 JST",
-    "btc_mean_x_after": 1.63,
-    "btc_mean_x_march": 1.97,
-    "xrp_mean_x_after": 1.03,
-    "xrp_mean_x_march": 0.91,
-    "relative_mean_x_after": 1.58,
-    "relative_mean_x_march": 2.17,
-    "btc_median_x_march": 1546,
-    "btc_depth_thinner_x_after": 8.0,
-    "btc_trades_x_after": 0.98,
-    "btc_rv_x_after": 1.36,
-    "btc_rv_x_march": 1.27,
-    "control_daily_max": [
-      "2026-02-06",
-      0.7903
+    "btc_mean_x": 1.74,
+    "xrp_mean_x": 1.06,
+    "relative_mean_x": 1.64,
+    "selloff_week": {
+      "BITBANK:BTC_SPOT": 1.6969,
+      "BITBANK:XRP_SPOT": 1.3706
+    },
+    "btc_weekly_range_before": [
+      0.73,
+      0.93
     ],
-    "btc_daily_mean_max_march": 2.0088
+    "btc_weekly_range_march": [
+      1.41,
+      1.82
+    ],
+    "btc_weekly_range_apr_may": [
+      1.0,
+      1.39
+    ],
+    "btc_weekly_range_june": [
+      1.35,
+      1.43
+    ],
+    "xrp_weekly_range_all_but_selloff": [
+      0.66,
+      1.2
+    ]
   },
   "scale": {
     "binance_btc_over_gmo_leverage_trades_x": 91.6
