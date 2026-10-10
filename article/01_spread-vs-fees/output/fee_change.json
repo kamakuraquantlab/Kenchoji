@@ -6,24 +6,32 @@
       "BITBANK:BTC_SPOT": {
         "days": 55,
         "spread_mean_bps": 0.8168,
-        "spread_median_bps": 0.000706
+        "spread_median_bps": 0.000706,
+        "spread_time_weighted_mean_bps": 0.8351,
+        "median_row_gap_sec": 0.352
       },
       "BITBANK:XRP_SPOT": {
         "days": 53,
         "spread_mean_bps": 0.9155,
-        "spread_median_bps": 0.031656
+        "spread_median_bps": 0.031656,
+        "spread_time_weighted_mean_bps": 0.9149,
+        "median_row_gap_sec": 0.352
       }
     },
     "after 2026-03-01..2026-06-30": {
       "BITBANK:BTC_SPOT": {
         "days": 79,
         "spread_mean_bps": 1.4189,
-        "spread_median_bps": 0.719837
+        "spread_median_bps": 0.719837,
+        "spread_time_weighted_mean_bps": 1.4315,
+        "median_row_gap_sec": 0.352
       },
       "BITBANK:XRP_SPOT": {
         "days": 76,
         "spread_mean_bps": 0.9682,
-        "spread_median_bps": 0.046763
+        "spread_median_bps": 0.046763,
+        "spread_time_weighted_mean_bps": 0.9756,
+        "median_row_gap_sec": 0.352
       }
     }
   },
@@ -372,5 +380,52 @@
         1.1769
       ]
     ]
+  },
+  "robustness": {
+    "matched_days": {
+      "before": {
+        "matched_days": 53,
+        "btc_mean_bps": 0.8183,
+        "xrp_mean_bps": 0.9155,
+        "gap_bps": -0.0972
+      },
+      "after": {
+        "matched_days": 76,
+        "btc_mean_bps": 1.4295,
+        "xrp_mean_bps": 0.9682,
+        "gap_bps": 0.4613
+      },
+      "difference_in_differences_bps": 0.5585
+    },
+    "matched_days_in_weeks_with_at_least_five_days": {
+      "before": {
+        "matched_days": 28,
+        "btc_mean_bps": 0.8087,
+        "xrp_mean_bps": 0.8735,
+        "gap_bps": -0.0648
+      },
+      "after": {
+        "matched_days": 48,
+        "btc_mean_bps": 1.5263,
+        "xrp_mean_bps": 0.9825,
+        "gap_bps": 0.5439
+      },
+      "difference_in_differences_bps": 0.6087
+    },
+    "matched_days_time_weighted": {
+      "before": {
+        "matched_days": 53,
+        "btc_mean_bps": 0.8333,
+        "xrp_mean_bps": 0.9149,
+        "gap_bps": -0.0815
+      },
+      "after": {
+        "matched_days": 76,
+        "btc_mean_bps": 1.4419,
+        "xrp_mean_bps": 0.9756,
+        "gap_bps": 0.4663
+      },
+      "difference_in_differences_bps": 0.5478
+    }
   }
 }

@@ -68,7 +68,18 @@
     "xrp_weekly_range_all_but_selloff": [
       0.66,
       1.2
-    ]
+    ],
+    "btc_mean_change_bps": 0.6,
+    "xrp_mean_change_bps": 0.05,
+    "difference_in_differences_bps": 0.55,
+    "robustness_did_range_bps": [
+      0.55,
+      0.61
+    ],
+    "row_gap_sec": [
+      0.352
+    ],
+    "time_weighted_minus_plain_max_bps": 0.02
   },
   "scale": {
     "binance_btc_over_gmo_leverage_trades_x": 91.6

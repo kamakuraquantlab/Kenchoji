@@ -5,12 +5,17 @@ notice gives the date; the book steps at 12:00 JST). If the spread is a form of
 payment to whoever provides the quote, removing the payment should widen it.
 XRP, whose fee did not change, is the control.
 
-The measure is the mean spread. Both bitbank books sit one tick wide most of
-the time and 2-6 bps wide for the rest, before the change as well as after it,
-so the mean is close to the share of time the book is wide times about 2.8 bps,
-and it moves the moment that share does. The median flips between the two
-states only when the share crosses one half, which on BTC happened a month
-after the change.
+The measure is the mean spread across the day's BookState rows. Both books
+alternate between tight and wide quotes, so the mean responds to how much of
+the day the wide state holds; the median flips between states only after more
+than half of the rows are in one state. A plain mean of rows is a time average
+only if the rows are evenly spaced, so each window also reports the mean
+weighted by how long each row stood and the median gap between rows: the rows
+are 0.35 s apart throughout, and the two means agree within 0.02 bps.
+
+The robustness block compares BTC with XRP on the dates both hold, on the
+weeks where both hold five days or more, and with the time-weighted mean. It
+is a check on the windows above, not a different estimate.
 
 The series is weekly, Thursday to Wednesday, so that 2026-02-05..02-11, the
 week of the market-wide sell-off, is one point: every bitbank book widened in
@@ -43,6 +48,8 @@ import json
 import pathlib
 import statistics
 
+import numpy as np
+
 import komachi
 from hase.dataset import load
 from hase.layout import available_dates
@@ -60,14 +67,23 @@ WINDOWS = {
 
 
 def days(market):
-    """Each held day's median and mean spread."""
+    """Each held day's median spread, mean spread, time-weighted mean spread and
+    median gap between BookState rows in seconds.
+
+    The last two answer whether the plain mean is a time average: each row is
+    weighted by how long it stood, until the next row."""
     out = {}
     for d in available_dates(ROOT, market, "OrderBook"):
         if not (SPAN[0] <= d <= SPAN[1]):
             continue
-        s = load(ROOT, "BookState", market, d)["spread_bps"]
-        if len(s) >= 500:
-            out[d] = (float(s.median()), float(s.mean()))
+        book = load(ROOT, "BookState", market, d)
+        if len(book) < 500:
+            continue
+        book = book.sort_values("ts")
+        s = book["spread_bps"].to_numpy(dtype="float64")
+        gap = np.diff(book["ts"].to_numpy(dtype="float64"))
+        tw = float((s[:-1] * gap).sum() / gap.sum())
+        out[d] = (float(np.median(s)), float(s.mean()), tw, float(np.median(gap)))
     return out
 
 
@@ -75,7 +91,7 @@ def weekly(daily):
     """Thursday-to-Wednesday weeks: start date, days held, mean spread."""
     anchor = dt.date.fromisoformat(SELLOFF_WEEK)
     weeks = {}
-    for d, (_, mean) in daily.items():
+    for d, (_, mean, *_) in daily.items():
         day = dt.date.fromisoformat(d)
         start = day - dt.timedelta(days=(day - anchor).days % 7)
         weeks.setdefault(start.isoformat(), []).append(mean)
@@ -87,23 +103,97 @@ def window(daily, lo, hi):
     held = [v for d, v in daily.items() if lo <= d <= hi]
     return {
         "days": len(held),
-        "spread_mean_bps": round(statistics.mean(m for _, m in held), 4),
-        "spread_median_bps": round(statistics.median(s for s, _ in held), 6),
+        "spread_mean_bps": round(statistics.mean(v[1] for v in held), 4),
+        "spread_median_bps": round(statistics.median(v[0] for v in held), 6),
+        "spread_time_weighted_mean_bps": round(statistics.mean(v[2] for v in held), 4),
+        "median_row_gap_sec": round(statistics.median(v[3] for v in held), 3),
     }
 
 
+
+def paired_window(btc_daily, xrp_daily, lo, hi, complete_weeks=False, col=1):
+    """Compare daily means on the same dates for BTC and XRP.
+
+    complete_weeks=True uses only full Thu-Wed weeks with at least five
+    overlapping observed days. col picks the day's statistic from days():
+    1 the plain mean, 2 the time-weighted mean.
+    """
+    common = sorted(set(btc_daily) & set(xrp_daily))
+    common = [d for d in common if lo <= d <= hi]
+    if complete_weeks:
+        anchor = dt.date.fromisoformat(SELLOFF_WEEK)
+        weeks = {}
+        for d in common:
+            day = dt.date.fromisoformat(d)
+            start = day - dt.timedelta(days=(day - anchor).days % 7)
+            weeks.setdefault(start, []).append(d)
+        common = [
+            d
+            for start, dates in sorted(weeks.items())
+            if start.isoformat() >= lo
+            and (start + dt.timedelta(days=6)).isoformat() <= hi
+            and len(dates) >= 5
+            for d in dates
+        ]
+    if not common:
+        return {"matched_days": 0, "btc_mean_bps": None,
+                "xrp_mean_bps": None, "gap_bps": None}
+    btc_mean = statistics.mean(btc_daily[d][col] for d in common)
+    xrp_mean = statistics.mean(xrp_daily[d][col] for d in common)
+    return {
+        "matched_days": len(common),
+        "btc_mean_bps": round(btc_mean, 4),
+        "xrp_mean_bps": round(xrp_mean, 4),
+        "gap_bps": round(btc_mean - xrp_mean, 4),
+    }
+
+
+def robustness(daily_by_market):
+    """Matched-date gap changes; descriptive only, not causal identification."""
+    btc = daily_by_market[MARKET]
+    xrp = daily_by_market[CONTROL]
+    results = {}
+    for key, complete_weeks, col in (
+        ("matched_days", False, 1),
+        ("matched_days_in_weeks_with_at_least_five_days", True, 1),
+        ("matched_days_time_weighted", False, 2),
+    ):
+        before = paired_window(btc, xrp, *WINDOWS["before"], complete_weeks, col)
+        after = paired_window(btc, xrp, *WINDOWS["after"], complete_weeks, col)
+        difference = (
+            round(after["gap_bps"] - before["gap_bps"], 4)
+            if before["gap_bps"] is not None and after["gap_bps"] is not None
+            else None
+        )
+        results[key] = {
+            "before": before,
+            "after": after,
+            "difference_in_differences_bps": difference,
+        }
+    return results
+
+
 out = {"change": CHANGE, "selloff_week": SELLOFF_WEEK, "windows": {}, "weekly": {}}
-for market in (MARKET, CONTROL):
-    daily = days(market)
+daily_by_market = {market: days(market) for market in (MARKET, CONTROL)}
+for market, daily in daily_by_market.items():
     out["weekly"][market] = weekly(daily)
     for label, (lo, hi) in WINDOWS.items():
         out["windows"].setdefault(f"{label} {lo}..{hi}", {})[market] = window(daily, lo, hi)
+
+out["robustness"] = robustness(daily_by_market)
 
 for label, row in out["windows"].items():
     print(label)
     for m, w in row.items():
         print(f"   {m:18} days {w['days']:>3}   mean {w['spread_mean_bps']:.2f} bps   "
-              f"median {w['spread_median_bps']:.4f} bps")
+              f"time-weighted {w['spread_time_weighted_mean_bps']:.2f} bps   "
+              f"median {w['spread_median_bps']:.4f} bps   row gap {w['median_row_gap_sec']} s")
+print("\nrobustness: BTC minus XRP mean spread, before -> after")
+for key, r in out["robustness"].items():
+    b, a = r["before"], r["after"]
+    print(f"   {key:48} days {b['matched_days']:>3} -> {a['matched_days']:>3}   "
+          f"gap {b['gap_bps']:+.3f} -> {a['gap_bps']:+.3f}   "
+          f"difference {r['difference_in_differences_bps']:+.3f} bps")
 print("\nweek       BTC days  mean   XRP days  mean")
 btc = {w: (n, v) for w, n, v in out["weekly"][MARKET]}
 xrp = {w: (n, v) for w, n, v in out["weekly"][CONTROL]}

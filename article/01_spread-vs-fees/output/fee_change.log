@@ -1,9 +1,14 @@
 before 2025-11-01..2026-02-01
-   BITBANK:BTC_SPOT   days  55   mean 0.82 bps   median 0.0007 bps
-   BITBANK:XRP_SPOT   days  53   mean 0.92 bps   median 0.0317 bps
+   BITBANK:BTC_SPOT   days  55   mean 0.82 bps   time-weighted 0.84 bps   median 0.0007 bps   row gap 0.352 s
+   BITBANK:XRP_SPOT   days  53   mean 0.92 bps   time-weighted 0.91 bps   median 0.0317 bps   row gap 0.352 s
 after 2026-03-01..2026-06-30
-   BITBANK:BTC_SPOT   days  79   mean 1.42 bps   median 0.7198 bps
-   BITBANK:XRP_SPOT   days  76   mean 0.97 bps   median 0.0468 bps
+   BITBANK:BTC_SPOT   days  79   mean 1.42 bps   time-weighted 1.43 bps   median 0.7198 bps   row gap 0.352 s
+   BITBANK:XRP_SPOT   days  76   mean 0.97 bps   time-weighted 0.98 bps   median 0.0468 bps   row gap 0.352 s
+
+robustness: BTC minus XRP mean spread, before -> after
+   matched_days                                     days  53 ->  76   gap -0.097 -> +0.461   difference +0.558 bps
+   matched_days_in_weeks_with_at_least_five_days    days  28 ->  48   gap -0.065 -> +0.544   difference +0.609 bps
+   matched_days_time_weighted                       days  53 ->  76   gap -0.082 -> +0.466   difference +0.548 bps
 
 week       BTC days  mean   XRP days  mean
 2025-10-30      2  0.8083      2  0.8321

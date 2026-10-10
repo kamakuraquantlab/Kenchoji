@@ -77,7 +77,16 @@ def bitbank_weekly():
         rows = data["weekly"][market]
         mid = [day(w) + dt.timedelta(days=3) for w, _, _ in rows]
         vals = [v for _, _, v in rows]
-        ax.plot(mid, vals, color=color, linewidth=1.8, label=label, zorder=2)
+        # A week the archive holds no day of breaks the line rather than being
+        # bridged by it, so a straight segment never stands in for a missing week.
+        line_x, line_y = [], []
+        for i, (x, v) in enumerate(zip(mid, vals)):
+            if i and (x - mid[i - 1]).days > 7:
+                line_x.append(mid[i - 1] + dt.timedelta(days=7))
+                line_y.append(float("nan"))
+            line_x.append(x)
+            line_y.append(v)
+        ax.plot(line_x, line_y, color=color, linewidth=1.8, label=label, zorder=2)
         for x, (_, n, v) in zip(mid, rows):
             ax.plot(x, v, marker="o", markersize=4.5, color=color,
                     markerfacecolor=color if n >= 5 else "white", zorder=3)

@@ -77,6 +77,19 @@ out["fee_change"] = {
     "xrp_weekly_range_all_but_selloff": week_range(xrp, "2025-10-30", "2026-06-30",
                                                    skip=(f["selloff_week"],)),
 }
+# The same comparison in bps: each market's change, and BTC's change less
+# XRP's (the difference in differences), then the robustness variants' range.
+fc = out["fee_change"]
+fc["btc_mean_change_bps"] = round(after[btc]["spread_mean_bps"] - before[btc]["spread_mean_bps"], 2)
+fc["xrp_mean_change_bps"] = round(after[xrp]["spread_mean_bps"] - before[xrp]["spread_mean_bps"], 2)
+fc["difference_in_differences_bps"] = round(
+    fc["btc_mean_change_bps"] - fc["xrp_mean_change_bps"], 2)
+did = [r["difference_in_differences_bps"] for r in f["robustness"].values()]
+fc["robustness_did_range_bps"] = [round(min(did), 2), round(max(did), 2)]
+fc["row_gap_sec"] = sorted({w[m]["median_row_gap_sec"] for w in W.values() for m in (btc, xrp)})
+fc["time_weighted_minus_plain_max_bps"] = round(max(
+    abs(w[m]["spread_time_weighted_mean_bps"] - w[m]["spread_mean_bps"])
+    for w in W.values() for m in (btc, xrp)), 2)
 out["scale"] = {
     "binance_btc_over_gmo_leverage_trades_x": round(
         flat["BINANCE:BTC_USDT"]["trades_per_day"]
