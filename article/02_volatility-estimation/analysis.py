@@ -28,7 +28,7 @@ otherwise derive in memory at about a quarter of a second per market-day.
 Nothing here writes, so step 3 against the seller's warehouse reads what is
 already there and cannot overwrite it.
 
-Reproduces: §2, §3, §4. Writes output/vol.json.
+Reproduces: §2, §3. Writes output/vol.json.
 """
 import argparse, datetime as dt, json, math, pathlib, statistics
 

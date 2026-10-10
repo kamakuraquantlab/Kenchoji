@@ -10,7 +10,7 @@ Also measures how the quote behaves -- how often the midpoint moves at all, and
 how far when it does -- because a narrow quote that flickers is a different
 animal from a wide quote that sits still.
 
-Reproduces: §5.2, §5.3. Writes output/noise.json.
+Reproduces: §4.2, §4.3. Writes output/noise.json.
 """
 import argparse, datetime as dt, json, pathlib, statistics
 

@@ -3,7 +3,7 @@
 No market data is read here. Run the measurement scripts first when the JSON
 needs refreshing, then run ``python plots.py``.
 
-Reproduces: §3, §5.1, §6. Writes output/signature_plot.png,
+Reproduces: §2, §4.1, §5. Writes output/signature_plot.png,
 output/response_by_horizon.png, and output/bitbank_btc_vol_history.png.
 """
 import json

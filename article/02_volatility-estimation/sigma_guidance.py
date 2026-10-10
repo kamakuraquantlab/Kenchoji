@@ -13,9 +13,9 @@ which Binance explains 90% of the market's moves -- the interval to use when
 the market is to be read alongside Binance rather than on its own.
 
 Reads vol.json and response.json rather than the warehouse, so it is instant
-and always agrees with sections 3 and 5.
+and always agrees with sections 2 and 4.
 
-Reproduces: §7, §8. Writes output/sigma_guidance.json.
+Reproduces: §6, §7. Writes output/sigma_guidance.json.
 """
 import json, pathlib
 

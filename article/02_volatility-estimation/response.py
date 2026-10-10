@@ -18,7 +18,7 @@ This is the test for "traders here do not react quickly", which RV cannot
 answer. Single fee regime by default, so bitbank BTC is not straddling its
 February 2026 change.
 
-Reproduces: §5.1. Writes output/response.json.
+Reproduces: §4.1. Writes output/response.json.
 """
 import argparse, datetime as dt, json, pathlib, statistics
 

@@ -6,7 +6,7 @@ structure changed in February 2026 and the quote widened with it. This tracks,
 month by month, the 10-second and 30-minute RV of that market. Before the
 change the 10-second estimate sits below the 30-minute one; after it, above.
 
-Reproduces: §6. Writes output/vol_history.json.
+Reproduces: §5. Writes output/vol_history.json.
 """
 import collections, json, pathlib, statistics
 

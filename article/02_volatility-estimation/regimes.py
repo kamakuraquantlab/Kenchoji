@@ -5,7 +5,7 @@ Before: the spread sat on the one-yen tick. After: roughly 1 bp. Same market,
 same code, every usable day on each side of the change: the 10-second RV sat
 well below the 5-to-30-minute level before, and much closer to it after.
 
-Reproduces: §6. Writes output/regimes.json.
+Reproduces: §5. Writes output/regimes.json.
 """
 import json, pathlib, statistics
 
