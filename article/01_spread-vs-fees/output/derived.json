@@ -41,10 +41,20 @@
     "zero_over_negative_x": 2.81
   },
   "fee_change": {
-    "spread_wider_x": 1119,
+    "spread_wider_x": 1093,
+    "spread_mean_wider_x": 1.77,
+    "wide_share_before": 0.292,
+    "wide_share_after": 0.606,
     "depth_thinner_x": 5.5,
+    "trades_ratio_after": 0.89,
     "trades_ratio_settled": 0.66,
-    "control_spread_change_x": 1.18
+    "control_spread_change_x": 1.18,
+    "control_spread_mean_change_x": 1.11,
+    "control_daily_max": [
+      "2026-02-06",
+      0.7903
+    ],
+    "btc_daily_median_max_from_2026-03": 1.8469
   },
   "scale": {
     "binance_btc_over_gmo_leverage_trades_x": 91.6

@@ -53,12 +53,27 @@ A = f["after   2026-02-05..02-11"]["BITBANK:BTC_SPOT"]
 S = f["settled 2026-02-20..02-26"]["BITBANK:BTC_SPOT"]
 cB = f["before  2026-01-29..02-04"]["control BITBANK:XRP_SPOT"]
 cA = f["after   2026-02-05..02-11"]["control BITBANK:XRP_SPOT"]
+# The median ratio is what the book's typical moment did; the mean ratio and the
+# wide share are what the spread as a whole did. The books are bimodal, so the
+# two differ by three orders of magnitude and the article quotes both.
 out["fee_change"] = {
     "spread_wider_x": round(A["spread_bps"] / B["spread_bps"]),
+    "spread_mean_wider_x": round(A["spread_mean_bps"] / B["spread_mean_bps"], 2),
+    "wide_share_before": B["wide_share"],
+    "wide_share_after": A["wide_share"],
     "depth_thinner_x": round(B["top_of_book_jpy"] / A["top_of_book_jpy"], 1),
+    "trades_ratio_after": round(A["trades_per_day"] / B["trades_per_day"], 2),
     "trades_ratio_settled": round(S["trades_per_day"] / B["trades_per_day"], 2),
     "control_spread_change_x": round(cA["spread_bps"] / cB["spread_bps"], 2),
+    "control_spread_mean_change_x": round(cA["spread_mean_bps"] / cB["spread_mean_bps"], 2),
 }
+daily = f["daily_spread_bps_2026-01-01_2026-03-31"]
+out["fee_change"]["control_daily_max"] = max(
+    ([d, med] for d, med, _, _ in daily["BITBANK:XRP_SPOT"]), key=lambda r: r[1]
+)
+out["fee_change"]["btc_daily_median_max_from_2026-03"] = max(
+    med for d, med, _, _ in daily["BITBANK:BTC_SPOT"] if d >= "2026-03-01"
+)
 out["scale"] = {
     "binance_btc_over_gmo_leverage_trades_x": round(
         flat["BINANCE:BTC_USDT"]["trades_per_day"]

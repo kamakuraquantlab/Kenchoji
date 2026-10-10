@@ -63,27 +63,39 @@ def gmo_distribution():
 
 
 def bitbank_daily():
+    """Daily median above, daily mean below, on the same dates.
+
+    The books are bimodal (one tick wide most of the time, 2-6 bps the rest), so
+    the median jumps by three orders of magnitude when the wide share passes one
+    half while the mean, the average a taker pays, moves under twofold. Showing
+    only the first is what made the change look a thousandfold.
+    """
     data = json.loads((OUTPUT / "fee_change.json").read_text())
     series = data["daily_spread_bps_2026-01-01_2026-03-31"]
-    fig, ax = plt.subplots(figsize=(9.5, 4.8))
+    fig, (top, bottom) = plt.subplots(2, 1, figsize=(9.5, 7.2), sharex=True,
+                                      gridspec_kw={"height_ratios": [1.15, 1]})
     for market, color, label in (("BITBANK:BTC_SPOT", BTC, "BTC"),
                                  ("BITBANK:XRP_SPOT", XRP, "XRP (control)")):
         rows = series[market]
-        dates = [dt.date.fromisoformat(d) for d, _ in rows]
-        ax.plot(dates, [v for _, v in rows], color=color, linewidth=1.8,
-                marker="o", markersize=2.5, label=label)
+        dates = [dt.date.fromisoformat(r[0]) for r in rows]
+        for ax, col in ((top, 1), (bottom, 2)):
+            ax.plot(dates, [r[col] for r in rows], color=color, linewidth=1.8,
+                    marker="o", markersize=2.5, label=label)
     change = dt.date(2026, 2, 5)
-    ax.axvline(change, color="#d55e00", linestyle="--", linewidth=1.5)
-    ax.annotate("Fee change", xy=(change, 0.7), xytext=(dt.date(2026, 2, 10), 0.003),
-                color="#d55e00", arrowprops={"arrowstyle": "->", "color": "#d55e00"})
-    ax.set_yscale("log")
-    ax.set_ylabel("Daily median spread (bps, log scale)")
-    ax.set_xlabel("Date")
-    ax.set_title("bitbank daily spread around the BTC fee change")
-    ax.xaxis.set_major_locator(mdates.MonthLocator())
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    ax.grid(True, which="both", alpha=0.22)
-    ax.legend(frameon=False, loc="upper left")
+    for ax in (top, bottom):
+        ax.axvline(change, color="#d55e00", linestyle="--", linewidth=1.5)
+        ax.grid(True, which="both", alpha=0.22)
+    top.text(change, 1.02, " Book changed (2026-02-05)", transform=top.get_xaxis_transform(),
+             color="#d55e00", ha="left", va="bottom")
+    top.set_yscale("log")
+    top.set_ylabel("Daily median spread\n(bps, log scale)")
+    top.legend(frameon=False, loc="upper left")
+    bottom.set_ylim(bottom=0)
+    bottom.set_ylabel("Daily mean spread\n(bps)")
+    bottom.set_xlabel("Date")
+    bottom.xaxis.set_major_locator(mdates.MonthLocator())
+    bottom.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
+    fig.suptitle("bitbank daily spread around the BTC fee change: median vs mean")
     fig.tight_layout()
     finish(fig, "bitbank_fee_change_daily.png")
 
