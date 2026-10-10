@@ -124,8 +124,9 @@ out["inversion"] = {
 # The fee change, seen by a taker. bitbank BTC spot before: the maker rebate was
 # funded by a 0.12% taker fee. After: maker 0.00%, taker 0.10%, and a wider quote.
 fc = json.loads((here / "output" / "fee_change.json").read_text())
-fc_before = fc["before  2026-01-29..02-04"]["BITBANK:BTC_SPOT"]
-fc_after = fc["settled 2026-02-20..02-26"]["BITBANK:BTC_SPOT"]
+fc_before = fc["windows"]["before 2026-01-19..02-01"]["BITBANK:BTC_SPOT"]
+# March: where the book settled, away from the 02-05..08 sell-off.
+fc_after = fc["windows"]["march  2026-03-01..03-31"]["BITBANK:BTC_SPOT"]
 before_spread = fc_before["spread_bps"]
 after_spread = fc_after["spread_bps"]
 BEFORE_TAKER_BPS, AFTER_TAKER_BPS = 12.0, 10.0  # 0.12% -> 12 bps; 0.10% -> 10 bps

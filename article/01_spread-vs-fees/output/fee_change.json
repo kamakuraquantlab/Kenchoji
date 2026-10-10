@@ -1,236 +1,91 @@
 {
-  "before  2026-01-29..02-04": {
-    "BITBANK:BTC_SPOT": {
-      "days": 7,
-      "spread_bps": 0.000819,
-      "spread_mean_bps": 0.9177,
-      "wide_share": 0.292,
-      "top_of_book_jpy": 389165,
-      "trades_per_day": 20412,
-      "daily_spread_bps": [
-        [
-          "2026-01-29",
-          0.0007
-        ],
-        [
-          "2026-01-30",
-          0.0008
-        ],
-        [
-          "2026-01-31",
-          0.0008
-        ],
-        [
-          "2026-02-01",
-          0.0008
-        ],
-        [
-          "2026-02-02",
-          0.0008
-        ],
-        [
-          "2026-02-03",
-          0.0008
-        ],
-        [
-          "2026-02-04",
-          0.0008
-        ]
-      ]
+  "change": "2026-02-02 12:00 JST",
+  "selloff_excluded": [
+    "2026-02-05",
+    "2026-02-08"
+  ],
+  "windows": {
+    "before 2026-01-19..02-01": {
+      "BITBANK:BTC_SPOT": {
+        "days": 14,
+        "spread_bps": 0.00073,
+        "spread_mean_bps": 0.8296,
+        "wide_share": 0.275,
+        "top_of_book_jpy": 511666,
+        "rv_bps": 191,
+        "trades_per_day": 10726
+      },
+      "BITBANK:XRP_SPOT": {
+        "days": 14,
+        "spread_bps": 0.034084,
+        "spread_mean_bps": 0.9575,
+        "wide_share": 0.357,
+        "top_of_book_jpy": 74695,
+        "rv_bps": 296,
+        "trades_per_day": 23332
+      }
     },
-    "control BITBANK:XRP_SPOT": {
-      "days": 7,
-      "spread_bps": 0.039908,
-      "spread_mean_bps": 1.0943,
-      "wide_share": 0.386,
-      "top_of_book_jpy": 51186,
-      "trades_per_day": 28502,
-      "daily_spread_bps": [
-        [
-          "2026-01-29",
-          0.0348
-        ],
-        [
-          "2026-01-30",
-          0.037
-        ],
-        [
-          "2026-01-31",
-          0.038
-        ],
-        [
-          "2026-02-01",
-          0.0404
-        ],
-        [
-          "2026-02-02",
-          0.0409
-        ],
-        [
-          "2026-02-03",
-          0.0399
-        ],
-        [
-          "2026-02-04",
-          0.0405
-        ]
-      ]
+    "after  2026-02-09..02-22": {
+      "BITBANK:BTC_SPOT": {
+        "days": 14,
+        "spread_bps": 0.023803,
+        "spread_mean_bps": 1.3508,
+        "wide_share": 0.486,
+        "top_of_book_jpy": 63703,
+        "rv_bps": 260,
+        "trades_per_day": 10556
+      },
+      "BITBANK:XRP_SPOT": {
+        "days": 14,
+        "spread_bps": 0.045385,
+        "spread_mean_bps": 0.9845,
+        "wide_share": 0.308,
+        "top_of_book_jpy": 54233,
+        "rv_bps": 348,
+        "trades_per_day": 23552
+      }
+    },
+    "march  2026-03-01..03-31": {
+      "BITBANK:BTC_SPOT": {
+        "days": 31,
+        "spread_bps": 1.128738,
+        "spread_mean_bps": 1.6375,
+        "wide_share": 0.64,
+        "top_of_book_jpy": 68492,
+        "rv_bps": 242,
+        "trades_per_day": 11282
+      },
+      "BITBANK:XRP_SPOT": {
+        "days": 31,
+        "spread_bps": 0.045471,
+        "spread_mean_bps": 0.871,
+        "wide_share": 0.315,
+        "top_of_book_jpy": 83336,
+        "rv_bps": 251,
+        "trades_per_day": 16561
+      }
     }
   },
-  "after   2026-02-05..02-11": {
+  "change_day_2026-02-02": {
     "BITBANK:BTC_SPOT": {
-      "days": 7,
-      "spread_bps": 0.895159,
-      "spread_mean_bps": 1.623,
-      "wide_share": 0.606,
-      "top_of_book_jpy": 71380,
-      "trades_per_day": 18115,
-      "daily_spread_bps": [
-        [
-          "2026-02-05",
-          0.8952
-        ],
-        [
-          "2026-02-06",
-          1.8524
-        ],
-        [
-          "2026-02-07",
-          1.5067
-        ],
-        [
-          "2026-02-08",
-          1.1575
-        ],
-        [
-          "2026-02-09",
-          0.5983
-        ],
-        [
-          "2026-02-10",
-          0.1214
-        ],
-        [
-          "2026-02-11",
-          0.1412
-        ]
-      ]
+      "00-12": {
+        "top_of_book_jpy": 229361,
+        "wide_share": 0.324
+      },
+      "12-24": {
+        "top_of_book_jpy": 152053,
+        "wide_share": 0.437
+      }
     },
-    "control BITBANK:XRP_SPOT": {
-      "days": 7,
-      "spread_bps": 0.046995,
-      "spread_mean_bps": 1.2103,
-      "wide_share": 0.433,
-      "top_of_book_jpy": 39990,
-      "trades_per_day": 29633,
-      "daily_spread_bps": [
-        [
-          "2026-02-05",
-          0.047
-        ],
-        [
-          "2026-02-06",
-          0.7903
-        ],
-        [
-          "2026-02-07",
-          0.3418
-        ],
-        [
-          "2026-02-08",
-          0.0448
-        ],
-        [
-          "2026-02-09",
-          0.0455
-        ],
-        [
-          "2026-02-10",
-          0.0453
-        ],
-        [
-          "2026-02-11",
-          0.0474
-        ]
-      ]
-    }
-  },
-  "settled 2026-02-20..02-26": {
-    "BITBANK:BTC_SPOT": {
-      "days": 7,
-      "spread_bps": 0.359692,
-      "spread_mean_bps": 1.3915,
-      "wide_share": 0.533,
-      "top_of_book_jpy": 52790,
-      "trades_per_day": 13543,
-      "daily_spread_bps": [
-        [
-          "2026-02-20",
-          0.3597
-        ],
-        [
-          "2026-02-21",
-          0.6769
-        ],
-        [
-          "2026-02-22",
-          1.2221
-        ],
-        [
-          "2026-02-23",
-          0.9979
-        ],
-        [
-          "2026-02-24",
-          0.3221
-        ],
-        [
-          "2026-02-25",
-          0.001
-        ],
-        [
-          "2026-02-26",
-          0.0009
-        ]
-      ]
-    },
-    "control BITBANK:XRP_SPOT": {
-      "days": 7,
-      "spread_bps": 0.045813,
-      "spread_mean_bps": 0.8401,
-      "wide_share": 0.293,
-      "top_of_book_jpy": 67874,
-      "trades_per_day": 29237,
-      "daily_spread_bps": [
-        [
-          "2026-02-20",
-          0.0458
-        ],
-        [
-          "2026-02-21",
-          0.0451
-        ],
-        [
-          "2026-02-22",
-          0.0453
-        ],
-        [
-          "2026-02-23",
-          0.0472
-        ],
-        [
-          "2026-02-24",
-          0.0482
-        ],
-        [
-          "2026-02-25",
-          0.0472
-        ],
-        [
-          "2026-02-26",
-          0.0445
-        ]
-      ]
+    "BITBANK:XRP_SPOT": {
+      "00-12": {
+        "top_of_book_jpy": 34949,
+        "wide_share": 0.421
+      },
+      "12-24": {
+        "top_of_book_jpy": 48941,
+        "wide_share": 0.402
+      }
     }
   },
   "daily_spread_bps_2026-01-01_2026-03-31": {

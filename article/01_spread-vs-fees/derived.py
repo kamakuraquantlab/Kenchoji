@@ -48,31 +48,42 @@ neg = out["group_medians_bps"]["negative maker fee"]["median"]
 zero = out["group_medians_bps"]["zero maker fee"]["median"]
 out["group_medians_bps"]["zero_over_negative_x"] = round(zero / neg, 2)
 
-B = f["before  2026-01-29..02-04"]["BITBANK:BTC_SPOT"]
-A = f["after   2026-02-05..02-11"]["BITBANK:BTC_SPOT"]
-S = f["settled 2026-02-20..02-26"]["BITBANK:BTC_SPOT"]
-cB = f["before  2026-01-29..02-04"]["control BITBANK:XRP_SPOT"]
-cA = f["after   2026-02-05..02-11"]["control BITBANK:XRP_SPOT"]
-# The median ratio is what the book's typical moment did; the mean ratio and the
-# wide share are what the spread as a whole did. The books are bimodal, so the
-# two differ by three orders of magnitude and the article quotes both.
+W = f["windows"]
+B = W["before 2026-01-19..02-01"]["BITBANK:BTC_SPOT"]
+A = W["after  2026-02-09..02-22"]["BITBANK:BTC_SPOT"]
+M = W["march  2026-03-01..03-31"]["BITBANK:BTC_SPOT"]
+cB = W["before 2026-01-19..02-01"]["BITBANK:XRP_SPOT"]
+cA = W["after  2026-02-09..02-22"]["BITBANK:XRP_SPOT"]
+cM = W["march  2026-03-01..03-31"]["BITBANK:XRP_SPOT"]
+
+
+def x(a, b, k, nd=2):
+    return round(a[k] / b[k], nd)
+
+
+# The mean and the wide share are what the spread as a whole did; the median
+# flips between the book's two states and is quoted only beside them.
+# "relative" divides BTC's change by XRP's over the same windows: the control.
 out["fee_change"] = {
-    "spread_wider_x": round(A["spread_bps"] / B["spread_bps"]),
-    "spread_mean_wider_x": round(A["spread_mean_bps"] / B["spread_mean_bps"], 2),
-    "wide_share_before": B["wide_share"],
-    "wide_share_after": A["wide_share"],
-    "depth_thinner_x": round(B["top_of_book_jpy"] / A["top_of_book_jpy"], 1),
-    "trades_ratio_after": round(A["trades_per_day"] / B["trades_per_day"], 2),
-    "trades_ratio_settled": round(S["trades_per_day"] / B["trades_per_day"], 2),
-    "control_spread_change_x": round(cA["spread_bps"] / cB["spread_bps"], 2),
-    "control_spread_mean_change_x": round(cA["spread_mean_bps"] / cB["spread_mean_bps"], 2),
+    "change": f["change"],
+    "btc_mean_x_after": x(A, B, "spread_mean_bps"),
+    "btc_mean_x_march": x(M, B, "spread_mean_bps"),
+    "xrp_mean_x_after": x(cA, cB, "spread_mean_bps"),
+    "xrp_mean_x_march": x(cM, cB, "spread_mean_bps"),
+    "relative_mean_x_after": round(x(A, B, "spread_mean_bps", 6) / x(cA, cB, "spread_mean_bps", 6), 2),
+    "relative_mean_x_march": round(x(M, B, "spread_mean_bps", 6) / x(cM, cB, "spread_mean_bps", 6), 2),
+    "btc_median_x_march": round(M["spread_bps"] / B["spread_bps"]),
+    "btc_depth_thinner_x_after": x(B, A, "top_of_book_jpy", 1),
+    "btc_trades_x_after": x(A, B, "trades_per_day"),
+    "btc_rv_x_after": x(A, B, "rv_bps"),
+    "btc_rv_x_march": x(M, B, "rv_bps"),
 }
 daily = f["daily_spread_bps_2026-01-01_2026-03-31"]
 out["fee_change"]["control_daily_max"] = max(
     ([d, med] for d, med, _, _ in daily["BITBANK:XRP_SPOT"]), key=lambda r: r[1]
 )
-out["fee_change"]["btc_daily_median_max_from_2026-03"] = max(
-    med for d, med, _, _ in daily["BITBANK:BTC_SPOT"] if d >= "2026-03-01"
+out["fee_change"]["btc_daily_mean_max_march"] = max(
+    mean for d, _, mean, _ in daily["BITBANK:BTC_SPOT"] if d >= "2026-03-01"
 )
 out["scale"] = {
     "binance_btc_over_gmo_leverage_trades_x": round(

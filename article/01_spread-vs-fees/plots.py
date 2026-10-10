@@ -74,19 +74,31 @@ def bitbank_daily():
     series = data["daily_spread_bps_2026-01-01_2026-03-31"]
     fig, (top, bottom) = plt.subplots(2, 1, figsize=(9.5, 7.2), sharex=True,
                                       gridspec_kw={"height_ratios": [1.15, 1]})
+    # Each day is plotted at its noon, so the change at noon on 02-02 falls on
+    # that day's point rather than between two days.
+    day = lambda s: dt.datetime.fromisoformat(s)
     for market, color, label in (("BITBANK:BTC_SPOT", BTC, "BTC"),
                                  ("BITBANK:XRP_SPOT", XRP, "XRP (control)")):
         rows = series[market]
-        dates = [dt.date.fromisoformat(r[0]) for r in rows]
+        dates = [day(r[0]) + dt.timedelta(hours=12) for r in rows]
         for ax, col in ((top, 1), (bottom, 2)):
             ax.plot(dates, [r[col] for r in rows], color=color, linewidth=1.8,
                     marker="o", markersize=2.5, label=label)
-    change = dt.date(2026, 2, 5)
+    change = dt.datetime(2026, 2, 2, 12)
+    selloff = [day(d) for d in data["selloff_excluded"]]
     for ax in (top, bottom):
+        for label in data["windows"]:
+            lo, hi = label.split()[1].split("..")
+            ax.axvspan(day(lo), day(lo[:5] + hi) + dt.timedelta(days=1),
+                       color="#0072b2", alpha=0.06, linewidth=0)
+        ax.axvspan(selloff[0], selloff[1] + dt.timedelta(days=1), color="#999999",
+                   alpha=0.28, linewidth=0)
         ax.axvline(change, color="#d55e00", linestyle="--", linewidth=1.5)
         ax.grid(True, which="both", alpha=0.22)
-    top.text(change, 1.02, " Book changed (2026-02-05)", transform=top.get_xaxis_transform(),
-             color="#d55e00", ha="left", va="bottom")
+    top.text(change, 1.02, "Fee change\n(02-02 12:00) ", transform=top.get_xaxis_transform(),
+             color="#d55e00", ha="right", va="bottom")
+    top.text(selloff[0], 1.02, " Market-wide\n sell-off", transform=top.get_xaxis_transform(),
+             color="#666666", ha="left", va="bottom")
     top.set_yscale("log")
     top.set_ylabel("Daily median spread\n(bps, log scale)")
     top.legend(frameon=False, loc="upper left")
@@ -95,7 +107,8 @@ def bitbank_daily():
     bottom.set_xlabel("Date")
     bottom.xaxis.set_major_locator(mdates.MonthLocator())
     bottom.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m"))
-    fig.suptitle("bitbank daily spread around the BTC fee change: median vs mean")
+    fig.suptitle("bitbank daily spread around the BTC fee change: median vs mean\n"
+                 "(light bands: the before, after and March windows)")
     fig.tight_layout()
     finish(fig, "bitbank_fee_change_daily.png")
 
