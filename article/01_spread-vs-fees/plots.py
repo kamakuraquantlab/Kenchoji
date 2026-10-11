@@ -63,7 +63,7 @@ def gmo_distribution():
 
 
 def bitbank_weekly():
-    """Weekly mean spread, BTC against XRP, November 2025 to June 2026.
+    """Weekly mean spread, BTC against XRP, November 2025 to March 2026.
 
     Weeks run Thursday to Wednesday so the market-wide sell-off of 02-05..02-11
     is one point. Hollow markers are weeks the archive holds fewer than five

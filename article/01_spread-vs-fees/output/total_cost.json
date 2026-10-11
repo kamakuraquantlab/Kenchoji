@@ -134,22 +134,22 @@
   },
   "fee_change_taker_view": {
     "before": {
-      "spread_mean_bps": 0.8168,
-      "spread_median_bps": 0.000706,
+      "spread_mean_bps": 0.8127,
+      "spread_median_bps": 0.000708,
       "taker_fee_bps": 12.0,
-      "roundtrip_bps": 24.82,
+      "roundtrip_bps": 24.81,
       "roundtrip_with_median_bps": 24.0
     },
     "after": {
-      "spread_mean_bps": 1.4189,
-      "spread_median_bps": 0.719837,
+      "spread_mean_bps": 1.5301,
+      "spread_median_bps": 0.884371,
       "taker_fee_bps": 10.0,
-      "roundtrip_bps": 21.42,
-      "roundtrip_with_median_bps": 20.72
+      "roundtrip_bps": 21.53,
+      "roundtrip_with_median_bps": 20.88
     },
-    "spread_wider_x": 1.74,
-    "taker_roundtrip_cheaper_pct": 13.7,
-    "taker_roundtrip_cheaper_pct_with_median": 13.7,
+    "spread_wider_x": 1.88,
+    "taker_roundtrip_cheaper_pct": 13.2,
+    "taker_roundtrip_cheaper_pct_with_median": 13.0,
     "caveat": "bitbank BTC spot taker fee was 0.12% before and 0.10% after; current fee checked 2026-10-03"
   }
 }

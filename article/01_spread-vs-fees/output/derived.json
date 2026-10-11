@@ -42,9 +42,9 @@
   },
   "fee_change": {
     "change": "2026-02-02 12:00 JST",
-    "btc_mean_x": 1.74,
-    "xrp_mean_x": 1.06,
-    "relative_mean_x": 1.64,
+    "btc_mean_x": 1.88,
+    "xrp_mean_x": 0.97,
+    "relative_mean_x": 1.94,
     "selloff_week": {
       "BITBANK:BTC_SPOT": 1.6969,
       "BITBANK:XRP_SPOT": 1.3706
@@ -53,28 +53,20 @@
       0.73,
       0.93
     ],
-    "btc_weekly_range_march": [
-      1.41,
+    "btc_weekly_range_after": [
+      1.28,
       1.82
     ],
-    "btc_weekly_range_apr_may": [
-      1.0,
-      1.39
-    ],
-    "btc_weekly_range_june": [
-      1.35,
-      1.43
-    ],
     "xrp_weekly_range_all_but_selloff": [
-      0.66,
-      1.2
+      0.8,
+      1.09
     ],
-    "btc_mean_change_bps": 0.6,
-    "xrp_mean_change_bps": 0.05,
-    "difference_in_differences_bps": 0.55,
+    "btc_mean_change_bps": 0.72,
+    "xrp_mean_change_bps": -0.03,
+    "difference_in_differences_bps": 0.75,
     "robustness_did_range_bps": [
-      0.55,
-      0.61
+      0.72,
+      0.76
     ],
     "row_gap_sec": [
       0.352

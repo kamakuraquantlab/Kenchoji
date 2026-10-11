@@ -1,4 +1,4 @@
-"""bitbank BTC spot: the weekly spread from November 2025 to June 2026.
+"""bitbank BTC spot: the weekly spread from November 2025 to March 2026.
 
 bitbank paid a negative maker fee on BTC spot and stopped on 2026-02-02 (its
 notice gives the date; the book steps at 12:00 JST). If the spread is a form of
@@ -19,13 +19,13 @@ is a check on the windows above, not a different estimate.
 
 The series is weekly, Thursday to Wednesday, so that 2026-02-05..02-11, the
 week of the market-wide sell-off, is one point: every bitbank book widened in
-it, BTC and XRP alike. The archive does not hold every day; a week is the mean
-of the days it does hold, and the count is kept so the figure can mark the thin
-weeks.
+it, BTC and XRP alike. A week is the mean of the days it holds; every day of
+the span is held, so only the first and last weeks, cut by the span, are short.
 
 Two windows summarise it for the text and for the taker cost in 5.2, both
 clear of the change and the sell-off: before is 2025-11-01..2026-02-01, after
-is 2026-03-01..06-30.
+is 2026-02-12..03-31, from the first full week after the sell-off week. The span
+stops at March because the archive has no days for 2026-04-02..04-09.
 
 Reproducing this:
 
@@ -59,10 +59,10 @@ MARKET = "BITBANK:BTC_SPOT"
 CONTROL = "BITBANK:XRP_SPOT"  # kept its negative maker fee; should not step
 CHANGE = "2026-02-02 12:00 JST"  # the date is bitbank's notice; the hour is the book's
 SELLOFF_WEEK = "2026-02-05"  # market-wide; its Thursday anchors every week
-SPAN = ("2025-11-01", "2026-06-30")
+SPAN = ("2025-11-01", "2026-03-31")
 WINDOWS = {
     "before": ("2025-11-01", "2026-02-01"),
-    "after": ("2026-03-01", "2026-06-30"),
+    "after": ("2026-02-12", "2026-03-31"),
 }
 
 

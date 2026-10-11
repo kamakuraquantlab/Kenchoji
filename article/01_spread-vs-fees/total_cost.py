@@ -124,13 +124,13 @@ out["inversion"] = {
 # The fee change, seen by a taker. bitbank BTC spot before: the maker rebate was
 # funded by a 0.12% taker fee. After: maker 0.00%, taker 0.10%, and a wider quote.
 fc = json.loads((here / "output" / "fee_change.json").read_text())
-# The windows are fee_change.py's: 2025-11..2026-01 and 2026-03..06, clear of
+# The windows are fee_change.py's: 2025-11..2026-01 and 2026-02-12..03-31, clear of
 # the change and of the 02-05 sell-off. The spread is the mean, as in section 3:
 # what a taker arriving at a random moment pays on average. The median is kept
 # beside it; it flips between the book's tight and wide states.
 fc = fc["windows"]
 fc_before = fc["before 2025-11-01..2026-02-01"]["BITBANK:BTC_SPOT"]
-fc_after = fc["after 2026-03-01..2026-06-30"]["BITBANK:BTC_SPOT"]
+fc_after = fc["after 2026-02-12..2026-03-31"]["BITBANK:BTC_SPOT"]
 BEFORE_TAKER_BPS, AFTER_TAKER_BPS = 12.0, 10.0  # 0.12% -> 12 bps; 0.10% -> 10 bps
 
 

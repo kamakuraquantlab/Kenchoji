@@ -50,7 +50,7 @@ out["group_medians_bps"]["zero_over_negative_x"] = round(zero / neg, 2)
 
 W = f["windows"]
 before = W["before 2025-11-01..2026-02-01"]
-after = W["after 2026-03-01..2026-06-30"]
+after = W["after 2026-02-12..2026-03-31"]
 btc, xrp = "BITBANK:BTC_SPOT", "BITBANK:XRP_SPOT"
 bx = after[btc]["spread_mean_bps"] / before[btc]["spread_mean_bps"]
 xx = after[xrp]["spread_mean_bps"] / before[xrp]["spread_mean_bps"]
@@ -71,10 +71,8 @@ out["fee_change"] = {
     "selloff_week": {m: next(v for w, _, v in f["weekly"][m] if w == f["selloff_week"])
                      for m in (btc, xrp)},
     "btc_weekly_range_before": week_range(btc, "2025-10-30", "2026-01-22"),
-    "btc_weekly_range_march": week_range(btc, "2026-02-26", "2026-03-26"),
-    "btc_weekly_range_apr_may": week_range(btc, "2026-04-01", "2026-05-31"),
-    "btc_weekly_range_june": week_range(btc, "2026-06-01", "2026-06-30"),
-    "xrp_weekly_range_all_but_selloff": week_range(xrp, "2025-10-30", "2026-06-30",
+    "btc_weekly_range_after": week_range(btc, "2026-02-12", "2026-03-26"),
+    "xrp_weekly_range_all_but_selloff": week_range(xrp, "2025-10-30", "2026-03-26",
                                                    skip=(f["selloff_week"],)),
 }
 # The same comparison in bps: each market's change, and BTC's change less
