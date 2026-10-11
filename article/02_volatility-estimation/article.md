@@ -497,6 +497,8 @@ python sigma_guidance.py && python plots.py
 期間を変えて 5 章の段差をまたいでみる。これがいちばん面白い確かめ方です。
 
 ```bash
+# 5 章は bitbank BTC の 2025-07〜2026-08 を全日使う
+komachi download --market BITBANK:BTC_SPOT --start 2025-07-01 --end 2026-08-31
 python regimes.py && python vol_history.py
 ```
 
