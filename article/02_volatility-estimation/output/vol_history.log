@@ -13,4 +13,4 @@
 2026-07  days 30  RV 10s  167.8  1800s  166.8  10s/1800s 1.01  spread 0.8573bps
 2026-08  days 31  RV 10s  176.2  1800s  187.5  10s/1800s 0.94  spread 0.9382bps
 
-wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/.claude/worktrees/article01-fee-change-nov-mar/article/02_volatility-estimation/output/vol_history.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/vol_history.json

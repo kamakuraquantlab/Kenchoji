@@ -1,4 +1,4 @@
 tick-pinned 2025-07..2026-01     spread   0.0006bps  10s  170.7  30s  178.4  60s  183.9  300s  198.8  600s  199.7  1800s  196.9  10s/1800s  0.87x  AC(1)  -0.0044
 wide 2026-03..2026-08            spread   0.7434bps  10s  195.4  30s  198.8  60s  201.9  300s  205.5  600s  206.4  1800s  206.7  10s/1800s  0.95x  AC(1)  -0.0104
 
-wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/.claude/worktrees/article01-fee-change-nov-mar/article/02_volatility-estimation/output/regimes.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/regimes.json
