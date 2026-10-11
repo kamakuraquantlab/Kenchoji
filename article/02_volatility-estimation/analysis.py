@@ -64,7 +64,7 @@ MIN_SECONDS = 1_000      # nor one whose grid was filled from almost nothing.
                          # from the first observation onward is populated.
 
 # A single window by default, not a sample spread across the archive. bitbank
-# BTC changed fee structure on 2026-02-05 and its book changed with it, so an
+# BTC changed fee structure on 2026-02-02 and its book changed with it, so an
 # archive-wide sample of that market blends two different markets. Every figure
 # here is one fee regime unless --start says otherwise.
 ap = argparse.ArgumentParser(description="Realized volatility by sampling interval.")

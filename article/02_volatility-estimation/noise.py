@@ -30,7 +30,7 @@ MARKETS = [
     "GMO:BTC_JPY", "GMO:ETH_JPY", "GMO:XRP_JPY",
 ]
 # One window, matching analysis.py, so bitbank BTC does not straddle its
-# 2026-02-05 fee change.
+# 2026-02-02 fee change.
 ap = argparse.ArgumentParser(description="Is the high-frequency movement noise?")
 ap.add_argument("--start", default="2026-06-01")
 ap.add_argument("--days", type=int, default=28)
