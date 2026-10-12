@@ -14,13 +14,9 @@ assets/NN_slug/output/    # JSON results, logs, figures (*.png)
 articles/<zenn-slug>.md   # what Zenn deploys; generated from draft.md
 ```
 
-| Draft | Zenn file | Zenn URL |
-|---|---|---|
-| `assets/00_kamakura-sampo/draft.md` | `articles/2679ccc6c71416.md` | https://zenn.dev/kamakuraquant/articles/2679ccc6c71416 |
-| `assets/01_spread-vs-fees/draft.md` | `articles/59a62dcdce7ef2.md` | https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2 |
-| `assets/02_volatility-estimation/draft.md` | `articles/c054d44d00f04e.md` | https://zenn.dev/kamakuraquant/articles/c054d44d00f04e |
-
-The draft's `canonical_url` frontmatter field also names its Zenn slug.
+To find which draft belongs to which Zenn file, read the draft's `canonical_url`
+frontmatter field (it ends in the Zenn slug) or the Zenn 自動デプロイ table in
+`README.md`.
 
 ## Editing and publishing
 
@@ -72,7 +68,7 @@ URLs are updated and pushed.
    body generated as above.
 3. After publishing: set `canonical_url` and `published_at` in the draft's
    frontmatter, and add a row to both tables in `README.md` (公開済みの記事 and
-   Zenn 自動デプロイ) and to the table above.
+   Zenn 自動デプロイ).
 
 ## Git
 
