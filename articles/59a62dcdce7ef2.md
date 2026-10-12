@@ -1,14 +1,10 @@
 ---
-slate: 1
-publish: 0
-status: published
-channel: Zenn
-published_at: 2026-09-27
-canonical_url: https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2
+title: "スプレッドは手数料である — 国内 12 市場を手数料体系で分けて測る"
+emoji: "🙆‍♀️"
+type: "tech"
+topics: ["python", "データ分析", "暗号資産", "クオンツ", "マーケットデータ"]
+published: true
 ---
-
-# スプレッドは手数料である — 国内 12 市場を手数料体系で分けて測る
-
 **要旨。** 国内取引所のスプレッドは、流動性だけでは説明できません。
 今回の比較では、**手数料体系との強い関係**が見られました。
 
@@ -113,7 +109,7 @@ GMO は同じ銘柄を、現物（メイカー手数料マイナス）とレバ�
 約定件数だけでは、スプレッドの狭さを説明できません。
 手数料体系のほかにも、証拠金の仕組み、参加者、注文数量などが違います。この比較だけで原因を一つに絞ることはできません。
 
-![GMO現物とレバレッジのスプレッド分布](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/article/01_spread-vs-fees/output/gmo_spread_distribution.png)
+![GMO現物とレバレッジのスプレッド分布](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/assets/01_spread-vs-fees/output/gmo_spread_distribution.png)
 
 *点は日ごとの中央値、箱はその 4 週間の分布です。3 銘柄すべてでレバレッジ側が上にあります。*
 
@@ -124,7 +120,7 @@ bitbank は [2026 年 2 月 2 日](https://bitbank.cc/blog/articles/726061459)�
 手数料が変更されなかった bitbank の XRP 現物を比較対象にします。
 データは 2025 年 11 月から 2026 年 3 月までを使います。
 
-![bitbank BTCとXRPの週次平均スプレッド](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/article/01_spread-vs-fees/output/bitbank_fee_change_weekly.png)
+![bitbank BTCとXRPの週次平均スプレッド](https://raw.githubusercontent.com/kamakuraquantlab/Kenchoji/main/assets/01_spread-vs-fees/output/bitbank_fee_change_weekly.png)
 
 *週ごと（木曜〜水曜）の平均スプレッド。点線は変更前（2025/11/1〜2026/2/1）と変更後（2026/2/12〜3/31）の平均です。*
 
@@ -323,7 +319,7 @@ pip install kamakuraquantlab-komachi kamakuraquantlab-hase
 この記事のスクリプトと集計結果は、次の場所に置いてあります。
 下で走らせる `analysis.py` もここにあります。
 
-- <https://github.com/kamakuraquantlab/Kenchoji/tree/main/article/01_spread-vs-fees>
+- <https://github.com/kamakuraquantlab/Kenchoji/tree/main/assets/01_spread-vs-fees>
 
 初回の設定でデータの保存先を指定すると、`~/.kamakuraquantlab.env` に保存されます。
 `analysis.py` はこの設定を読むので、パスを指定する必要はありません。
@@ -366,5 +362,5 @@ python analysis.py --start 2026-06-01 --days 28
 ---
 
 *データ: 鎌倉クオンツラボ。Binance Vision の公開約定データだけでは板スプレッドは再現できません。Binance の板履歴は別途必要です。*
-*測定コードと出力: <https://github.com/kamakuraquantlab/Kenchoji/tree/main/article/01_spread-vs-fees>（内訳は上の「この記事のスクリプト」の表）*
+*測定コードと出力: <https://github.com/kamakuraquantlab/Kenchoji/tree/main/assets/01_spread-vs-fees>（内訳は上の「この記事のスクリプト」の表）*
 *手数料率は測定値ではなく入力値です（`total_cost.py` の `FEES`）。*

@@ -15,4 +15,4 @@ GMO:BTC_JPY            AC(1)   0.0119   moved  79.5% of sec   typical move   0.2
 GMO:ETH_JPY            AC(1)   0.0362   moved  80.6% of sec   typical move   0.2358bps   spread   6.3479bps
 GMO:XRP_JPY            AC(1)   0.0072   moved  82.4% of sec   typical move   0.4508bps   spread   4.5226bps
 
-wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/noise.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/assets/02_volatility-estimation/output/noise.json

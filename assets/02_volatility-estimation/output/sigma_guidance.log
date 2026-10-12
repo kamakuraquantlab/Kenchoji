@@ -15,4 +15,4 @@ GMO:BTC_JPY              0.95   0.97   0.99   0.99   0.98   1.03      30s      3
 GMO:ETH_JPY              0.94   0.97   0.99   0.99   0.98   1.03      30s      30s
 GMO:XRP_JPY              0.93   0.95   0.98   1.00   0.98   1.02      30s      30s
 
-wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/02_volatility-estimation/output/sigma_guidance.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/assets/02_volatility-estimation/output/sigma_guidance.json

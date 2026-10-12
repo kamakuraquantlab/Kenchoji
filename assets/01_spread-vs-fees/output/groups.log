@@ -24,4 +24,4 @@ BINANCE:BTC_USDT            0.0016        37,521      0.194   3,618,720
 BINANCE:ETH_USDT            0.0592        11,321        nan   3,699,980
 BINANCE:XRP_USDT            0.8773         9,902     13.829     766,464
 
-wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/article/01_spread-vs-fees/output/groups_2026-06.json
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kenchoji/assets/01_spread-vs-fees/output/groups_2026-06.json
