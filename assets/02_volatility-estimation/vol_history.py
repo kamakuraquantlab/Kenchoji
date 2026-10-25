@@ -12,6 +12,7 @@ import collections, json, pathlib, statistics
 
 import komachi
 from hase.dataset import load
+from hase.derive.grid import quote_grid
 from hase.layout import available_dates
 from rv import has_outage, pooled, rv_bps
 
@@ -25,7 +26,7 @@ for d in available_dates(ROOT, MARKET, "OrderBook"):
     book = load(ROOT, "BookState", MARKET, d)
     if len(book) < MIN_SNAPSHOTS or has_outage(book):
         continue
-    g = load(ROOT, "VolSpread", MARKET, d)["mid"].to_numpy()
+    g = quote_grid(ROOT, MARKET, d)["mid"].to_numpy()
     for k in INTERVALS:
         v = rv_bps(g, k)
         if v is not None:

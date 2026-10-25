@@ -13,6 +13,7 @@ import numpy as np
 
 import komachi
 from hase.dataset import load
+from hase.derive.grid import quote_grid
 from hase.layout import available_dates
 from rv import has_outage, pooled, rv_bps
 
@@ -32,7 +33,7 @@ for label, (lo, hi) in REGIMES.items():
         book = load(ROOT, "BookState", MARKET, d)
         if len(book) < 500 or has_outage(book):
             continue
-        g = load(ROOT, "VolSpread", MARKET, d)["mid"].to_numpy()
+        g = quote_grid(ROOT, MARKET, d)["mid"].to_numpy()
         spr.append(float(book["spread_bps"].median()))
         for k in INTERVALS:
             v = rv_bps(g, k)

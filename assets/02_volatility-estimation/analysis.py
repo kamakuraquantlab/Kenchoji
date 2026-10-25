@@ -36,7 +36,8 @@ import numpy as np
 
 import komachi
 from hase.dataset import load
-from hase.derive.vol_spread import second_grid
+from hase.derive.grid import quote_grid
+from hase.derive.grid import second_grid
 from hase.layout import available_dates
 from hase.store import MissingDataError, load_trades
 from rv import has_outage, pooled, rv_bps
@@ -103,7 +104,7 @@ for market in MARKETS:
         if has_outage(book):
             dropped.append(d)
             continue
-        g = load(ROOT, "VolSpread", market, d)["mid"].to_numpy()
+        g = quote_grid(ROOT, market, d)["mid"].to_numpy()
         row = {k: rv_bps(g, k) for k in INTERVALS}
         if any(v is None for v in row.values()):
             continue

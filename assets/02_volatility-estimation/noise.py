@@ -18,6 +18,7 @@ import numpy as np
 
 import komachi
 from hase.dataset import load
+from hase.derive.grid import quote_grid
 from hase.layout import available_dates
 from rv import has_outage
 
@@ -41,7 +42,7 @@ print(f"window {WINDOW[0]} .. {WINDOW[-1]}", flush=True)
 
 
 # The one-second mid grid and the quoted spread both come from Hase now.
-# `VolSpread` is that grid; it used to be rebuilt here, in `analysis.py`, and
+# `quote_grid` is that grid; it used to be rebuilt here, in `analysis.py`, and
 # in `regimes.py`, three times from the same book.
 
 
@@ -56,7 +57,7 @@ for market in MARKETS:
         book = load(ROOT, "BookState", market, d)
         if len(book) < 500 or has_outage(book):
             continue
-        g = load(ROOT, "VolSpread", market, d)["mid"].to_numpy()
+        g = quote_grid(ROOT, market, d)["mid"].to_numpy()
         with np.errstate(invalid="ignore", divide="ignore"):
             r = np.diff(np.log(g)) * 1e4
         r = r[np.isfinite(r)]

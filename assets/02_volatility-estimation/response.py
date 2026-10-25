@@ -26,6 +26,7 @@ import numpy as np
 
 import komachi
 from hase.dataset import load
+from hase.derive.grid import quote_grid
 from hase.layout import available_dates
 from rv import has_outage
 
@@ -53,7 +54,7 @@ def grid(market, date):
     """The one-second mid grid for one market-day, or None if too thin.
 
     Both sides of the regression have to be on the same clock before they can
-    be compared at all, which is what `VolSpread` is. Putting them there is the
+    be compared at all, which is what `quote_grid` is. Putting them there is the
     step this analysis used to do for itself.
     """
     if date not in available_dates(ROOT, market, "OrderBook"):
@@ -61,7 +62,7 @@ def grid(market, date):
     book = load(ROOT, "BookState", market, date)
     if len(book) < MIN_SNAPSHOTS or has_outage(book):
         return None
-    return load(ROOT, "VolSpread", market, date)["mid"].to_numpy()
+    return quote_grid(ROOT, market, date)["mid"].to_numpy()
 
 
 ap = argparse.ArgumentParser(description="Absorption of Binance moves, by horizon.")
