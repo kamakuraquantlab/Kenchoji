@@ -24,7 +24,7 @@
 |---|---|---|---|
 | 鎌倉散歩 — これから書くことについて | 2026-09-17 | [読む](https://zenn.dev/kamakuraquant/articles/2679ccc6c71416) | [本文](assets/00_kamakura-sampo/draft.md) |
 | スプレッドだけでは安さは分からない：国内暗号資産 12 市場の取引コスト比較 | 2026-09-27 | [読む](https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2) | [本文](assets/01_spread-vs-fees/draft.md)・[スクリプトと集計結果](assets/01_spread-vs-fees/) |
-| ボラティリティは「いくつ」ではない — 測る間隔しだいで違う値が出て、長く取れば Binance に収束する | 2026-10-03 | [読む](https://zenn.dev/kamakuraquant/articles/c054d44d00f04e) | [本文](assets/02_volatility-estimation/draft.md)・[スクリプトと集計結果](assets/02_volatility-estimation/) |
+| 同じ銘柄でもボラティリティは同じか？ Binance と国内市場を測定間隔で比べる | 2026-10-03 | [読む](https://zenn.dev/kamakuraquant/articles/c054d44d00f04e) | [本文](assets/02_volatility-estimation/draft.md)・[スクリプトと集計結果](assets/02_volatility-estimation/) |
 
 プロローグは今後の執筆方針を紹介する記事のため、分析スクリプトや数値の検証結果はありません。
 
