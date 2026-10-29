@@ -171,7 +171,7 @@ Binance を見てみます。ここではメイカー手数料がプラスの参
 
 国内 12 市場にも、約定件数や板の厚みとスプレッドの関係が見られます。
 Coincheck の ETH（3,320 件/日）と XRP（3,144 件/日）は、約定件数が少ない市場です。最良気配の厚みは ETH が 31,967 円、XRP が 19,250 円。XRP は国内 12 市場で最も薄くなっています。
-スプレッドは ETH が 11.16 bps、XRP が 14.77 bps で、どちらも広い水準です。
+スプレッドは ETH が 11.17 bps、XRP が 14.77 bps で、どちらも広い水準です。
 
 - **取引規模の違いも重要です**（Binance と国内市場）。ただし、約定件数だけでは取引金額や執行可能な流動性を表せません。
 - **手数料体系との関連は、同一取引所内でも見られます**（GMO 現物 vs レバレッジ）。ただし商品構造も異なります。
@@ -203,7 +203,7 @@ Coincheck の ETH（3,320 件/日）と XRP（3,144 件/日）は、約定件数
 | GMO BTC レバレッジ | 2.2348 bps | 0% | 0% | **2.23 bps** | 0% |
 | GMO XRP レバレッジ | 4.5298 bps | 0% | 0% | **4.53 bps** | 0% |
 | GMO ETH レバレッジ | 6.3509 bps | 0% | 0% | **6.35 bps** | 0% |
-| Coincheck ETH | 11.1650 bps | 0% | 0% | **11.16 bps** | 0% |
+| Coincheck ETH | 11.1650 bps | 0% | 0% | **11.17 bps** | 0% |
 | GMO BTC 現物 | 1.6123 bps | −0.01% | 0.05% | **11.61 bps** | 86.1% |
 | GMO XRP 現物 | 1.7515 bps | −0.01% | 0.05% | **11.75 bps** | 85.1% |
 | GMO ETH 現物 | 3.6384 bps | −0.01% | 0.05% | **13.64 bps** | 73.3% |
@@ -268,7 +268,7 @@ bitbank の ETH/XRP 現物では、入力した料率上、テイカーに 0.12%
   合計コストの検証には、**対象期間に実際に適用された**手数料表が必要です。
 - **最良気配は実勢コストではありません。** 100 万円の注文は板を食い上がります。
   1 章の表に併記した「100 万円往復（手数料別）」は板の厚みを考慮した試算で、
-  bitbank BTC 現物では気配 0.631 bps に対し 2.767 bps。
+  bitbank BTC 現物ではスプレッド 0.631 bps に対し 2.767 bps。
   この差は、のちの記事であらためて扱います。
 - **4 週間の抽出です。** 2026 年 6 月 1 日〜28 日。
   ほかの月では順位が変わる可能性があります。
@@ -300,7 +300,6 @@ bitbank の ETH/XRP 現物では、入力した料率上、テイカーに 0.12%
 
 鎌倉クオンツラボが扱っているデータは、これよりはるかに長い期間に及びます。
 **別の期間で同じことをやれば、結論が持つのかどうかが分かります。**
-bitbank BTC 現物でも、手数料改定前後で中央値が大きく異なります。
 ひとつの期間だけを見て、市場の性質を語ることはできません。
 
 ### 7.1 手順
@@ -343,13 +342,13 @@ python analysis.py --start 2026-06-01 --days 28
 
 **この記事のスクリプトは 5 本です。**
 
-| 節 | スクリプト | 読むもの | 出力 |
+| 章・節 | スクリプト | 読むもの | 出力 |
 |---|---|---|---|
-| §1, §2, §4 | `analysis.py` | 板（Komachi の保存先） | `output/groups_2026-06.json` |
-| §3, §5.2 | `fee_change.py` | 板 | `output/fee_change.json` |
-| §5 | `total_cost.py` | `groups_2026-06.json`、`fee_change.json`＋手数料率（入力値） | `output/total_cost.json` |
-| §1〜§4 の倍率 | `derived.py` | `groups_2026-06.json`、`fee_change.json` | `output/derived.json` |
-| §2, §3 | `plots.py` | `groups_2026-06.json`、`fee_change.json` | `output/*.png` |
+| 1・2・4 章 | `analysis.py` | 板（Komachi の保存先） | `output/groups_2026-06.json` |
+| 3 章・5.2 節 | `fee_change.py` | 板 | `output/fee_change.json` |
+| 5 章 | `total_cost.py` | `groups_2026-06.json`、`fee_change.json`＋手数料率（入力値） | `output/total_cost.json` |
+| 1〜4 章の倍率 | `derived.py` | `groups_2026-06.json`、`fee_change.json` | `output/derived.json` |
+| 2・3 章 | `plots.py` | `groups_2026-06.json`、`fee_change.json` | `output/*.png` |
 
 上の 2 本が板を測り、残り 3 本はその出力だけを読んで計算・作図します（板は読みません）。
 全市場の表を再計算するには、国内 12 市場と Binance 3 市場、計 15 市場の板データが必要です。
@@ -360,5 +359,5 @@ python analysis.py --start 2026-06-01 --days 28
 ---
 
 *データ: 鎌倉クオンツラボ。Binance Vision の公開約定データだけでは板スプレッドは再現できません。Binance の板履歴は別途必要です。*
-*測定コードと出力: <https://github.com/kamakuraquantlab/Kenchoji/tree/main/assets/01_spread-vs-fees>（内訳は上の「この記事のスクリプト」の表）*
+*測定コードと出力: <https://github.com/kamakuraquantlab/Kenchoji/tree/main/assets/01_spread-vs-fees>（各スクリプトの役割は 7.2 節の表）*
 *手数料率は測定値ではなく入力値です（`total_cost.py` の `FEES`）。*
