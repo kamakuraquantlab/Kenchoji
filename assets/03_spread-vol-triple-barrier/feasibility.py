@@ -27,11 +27,17 @@ D, m and the no-skill win rate come from a driftless walk with steps of
 v / sqrt(20) every 3 seconds. When D = 1 the walk gives the no-skill win rate
 sl / (tp + sl) and the required one (sl + 1) / (tp + sl), so the gap between
 them is 1 / (tp + sl) whatever the market -- printed beside every row, because
-that is the comparison section 5.3 makes. The market only enters through D.
+that is the comparison section 3.3 makes. The market only enters through D.
+
+It also gives the oracle of section 3.2 its random-walk baseline: on a
+driftless walk, the time until the mid first reaches +S or -S has mean exactly
+t_s = (S / v)^2, and its median and 90th percentile are fixed multiples of t_s
+whatever the market.
 
 paths.py repeats every setting on the real June paths.
 
-Reproduces: §2, §3.3. Writes output/feasibility.json.
+Reproduces: the 25% no-skill win rate of §3.3 and the random-walk baseline of
+§3.2. Writes output/feasibility.json.
 """
 import argparse, json, math, pathlib
 import numpy as np
@@ -87,6 +93,26 @@ def evaluate(v, s, tp, sl, t):
             "cost_over_move": round(s / (v * math.sqrt(t)), 3)}
 
 
+def oracle_baseline(steps_per_ts=2000, horizon_ts=10):
+    """First time a driftless walk reaches +-1 when t_s = 1, in units of t_s."""
+    n = steps_per_ts * horizon_ts
+    chunk = max(1, MAX_CELLS // n)
+    times = []
+    done = 0
+    while done < N_PATHS:
+        k = min(chunk, N_PATHS - done)
+        path = np.cumsum(RNG.normal(0.0, 1 / math.sqrt(steps_per_ts), size=(k, n)), axis=1)
+        hit = np.abs(path) >= 1
+        times.append(np.where(hit.any(axis=1), (hit.argmax(axis=1) + 1) / steps_per_ts, np.inf))
+        done += k
+    times = np.concatenate(times)
+    return {"paths": N_PATHS, "horizon_ts": horizon_ts,
+            "reached_share": round(float(np.isfinite(times).mean()), 4),
+            "mean_over_ts": round(float(times[np.isfinite(times)].mean()), 3),
+            "median_over_ts": round(float(np.median(times)), 3),
+            "p90_over_ts": round(float(np.quantile(times, 0.9)), 3)}
+
+
 ap = argparse.ArgumentParser(description="Feasibility of a triple barrier, per market.")
 ap.add_argument("--tp", type=float, default=3.0)
 ap.add_argument("--sl", type=float, default=1.0)
@@ -134,6 +160,13 @@ for label, tp, sl, t in LADDER:
           f"no skill {e['win_rate_no_skill_pct']:5.1f}%  needed {e['win_rate_needed_pct']:5.1f}%  "
           f"gap {e['gap_pp']:5.1f}pp  1/(tp+sl) {e['one_over_tp_plus_sl_pp']:5.1f}pp")
 out["ladder"] = {"market": m, "v": v, "s": s, "steps": steps}
+
+base = oracle_baseline()
+out["oracle_random_walk"] = base
+print(f"\n\nOracle on a driftless walk, in units of t_s = (s/v)^2:  "
+      f"mean {base['mean_over_ts']:.3f}  median {base['median_over_ts']:.3f}  "
+      f"p90 {base['p90_over_ts']:.3f}  (reached within {base['horizon_ts']} t_s: "
+      f"{base['reached_share']:.2%})")
 
 name = "feasibility.json" if std == (3.0, 1.0, 30.0) else "feasibility_custom.json"
 dest = here / "output" / name

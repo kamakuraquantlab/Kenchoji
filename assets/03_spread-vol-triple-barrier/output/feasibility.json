@@ -244,8 +244,8 @@
         "timeout_min": 5,
         "decisive_share": 0.017,
         "win_rate_no_skill_pct": 0.0,
-        "win_rate_needed_pct": 1479.1,
-        "gap_pp": 1479.1,
+        "win_rate_needed_pct": 1474.7,
+        "gap_pp": 1474.7,
         "one_over_tp_plus_sl_pp": 25.0,
         "cost_over_move": 2.33
       },
@@ -255,8 +255,8 @@
         "timeout_min": 15,
         "decisive_share": 0.163,
         "win_rate_no_skill_pct": 0.0,
-        "win_rate_needed_pct": 152.6,
-        "gap_pp": 152.6,
+        "win_rate_needed_pct": 152.5,
+        "gap_pp": 152.5,
         "one_over_tp_plus_sl_pp": 25.0,
         "cost_over_move": 1.345
       },
@@ -280,7 +280,7 @@
         "win_rate_needed_pct": 54.1,
         "gap_pp": 46.1,
         "one_over_tp_plus_sl_pp": 25.0,
-        "cost_over_move": 0.673
+        "cost_over_move": 0.672
       },
       "120": {
         "tp": 3.0,
@@ -588,5 +588,13 @@
         "label": "両方広げる"
       }
     ]
+  },
+  "oracle_random_walk": {
+    "paths": 20000,
+    "horizon_ts": 10,
+    "reached_share": 1.0,
+    "mean_over_ts": 1.016,
+    "median_over_ts": 0.767,
+    "p90_over_ts": 2.087
   }
 }

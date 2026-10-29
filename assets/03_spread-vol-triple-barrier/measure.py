@@ -28,7 +28,8 @@ import argparse, datetime as dt, json, math, pathlib, statistics
 import numpy as np
 
 import komachi
-from hase.dataset import load, usable
+from hase.dataset import load
+from hase.derive.market_price import dropped as dropped_count
 from hase.derive.grid import quote_grid
 from hase.layout import available_dates
 
@@ -102,11 +103,13 @@ for market, (fee, checked) in TAKER_PCT.items():
             first = float(book["mid"].iloc[0])
         last = float(book["mid"].iloc[-1])
 
+        # Hase leaves out the snapshots the book cannot fill and the collector
+        # artefacts, and counts every snapshot of the day in `dropped`.
         walked = load(ROOT, "MarketPrice", market, d, execution_notional=SIZE_JPY)
-        ok = usable(walked)
-        fills.append(len(ok) / len(walked) if len(walked) else 0.0)
-        if len(ok) >= MIN_FILLS:
-            cost.append(float(ok["spread_bps"].median()))
+        snapshots = dropped_count(walked).get("snapshots", len(walked))
+        fills.append(len(walked) / snapshots if snapshots else 0.0)
+        if len(walked) >= MIN_FILLS:
+            cost.append(float(walked["spread_bps"].median()))
 
         if has_outage(book):
             dropped.append(d)

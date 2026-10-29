@@ -91,14 +91,14 @@
     "COINCHECK:ETH_SPOT": {
       "oracle_break_even": {
         "timeout_min": 240,
-        "entries": 42719,
+        "entries": 42960,
         "reached_share": 0.988,
-        "median_sec_reached": 1300.0,
-        "p90_sec_reached": 5699.2
+        "median_sec_reached": 1309.0,
+        "p90_sec_reached": 5705.0
       },
       "triple_barrier": {
         "3/1/5": {
-          "entries": 43189,
+          "entries": 43195,
           "decisive_share": 0.077,
           "win_rate_no_skill_pct": 4.5,
           "win_rate_needed_pct": 331.1,
@@ -108,8 +108,8 @@
           "pnl_mean_in_s": -1.001
         },
         "3/1/15": {
-          "entries": 43169,
-          "decisive_share": 0.227,
+          "entries": 43185,
+          "decisive_share": 0.226,
           "win_rate_no_skill_pct": 8.8,
           "win_rate_needed_pct": 119.6,
           "gap_pp": 110.8,
@@ -118,44 +118,44 @@
           "pnl_mean_in_s": -0.998
         },
         "3/1/30": {
-          "entries": 43139,
+          "entries": 43170,
           "decisive_share": 0.382,
           "win_rate_no_skill_pct": 11.7,
           "win_rate_needed_pct": 78.3,
-          "gap_pp": 66.6,
-          "pnl_buy_in_s": -1.042,
+          "gap_pp": 66.5,
+          "pnl_buy_in_s": -1.041,
           "pnl_sell_in_s": -0.952,
           "pnl_mean_in_s": -0.997
         },
         "3/1/60": {
-          "entries": 43079,
-          "decisive_share": 0.57,
-          "win_rate_no_skill_pct": 14.8,
+          "entries": 43140,
+          "decisive_share": 0.569,
+          "win_rate_no_skill_pct": 14.9,
           "win_rate_needed_pct": 60.6,
-          "gap_pp": 45.8,
-          "pnl_buy_in_s": -1.076,
-          "pnl_sell_in_s": -0.916,
-          "pnl_mean_in_s": -0.996
+          "gap_pp": 45.7,
+          "pnl_buy_in_s": -1.073,
+          "pnl_sell_in_s": -0.917,
+          "pnl_mean_in_s": -0.995
         },
         "3/1/120": {
-          "entries": 42959,
+          "entries": 43080,
           "decisive_share": 0.747,
-          "win_rate_no_skill_pct": 16.9,
+          "win_rate_no_skill_pct": 17.2,
           "win_rate_needed_pct": 53.4,
-          "gap_pp": 36.5,
-          "pnl_buy_in_s": -1.128,
-          "pnl_sell_in_s": -0.864,
-          "pnl_mean_in_s": -0.996
+          "gap_pp": 36.2,
+          "pnl_buy_in_s": -1.12,
+          "pnl_sell_in_s": -0.867,
+          "pnl_mean_in_s": -0.994
         },
         "3/1/240": {
-          "entries": 42719,
+          "entries": 42960,
           "decisive_share": 0.882,
-          "win_rate_no_skill_pct": 18.7,
+          "win_rate_no_skill_pct": 19.1,
           "win_rate_needed_pct": 50.8,
-          "gap_pp": 32.1,
-          "pnl_buy_in_s": -1.178,
-          "pnl_sell_in_s": -0.842,
-          "pnl_mean_in_s": -1.01
+          "gap_pp": 31.7,
+          "pnl_buy_in_s": -1.162,
+          "pnl_sell_in_s": -0.849,
+          "pnl_mean_in_s": -1.005
         }
       }
     },
@@ -165,7 +165,7 @@
         "entries": 42960,
         "reached_share": 0.97,
         "median_sec_reached": 1969.0,
-        "p90_sec_reached": 7236.3
+        "p90_sec_reached": 7235.0
       },
       "triple_barrier": {
         "3/1/5": {
@@ -455,7 +455,7 @@
     ],
     "median_time_sec": [
       27.0,
-      1300.0,
+      1309.0,
       1969.0,
       38.0,
       162.0,
