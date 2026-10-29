@@ -25,6 +25,7 @@
 | 鎌倉散歩 — これから書くことについて | 2026-09-17 | [読む](https://zenn.dev/kamakuraquant/articles/2679ccc6c71416) | [本文](assets/00_kamakura-sampo/draft.md) |
 | スプレッドだけでは安さは分からない：国内暗号資産 12 市場の取引コスト比較 | 2026-09-27 | [読む](https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2) | [本文](assets/01_spread-vs-fees/draft.md)・[スクリプトと集計結果](assets/01_spread-vs-fees/) |
 | 同じ銘柄でもボラティリティは同じか？ Binance と国内市場を測定間隔で比べる | 2026-10-03 | [読む](https://zenn.dev/kamakuraquant/articles/c054d44d00f04e) | [本文](assets/02_volatility-estimation/draft.md)・[スクリプトと集計結果](assets/02_volatility-estimation/) |
+| その値動きは、取引コストを超えられるか | 2026-10-29 | [読む](https://zenn.dev/kamakuraquant/articles/8426db0c74ebf1) | [本文](assets/03_spread-vol-triple-barrier/draft.md)・[スクリプトと集計結果](assets/03_spread-vol-triple-barrier/) |
 
 プロローグは今後の執筆方針を紹介する記事のため、分析スクリプトや数値の検証結果はありません。
 
@@ -43,3 +44,4 @@ Zenn の GitHub 連携による自動デプロイを有効にしています。
 | [articles/2679ccc6c71416.md](articles/2679ccc6c71416.md) | [assets/00_kamakura-sampo/](assets/00_kamakura-sampo/) | https://zenn.dev/kamakuraquant/articles/2679ccc6c71416 |
 | [articles/59a62dcdce7ef2.md](articles/59a62dcdce7ef2.md) | [assets/01_spread-vs-fees/](assets/01_spread-vs-fees/) | https://zenn.dev/kamakuraquant/articles/59a62dcdce7ef2 |
 | [articles/c054d44d00f04e.md](articles/c054d44d00f04e.md) | [assets/02_volatility-estimation/](assets/02_volatility-estimation/) | https://zenn.dev/kamakuraquant/articles/c054d44d00f04e |
+| [articles/8426db0c74ebf1.md](articles/8426db0c74ebf1.md) | [assets/03_spread-vol-triple-barrier/](assets/03_spread-vol-triple-barrier/) | https://zenn.dev/kamakuraquant/articles/8426db0c74ebf1 |
