@@ -21,6 +21,9 @@ timeout in units of s, and w the win rate among decisive trades,
 
     E/s = D*w*(tp-1) - D*(1-w)*(sl+1) + (1-D)*(m-1)
 
+This is the idealized barrier-payoff model. Measured paths may jump beyond
+barriers; paths.py also reports an overshoot-aware break-even diagnostic.
+
 and E > 0 needs w >= [(1-D)(1-m) + D(sl+1)] / [D(tp+sl)].
 
 D, m and the no-skill win rate come from a driftless walk with steps of

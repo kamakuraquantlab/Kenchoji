@@ -17,9 +17,11 @@ For the fixed triple-barrier setup it records:
     needed   the break-even win rate, from the same formula as feasibility.py
     pnl      mean outcome per trade in units of s, for a buy and for a sell
 
-With no drift, a trade made with no prediction loses exactly s on average, so
-pnl is -1. The buy and sell columns straddle -1 by the month's drift; their
-mean is the drift-free figure.
+With no drift, a trade made with no prediction loses approximately s on average.
+The published `win_rate_needed_pct` intentionally uses idealized barrier
+payoffs (+2s/-2s) for consistency with feasibility.py. Actual paths can
+overshoot barriers; additional empirical payoff and break-even diagnostics
+use the observed first-crossing prices without rewriting the published model.
 
 Outcomes use the mid at the first second past the barrier, so a jump through it
 counts at its real size. s is from inputs.json and held constant. Days with a
@@ -72,6 +74,7 @@ def run(lp, s, tp, sl, t, side):
     ent = np.arange(0, len(lp) - T, ENTRY_EVERY_SEC)
     n_tp = n_sl = n_to = 0
     to_mv, pnl = [], []
+    win_pnl_sum = loss_pnl_sum = 0.0
     for c in range(0, len(ent), CHUNK):
         e = ent[c:c + CHUNK]
         W = side * (lp[e[:, None] + np.arange(T + 1)[None, :]] - lp[e][:, None])
@@ -86,14 +89,24 @@ def run(lp, s, tp, sl, t, side):
         n_tp += int(up.sum()); n_sl += int(dn.sum()); n_to += int(no.sum())
         idx = np.where(up, fu, np.where(dn, fd, T))
         mv = W[np.arange(len(W)), idx] / s
-        pnl.append(mv - 1); to_mv.append(mv[no])
+        realized_pnl = mv - 1
+        win_pnl_sum += float(realized_pnl[up].sum())
+        loss_pnl_sum += float(realized_pnl[dn].sum())
+        pnl.append(realized_pnl); to_mv.append(mv[no])
     pnl, to_mv = np.concatenate(pnl), np.concatenate(to_mv)
     N = n_tp + n_sl + n_to
     D = (n_tp + n_sl) / N
     m = float(to_mv.mean()) if len(to_mv) else 0.0
     need = ((1 - D) * (1 - m) + D * (sl + 1)) / (D * (tp + sl))
     w0 = n_tp / (n_tp + n_sl)
-    return N, D, w0, need, float(pnl.mean())
+    avg_win = win_pnl_sum / n_tp if n_tp else None
+    avg_loss = loss_pnl_sum / n_sl if n_sl else None
+    # Empirical counterfactual: hold D and timeout outcomes fixed while
+    # reweighting observed decisive win/loss payoffs. Still not a strategy PnL.
+    empirical_need = None
+    if avg_win is not None and avg_loss is not None and avg_win > avg_loss and D > 0:
+        empirical_need = (-(1 - D) * (m - 1) - D * avg_loss) / (D * (avg_win - avg_loss))
+    return N, D, w0, need, float(pnl.mean()), avg_win, avg_loss, empirical_need
 
 
 def oracle_break_even(lp, s, timeout_min=ORACLE_TIMEOUT_MIN):
@@ -180,12 +193,15 @@ for market in TARGETS:
     oracle = oracle_break_even(lp, s)
     rows = {}
     for tp, sl, t in SETTINGS:
-        N, D, w0, need, buy = run(lp, s, tp, sl, t, +1)
-        *_, sell = run(lp, s, tp, sl, t, -1)
+        N, D, w0, need, buy, avg_win, avg_loss, empirical_need = run(lp, s, tp, sl, t, +1)
+        sell = run(lp, s, tp, sl, t, -1)[4]
         rows[f"{tp}/{sl}/{t}"] = {
             "entries": N, "decisive_share": round(D, 3),
             "win_rate_no_skill_pct": round(w0 * 100, 1),
             "win_rate_needed_pct": round(need * 100, 1),
+            "win_rate_needed_empirical_pct": round(empirical_need * 100, 1) if empirical_need is not None else None,
+            "mean_win_pnl_in_s": round(avg_win, 4) if avg_win is not None else None,
+            "mean_loss_pnl_in_s": round(avg_loss, 4) if avg_loss is not None else None,
             "gap_pp": round((need - w0) * 100, 1),
             "pnl_buy_in_s": round(buy, 3), "pnl_sell_in_s": round(sell, 3),
             "pnl_mean_in_s": round((buy + sell) / 2, 3),

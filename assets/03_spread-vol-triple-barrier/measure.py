@@ -2,8 +2,8 @@
 
     s  round-trip cost in bps: the 1,000,000 JPY book walk of article 1, plus
        the taker fee on both legs (an input, not a measurement)
-    v  volatility over one minute in bps: article 2's 1-minute RV, divided by
-       the root of the 1,440 minutes in the day
+    v  volatility scale for one-minute returns, in bps (not bps/minute):
+       article 2's daily 1-minute RV divided by sqrt(1,440)
 
 Measured with the same definitions as the two published articles, over all of
 June 2026 rather than their first four weeks:
