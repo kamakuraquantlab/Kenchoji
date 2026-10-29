@@ -1,0 +1,475 @@
+{
+  "window": [
+    "2026-06-01",
+    "2026-06-30"
+  ],
+  "entry_every_sec": 60,
+  "targets": [
+    "COINCHECK:BTC_SPOT",
+    "COINCHECK:ETH_SPOT",
+    "COINCHECK:XRP_SPOT",
+    "GMO:BTC_JPY",
+    "GMO:ETH_JPY",
+    "GMO:XRP_JPY"
+  ],
+  "oracle_break_even": {
+    "definition": "first abs(mid move) >= S; oracle selects that direction",
+    "timeout_min": 240
+  },
+  "markets": {
+    "COINCHECK:BTC_SPOT": {
+      "oracle_break_even": {
+        "timeout_min": 240,
+        "entries": 42960,
+        "reached_share": 1.0,
+        "median_sec_reached": 27.0,
+        "p90_sec_reached": 152.0
+      },
+      "triple_barrier": {
+        "3/1/5": {
+          "entries": 43195,
+          "decisive_share": 0.85,
+          "win_rate_no_skill_pct": 24.6,
+          "win_rate_needed_pct": 51.0,
+          "gap_pp": 26.3,
+          "pnl_buy_in_s": -0.988,
+          "pnl_sell_in_s": -0.995,
+          "pnl_mean_in_s": -0.992
+        },
+        "3/1/15": {
+          "entries": 43185,
+          "decisive_share": 0.974,
+          "win_rate_no_skill_pct": 27.4,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.6,
+          "pnl_buy_in_s": -0.975,
+          "pnl_sell_in_s": -0.99,
+          "pnl_mean_in_s": -0.982
+        },
+        "3/1/30": {
+          "entries": 43170,
+          "decisive_share": 0.996,
+          "win_rate_no_skill_pct": 27.9,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.1,
+          "pnl_buy_in_s": -0.973,
+          "pnl_sell_in_s": -0.992,
+          "pnl_mean_in_s": -0.983
+        },
+        "3/1/60": {
+          "entries": 43140,
+          "decisive_share": 1.0,
+          "win_rate_no_skill_pct": 28.0,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.0,
+          "pnl_buy_in_s": -0.972,
+          "pnl_sell_in_s": -0.995,
+          "pnl_mean_in_s": -0.983
+        },
+        "3/1/120": {
+          "entries": 43080,
+          "decisive_share": 1.0,
+          "win_rate_no_skill_pct": 28.0,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.0,
+          "pnl_buy_in_s": -0.972,
+          "pnl_sell_in_s": -0.995,
+          "pnl_mean_in_s": -0.983
+        },
+        "3/1/240": {
+          "entries": 42960,
+          "decisive_share": 1.0,
+          "win_rate_no_skill_pct": 28.0,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.0,
+          "pnl_buy_in_s": -0.971,
+          "pnl_sell_in_s": -0.996,
+          "pnl_mean_in_s": -0.983
+        }
+      }
+    },
+    "COINCHECK:ETH_SPOT": {
+      "oracle_break_even": {
+        "timeout_min": 240,
+        "entries": 42719,
+        "reached_share": 0.988,
+        "median_sec_reached": 1300.0,
+        "p90_sec_reached": 5699.2
+      },
+      "triple_barrier": {
+        "3/1/5": {
+          "entries": 43189,
+          "decisive_share": 0.077,
+          "win_rate_no_skill_pct": 4.5,
+          "win_rate_needed_pct": 331.1,
+          "gap_pp": 326.6,
+          "pnl_buy_in_s": -1.01,
+          "pnl_sell_in_s": -0.992,
+          "pnl_mean_in_s": -1.001
+        },
+        "3/1/15": {
+          "entries": 43169,
+          "decisive_share": 0.227,
+          "win_rate_no_skill_pct": 8.8,
+          "win_rate_needed_pct": 119.6,
+          "gap_pp": 110.8,
+          "pnl_buy_in_s": -1.021,
+          "pnl_sell_in_s": -0.975,
+          "pnl_mean_in_s": -0.998
+        },
+        "3/1/30": {
+          "entries": 43139,
+          "decisive_share": 0.382,
+          "win_rate_no_skill_pct": 11.7,
+          "win_rate_needed_pct": 78.3,
+          "gap_pp": 66.6,
+          "pnl_buy_in_s": -1.042,
+          "pnl_sell_in_s": -0.952,
+          "pnl_mean_in_s": -0.997
+        },
+        "3/1/60": {
+          "entries": 43079,
+          "decisive_share": 0.57,
+          "win_rate_no_skill_pct": 14.8,
+          "win_rate_needed_pct": 60.6,
+          "gap_pp": 45.8,
+          "pnl_buy_in_s": -1.076,
+          "pnl_sell_in_s": -0.916,
+          "pnl_mean_in_s": -0.996
+        },
+        "3/1/120": {
+          "entries": 42959,
+          "decisive_share": 0.747,
+          "win_rate_no_skill_pct": 16.9,
+          "win_rate_needed_pct": 53.4,
+          "gap_pp": 36.5,
+          "pnl_buy_in_s": -1.128,
+          "pnl_sell_in_s": -0.864,
+          "pnl_mean_in_s": -0.996
+        },
+        "3/1/240": {
+          "entries": 42719,
+          "decisive_share": 0.882,
+          "win_rate_no_skill_pct": 18.7,
+          "win_rate_needed_pct": 50.8,
+          "gap_pp": 32.1,
+          "pnl_buy_in_s": -1.178,
+          "pnl_sell_in_s": -0.842,
+          "pnl_mean_in_s": -1.01
+        }
+      }
+    },
+    "COINCHECK:XRP_SPOT": {
+      "oracle_break_even": {
+        "timeout_min": 240,
+        "entries": 42960,
+        "reached_share": 0.97,
+        "median_sec_reached": 1969.0,
+        "p90_sec_reached": 7236.3
+      },
+      "triple_barrier": {
+        "3/1/5": {
+          "entries": 43195,
+          "decisive_share": 0.035,
+          "win_rate_no_skill_pct": 2.9,
+          "win_rate_needed_pct": 727.6,
+          "gap_pp": 724.8,
+          "pnl_buy_in_s": -1.007,
+          "pnl_sell_in_s": -0.993,
+          "pnl_mean_in_s": -1.0
+        },
+        "3/1/15": {
+          "entries": 43185,
+          "decisive_share": 0.144,
+          "win_rate_no_skill_pct": 4.7,
+          "win_rate_needed_pct": 179.8,
+          "gap_pp": 175.2,
+          "pnl_buy_in_s": -1.019,
+          "pnl_sell_in_s": -0.975,
+          "pnl_mean_in_s": -0.997
+        },
+        "3/1/30": {
+          "entries": 43170,
+          "decisive_share": 0.275,
+          "win_rate_no_skill_pct": 7.6,
+          "win_rate_needed_pct": 100.3,
+          "gap_pp": 92.8,
+          "pnl_buy_in_s": -1.036,
+          "pnl_sell_in_s": -0.954,
+          "pnl_mean_in_s": -0.995
+        },
+        "3/1/60": {
+          "entries": 43140,
+          "decisive_share": 0.455,
+          "win_rate_no_skill_pct": 11.2,
+          "win_rate_needed_pct": 68.4,
+          "gap_pp": 57.2,
+          "pnl_buy_in_s": -1.064,
+          "pnl_sell_in_s": -0.912,
+          "pnl_mean_in_s": -0.988
+        },
+        "3/1/120": {
+          "entries": 43080,
+          "decisive_share": 0.654,
+          "win_rate_no_skill_pct": 14.0,
+          "win_rate_needed_pct": 55.9,
+          "gap_pp": 41.9,
+          "pnl_buy_in_s": -1.125,
+          "pnl_sell_in_s": -0.874,
+          "pnl_mean_in_s": -0.999
+        },
+        "3/1/240": {
+          "entries": 42960,
+          "decisive_share": 0.826,
+          "win_rate_no_skill_pct": 17.9,
+          "win_rate_needed_pct": 51.5,
+          "gap_pp": 33.6,
+          "pnl_buy_in_s": -1.142,
+          "pnl_sell_in_s": -0.805,
+          "pnl_mean_in_s": -0.973
+        }
+      }
+    },
+    "GMO:BTC_JPY": {
+      "oracle_break_even": {
+        "timeout_min": 240,
+        "entries": 41280,
+        "reached_share": 1.0,
+        "median_sec_reached": 38.0,
+        "p90_sec_reached": 200.0
+      },
+      "triple_barrier": {
+        "3/1/5": {
+          "entries": 41750,
+          "decisive_share": 0.799,
+          "win_rate_no_skill_pct": 23.0,
+          "win_rate_needed_pct": 51.7,
+          "gap_pp": 28.7,
+          "pnl_buy_in_s": -0.994,
+          "pnl_sell_in_s": -0.981,
+          "pnl_mean_in_s": -0.988
+        },
+        "3/1/15": {
+          "entries": 41730,
+          "decisive_share": 0.952,
+          "win_rate_no_skill_pct": 26.5,
+          "win_rate_needed_pct": 50.3,
+          "gap_pp": 23.8,
+          "pnl_buy_in_s": -0.983,
+          "pnl_sell_in_s": -0.976,
+          "pnl_mean_in_s": -0.979
+        },
+        "3/1/30": {
+          "entries": 41700,
+          "decisive_share": 0.984,
+          "win_rate_no_skill_pct": 27.2,
+          "win_rate_needed_pct": 50.2,
+          "gap_pp": 23.0,
+          "pnl_buy_in_s": -0.978,
+          "pnl_sell_in_s": -0.983,
+          "pnl_mean_in_s": -0.98
+        },
+        "3/1/60": {
+          "entries": 41640,
+          "decisive_share": 0.993,
+          "win_rate_no_skill_pct": 27.4,
+          "win_rate_needed_pct": 50.2,
+          "gap_pp": 22.7,
+          "pnl_buy_in_s": -0.973,
+          "pnl_sell_in_s": -0.991,
+          "pnl_mean_in_s": -0.982
+        },
+        "3/1/120": {
+          "entries": 41520,
+          "decisive_share": 0.999,
+          "win_rate_no_skill_pct": 27.5,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.6,
+          "pnl_buy_in_s": -0.967,
+          "pnl_sell_in_s": -0.999,
+          "pnl_mean_in_s": -0.983
+        },
+        "3/1/240": {
+          "entries": 41280,
+          "decisive_share": 1.0,
+          "win_rate_no_skill_pct": 27.5,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 22.5,
+          "pnl_buy_in_s": -0.963,
+          "pnl_sell_in_s": -1.005,
+          "pnl_mean_in_s": -0.984
+        }
+      }
+    },
+    "GMO:ETH_JPY": {
+      "oracle_break_even": {
+        "timeout_min": 240,
+        "entries": 41280,
+        "reached_share": 1.0,
+        "median_sec_reached": 162.0,
+        "p90_sec_reached": 789.0
+      },
+      "triple_barrier": {
+        "3/1/5": {
+          "entries": 41750,
+          "decisive_share": 0.456,
+          "win_rate_no_skill_pct": 14.5,
+          "win_rate_needed_pct": 67.6,
+          "gap_pp": 53.1,
+          "pnl_buy_in_s": -0.999,
+          "pnl_sell_in_s": -0.974,
+          "pnl_mean_in_s": -0.987
+        },
+        "3/1/15": {
+          "entries": 41730,
+          "decisive_share": 0.738,
+          "win_rate_no_skill_pct": 20.1,
+          "win_rate_needed_pct": 52.9,
+          "gap_pp": 32.8,
+          "pnl_buy_in_s": -1.005,
+          "pnl_sell_in_s": -0.952,
+          "pnl_mean_in_s": -0.978
+        },
+        "3/1/30": {
+          "entries": 41700,
+          "decisive_share": 0.875,
+          "win_rate_no_skill_pct": 22.7,
+          "win_rate_needed_pct": 50.9,
+          "gap_pp": 28.2,
+          "pnl_buy_in_s": -1.022,
+          "pnl_sell_in_s": -0.943,
+          "pnl_mean_in_s": -0.983
+        },
+        "3/1/60": {
+          "entries": 41640,
+          "decisive_share": 0.958,
+          "win_rate_no_skill_pct": 24.5,
+          "win_rate_needed_pct": 50.2,
+          "gap_pp": 25.7,
+          "pnl_buy_in_s": -1.021,
+          "pnl_sell_in_s": -0.939,
+          "pnl_mean_in_s": -0.98
+        },
+        "3/1/120": {
+          "entries": 41520,
+          "decisive_share": 0.992,
+          "win_rate_no_skill_pct": 25.1,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 24.9,
+          "pnl_buy_in_s": -1.022,
+          "pnl_sell_in_s": -0.945,
+          "pnl_mean_in_s": -0.983
+        },
+        "3/1/240": {
+          "entries": 41280,
+          "decisive_share": 1.0,
+          "win_rate_no_skill_pct": 25.5,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 24.5,
+          "pnl_buy_in_s": -1.013,
+          "pnl_sell_in_s": -0.948,
+          "pnl_mean_in_s": -0.981
+        }
+      }
+    },
+    "GMO:XRP_JPY": {
+      "oracle_break_even": {
+        "timeout_min": 240,
+        "entries": 41280,
+        "reached_share": 1.0,
+        "median_sec_reached": 85.0,
+        "p90_sec_reached": 387.0
+      },
+      "triple_barrier": {
+        "3/1/5": {
+          "entries": 41750,
+          "decisive_share": 0.621,
+          "win_rate_no_skill_pct": 17.3,
+          "win_rate_needed_pct": 55.9,
+          "gap_pp": 38.6,
+          "pnl_buy_in_s": -1.003,
+          "pnl_sell_in_s": -0.943,
+          "pnl_mean_in_s": -0.973
+        },
+        "3/1/15": {
+          "entries": 41730,
+          "decisive_share": 0.871,
+          "win_rate_no_skill_pct": 23.3,
+          "win_rate_needed_pct": 50.6,
+          "gap_pp": 27.3,
+          "pnl_buy_in_s": -1.0,
+          "pnl_sell_in_s": -0.915,
+          "pnl_mean_in_s": -0.957
+        },
+        "3/1/30": {
+          "entries": 41700,
+          "decisive_share": 0.957,
+          "win_rate_no_skill_pct": 25.2,
+          "win_rate_needed_pct": 50.3,
+          "gap_pp": 25.0,
+          "pnl_buy_in_s": -1.004,
+          "pnl_sell_in_s": -0.913,
+          "pnl_mean_in_s": -0.959
+        },
+        "3/1/60": {
+          "entries": 41640,
+          "decisive_share": 0.989,
+          "win_rate_no_skill_pct": 26.0,
+          "win_rate_needed_pct": 50.1,
+          "gap_pp": 24.1,
+          "pnl_buy_in_s": -0.998,
+          "pnl_sell_in_s": -0.917,
+          "pnl_mean_in_s": -0.957
+        },
+        "3/1/120": {
+          "entries": 41520,
+          "decisive_share": 0.998,
+          "win_rate_no_skill_pct": 26.4,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 23.6,
+          "pnl_buy_in_s": -0.98,
+          "pnl_sell_in_s": -0.926,
+          "pnl_mean_in_s": -0.953
+        },
+        "3/1/240": {
+          "entries": 41280,
+          "decisive_share": 1.0,
+          "win_rate_no_skill_pct": 26.6,
+          "win_rate_needed_pct": 50.0,
+          "gap_pp": 23.4,
+          "pnl_buy_in_s": -0.97,
+          "pnl_sell_in_s": -0.934,
+          "pnl_mean_in_s": -0.952
+        }
+      }
+    }
+  },
+  "cross_market_correlation": {
+    "markets": [
+      "COINCHECK:BTC_SPOT",
+      "COINCHECK:ETH_SPOT",
+      "COINCHECK:XRP_SPOT",
+      "GMO:BTC_JPY",
+      "GMO:ETH_JPY",
+      "GMO:XRP_JPY"
+    ],
+    "median_time_sec": [
+      27.0,
+      1300.0,
+      1969.0,
+      38.0,
+      162.0,
+      85.0
+    ],
+    "log_pearson": {
+      "s_bps": 0.997,
+      "v1_bps_per_min": 0.66,
+      "s_over_v1": 0.999
+    },
+    "spearman": {
+      "s_bps": 1.0,
+      "v1_bps_per_min": 0.6,
+      "s_over_v1": 1.0
+    }
+  }
+}

@@ -1,0 +1,592 @@
+{
+  "window": [
+    "2026-06-01",
+    "2026-06-30"
+  ],
+  "settings": {
+    "tp": 3.0,
+    "sl": 1.0,
+    "t": 30.0
+  },
+  "standard": {
+    "COINCHECK:BTC_SPOT": {
+      "tp": 3.0,
+      "sl": 1.0,
+      "timeout_min": 30.0,
+      "decisive_share": 1.0,
+      "win_rate_no_skill_pct": 27.7,
+      "win_rate_needed_pct": 50.0,
+      "gap_pp": 22.3,
+      "one_over_tp_plus_sl_pp": 25.0,
+      "cost_over_move": 0.086,
+      "v_over_s": 2.12,
+      "v_over_board": 2.12,
+      "fee_over_board": 0.0,
+      "drift_pct": -18.9
+    },
+    "COINCHECK:ETH_SPOT": {
+      "tp": 3.0,
+      "sl": 1.0,
+      "timeout_min": 30.0,
+      "decisive_share": 0.516,
+      "win_rate_no_skill_pct": 6.9,
+      "win_rate_needed_pct": 55.5,
+      "gap_pp": 48.6,
+      "one_over_tp_plus_sl_pp": 25.0,
+      "cost_over_move": 0.685,
+      "v_over_s": 0.27,
+      "v_over_board": 0.27,
+      "fee_over_board": 0.0,
+      "drift_pct": -20.6
+    },
+    "COINCHECK:XRP_SPOT": {
+      "tp": 3.0,
+      "sl": 1.0,
+      "timeout_min": 30.0,
+      "decisive_share": 0.33,
+      "win_rate_no_skill_pct": 1.3,
+      "win_rate_needed_pct": 77.1,
+      "gap_pp": 75.9,
+      "one_over_tp_plus_sl_pp": 25.0,
+      "cost_over_move": 0.951,
+      "v_over_s": 0.19,
+      "v_over_board": 0.19,
+      "fee_over_board": 0.0,
+      "drift_pct": -20.7
+    },
+    "GMO:BTC_JPY": {
+      "tp": 3.0,
+      "sl": 1.0,
+      "timeout_min": 30.0,
+      "decisive_share": 1.0,
+      "win_rate_no_skill_pct": 27.3,
+      "win_rate_needed_pct": 50.0,
+      "gap_pp": 22.7,
+      "one_over_tp_plus_sl_pp": 25.0,
+      "cost_over_move": 0.102,
+      "v_over_s": 1.8,
+      "v_over_board": 1.8,
+      "fee_over_board": 0.0,
+      "drift_pct": -19.0
+    },
+    "GMO:ETH_JPY": {
+      "tp": 3.0,
+      "sl": 1.0,
+      "timeout_min": 30.0,
+      "decisive_share": 0.998,
+      "win_rate_no_skill_pct": 26.1,
+      "win_rate_needed_pct": 50.0,
+      "gap_pp": 23.9,
+      "one_over_tp_plus_sl_pp": 25.0,
+      "cost_over_move": 0.212,
+      "v_over_s": 0.86,
+      "v_over_board": 0.86,
+      "fee_over_board": 0.0,
+      "drift_pct": -20.6
+    },
+    "GMO:XRP_JPY": {
+      "tp": 3.0,
+      "sl": 1.0,
+      "timeout_min": 30.0,
+      "decisive_share": 1.0,
+      "win_rate_no_skill_pct": 26.9,
+      "win_rate_needed_pct": 50.0,
+      "gap_pp": 23.1,
+      "one_over_tp_plus_sl_pp": 25.0,
+      "cost_over_move": 0.167,
+      "v_over_s": 1.09,
+      "v_over_board": 1.09,
+      "fee_over_board": 0.0,
+      "drift_pct": -20.7
+    }
+  },
+  "by_timeout": {
+    "COINCHECK:BTC_SPOT": {
+      "5": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 5,
+        "decisive_share": 0.996,
+        "win_rate_no_skill_pct": 27.9,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.211
+      },
+      "15": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 15,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.9,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.122
+      },
+      "30": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 28.5,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 21.5,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.086
+      },
+      "60": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 60,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 28.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 21.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.061
+      },
+      "120": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 120,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 28.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 21.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.043
+      },
+      "240": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 240,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.8,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.03
+      }
+    },
+    "COINCHECK:ETH_SPOT": {
+      "5": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 5,
+        "decisive_share": 0.087,
+        "win_rate_no_skill_pct": 0.0,
+        "win_rate_needed_pct": 288.3,
+        "gap_pp": 288.3,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 1.677
+      },
+      "15": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 15,
+        "decisive_share": 0.32,
+        "win_rate_no_skill_pct": 1.2,
+        "win_rate_needed_pct": 78.4,
+        "gap_pp": 77.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.968
+      },
+      "30": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 30,
+        "decisive_share": 0.516,
+        "win_rate_no_skill_pct": 7.2,
+        "win_rate_needed_pct": 55.0,
+        "gap_pp": 47.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.685
+      },
+      "60": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 60,
+        "decisive_share": 0.747,
+        "win_rate_no_skill_pct": 16.9,
+        "win_rate_needed_pct": 50.3,
+        "gap_pp": 33.4,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.484
+      },
+      "120": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 120,
+        "decisive_share": 0.928,
+        "win_rate_no_skill_pct": 23.8,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 26.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.342
+      },
+      "240": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 240,
+        "decisive_share": 0.994,
+        "win_rate_no_skill_pct": 25.1,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 24.9,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.242
+      }
+    },
+    "COINCHECK:XRP_SPOT": {
+      "5": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 5,
+        "decisive_share": 0.017,
+        "win_rate_no_skill_pct": 0.0,
+        "win_rate_needed_pct": 1479.1,
+        "gap_pp": 1479.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 2.33
+      },
+      "15": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 15,
+        "decisive_share": 0.163,
+        "win_rate_no_skill_pct": 0.0,
+        "win_rate_needed_pct": 152.6,
+        "gap_pp": 152.6,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 1.345
+      },
+      "30": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 30,
+        "decisive_share": 0.335,
+        "win_rate_no_skill_pct": 1.2,
+        "win_rate_needed_pct": 75.6,
+        "gap_pp": 74.4,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.951
+      },
+      "60": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 60,
+        "decisive_share": 0.528,
+        "win_rate_no_skill_pct": 8.0,
+        "win_rate_needed_pct": 54.1,
+        "gap_pp": 46.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.673
+      },
+      "120": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 120,
+        "decisive_share": 0.756,
+        "win_rate_no_skill_pct": 16.8,
+        "win_rate_needed_pct": 50.3,
+        "gap_pp": 33.5,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.476
+      },
+      "240": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 240,
+        "decisive_share": 0.938,
+        "win_rate_no_skill_pct": 23.4,
+        "win_rate_needed_pct": 50.1,
+        "gap_pp": 26.6,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.336
+      }
+    },
+    "GMO:BTC_JPY": {
+      "5": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 5,
+        "decisive_share": 0.982,
+        "win_rate_no_skill_pct": 27.4,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.6,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.249
+      },
+      "15": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 15,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 26.9,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 23.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.144
+      },
+      "30": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 28.5,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 21.5,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.102
+      },
+      "60": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 60,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.072
+      },
+      "120": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 120,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.8,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.051
+      },
+      "240": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 240,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.9,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.036
+      }
+    },
+    "GMO:ETH_JPY": {
+      "5": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 5,
+        "decisive_share": 0.669,
+        "win_rate_no_skill_pct": 15.0,
+        "win_rate_needed_pct": 50.9,
+        "gap_pp": 35.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.52
+      },
+      "15": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 15,
+        "decisive_share": 0.955,
+        "win_rate_no_skill_pct": 25.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 24.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.3
+      },
+      "30": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 30,
+        "decisive_share": 0.998,
+        "win_rate_no_skill_pct": 26.0,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 24.1,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.212
+      },
+      "60": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 60,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 25.8,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 24.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.15
+      },
+      "120": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 120,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 26.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 23.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.106
+      },
+      "240": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 240,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 26.1,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 23.9,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.075
+      }
+    },
+    "GMO:XRP_JPY": {
+      "5": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 5,
+        "decisive_share": 0.814,
+        "win_rate_no_skill_pct": 21.6,
+        "win_rate_needed_pct": 50.1,
+        "gap_pp": 28.5,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.409
+      },
+      "15": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 15,
+        "decisive_share": 0.993,
+        "win_rate_no_skill_pct": 26.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 23.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.236
+      },
+      "30": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.2,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.8,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.167
+      },
+      "60": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 60,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 26.5,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 23.5,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.118
+      },
+      "120": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 120,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 26.8,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 23.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.083
+      },
+      "240": {
+        "tp": 3.0,
+        "sl": 1.0,
+        "timeout_min": 240,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 27.1,
+        "win_rate_needed_pct": 50.0,
+        "gap_pp": 22.9,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.059
+      }
+    }
+  },
+  "ladder": {
+    "market": "COINCHECK:BTC_SPOT",
+    "v": 7.056,
+    "s": 3.322,
+    "steps": [
+      {
+        "tp": 1,
+        "sl": 1,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 48.9,
+        "win_rate_needed_pct": 100.0,
+        "gap_pp": 51.1,
+        "one_over_tp_plus_sl_pp": 50.0,
+        "cost_over_move": 0.086,
+        "label": "出発点"
+      },
+      {
+        "tp": 2,
+        "sl": 1,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 36.1,
+        "win_rate_needed_pct": 66.7,
+        "gap_pp": 30.5,
+        "one_over_tp_plus_sl_pp": 33.3,
+        "cost_over_move": 0.086,
+        "label": "tp を上げる"
+      },
+      {
+        "tp": 2,
+        "sl": 2,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 49.8,
+        "win_rate_needed_pct": 75.0,
+        "gap_pp": 25.2,
+        "one_over_tp_plus_sl_pp": 25.0,
+        "cost_over_move": 0.086,
+        "label": "sl も上げる"
+      },
+      {
+        "tp": 3,
+        "sl": 2,
+        "timeout_min": 30,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 40.5,
+        "win_rate_needed_pct": 60.0,
+        "gap_pp": 19.5,
+        "one_over_tp_plus_sl_pp": 20.0,
+        "cost_over_move": 0.086,
+        "label": "tp をさらに上げる"
+      },
+      {
+        "tp": 3,
+        "sl": 2,
+        "timeout_min": 120,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 41.1,
+        "win_rate_needed_pct": 60.0,
+        "gap_pp": 18.9,
+        "one_over_tp_plus_sl_pp": 20.0,
+        "cost_over_move": 0.043,
+        "label": "t を 4 倍に"
+      },
+      {
+        "tp": 4,
+        "sl": 3,
+        "timeout_min": 120,
+        "decisive_share": 1.0,
+        "win_rate_no_skill_pct": 43.3,
+        "win_rate_needed_pct": 57.1,
+        "gap_pp": 13.8,
+        "one_over_tp_plus_sl_pp": 14.3,
+        "cost_over_move": 0.043,
+        "label": "両方広げる"
+      }
+    ]
+  }
+}

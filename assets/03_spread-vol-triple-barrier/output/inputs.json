@@ -1,0 +1,119 @@
+{
+  "window": [
+    "2026-06-01",
+    "2026-06-30"
+  ],
+  "size_jpy": 1000000,
+  "in_scope": [
+    "COINCHECK:BTC_SPOT",
+    "COINCHECK:ETH_SPOT",
+    "COINCHECK:XRP_SPOT",
+    "GMO:BTC_JPY",
+    "GMO:ETH_JPY",
+    "GMO:XRP_JPY"
+  ],
+  "markets": {
+    "COINCHECK:BTC_SPOT": {
+      "days_cost": 30,
+      "days_vol": 30,
+      "days_dropped_for_outage": [],
+      "board_roundtrip_bps": 3.322,
+      "fillable_pct": 100.0,
+      "taker_pct_per_side": 0.0,
+      "taker_fee_checked": "2026-10-10",
+      "s_bps": 3.322,
+      "rv_1min_bps_per_day": 267.7,
+      "rv_5min_bps_per_day": 270.7,
+      "v_bps_per_min": 7.056,
+      "v_over_s": 2.124,
+      "s_over_v_squared_min": 0.2,
+      "drift_bps": -2100
+    },
+    "COINCHECK:ETH_SPOT": {
+      "days_cost": 30,
+      "days_vol": 30,
+      "days_dropped_for_outage": [],
+      "board_roundtrip_bps": 33.368,
+      "fillable_pct": 98.8,
+      "taker_pct_per_side": 0.0,
+      "taker_fee_checked": "2026-10-10",
+      "s_bps": 33.368,
+      "rv_1min_bps_per_day": 337.6,
+      "rv_5min_bps_per_day": 348.5,
+      "v_bps_per_min": 8.897,
+      "v_over_s": 0.267,
+      "s_over_v_squared_min": 14.1,
+      "drift_bps": -2304
+    },
+    "COINCHECK:XRP_SPOT": {
+      "days_cost": 30,
+      "days_vol": 30,
+      "days_dropped_for_outage": [],
+      "board_roundtrip_bps": 42.996,
+      "fillable_pct": 90.0,
+      "taker_pct_per_side": 0.0,
+      "taker_fee_checked": "2026-10-10",
+      "s_bps": 42.996,
+      "rv_1min_bps_per_day": 313.2,
+      "rv_5min_bps_per_day": 334.0,
+      "v_bps_per_min": 8.253,
+      "v_over_s": 0.192,
+      "s_over_v_squared_min": 27.1,
+      "drift_bps": -2314
+    },
+    "GMO:BTC_JPY": {
+      "days_cost": 30,
+      "days_vol": 29,
+      "days_dropped_for_outage": [
+        "2026-06-06"
+      ],
+      "board_roundtrip_bps": 3.828,
+      "fillable_pct": 100.0,
+      "taker_pct_per_side": 0.0,
+      "taker_fee_checked": "2026-10-10",
+      "s_bps": 3.828,
+      "rv_1min_bps_per_day": 261.2,
+      "rv_5min_bps_per_day": 261.9,
+      "v_bps_per_min": 6.882,
+      "v_over_s": 1.798,
+      "s_over_v_squared_min": 0.3,
+      "drift_bps": -2102
+    },
+    "GMO:ETH_JPY": {
+      "days_cost": 30,
+      "days_vol": 29,
+      "days_dropped_for_outage": [
+        "2026-06-06"
+      ],
+      "board_roundtrip_bps": 10.281,
+      "fillable_pct": 100.0,
+      "taker_pct_per_side": 0.0,
+      "taker_fee_checked": "2026-10-10",
+      "s_bps": 10.281,
+      "rv_1min_bps_per_day": 335.3,
+      "rv_5min_bps_per_day": 337.8,
+      "v_bps_per_min": 8.836,
+      "v_over_s": 0.859,
+      "s_over_v_squared_min": 1.4,
+      "drift_bps": -2303
+    },
+    "GMO:XRP_JPY": {
+      "days_cost": 30,
+      "days_vol": 29,
+      "days_dropped_for_outage": [
+        "2026-06-06"
+      ],
+      "board_roundtrip_bps": 7.916,
+      "fillable_pct": 100.0,
+      "taker_pct_per_side": 0.0,
+      "taker_fee_checked": "2026-10-10",
+      "s_bps": 7.916,
+      "rv_1min_bps_per_day": 328.8,
+      "rv_5min_bps_per_day": 335.5,
+      "v_bps_per_min": 8.666,
+      "v_over_s": 1.095,
+      "s_over_v_squared_min": 0.8,
+      "drift_bps": -2320
+    }
+  }
+}

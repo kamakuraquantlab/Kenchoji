@@ -1,0 +1,13 @@
+window 2026-06-01 .. 2026-06-30  (30 days)
+
+COINCHECK:BTC_SPOT   board   3.322 fee 0.00% s   3.322  v  7.06  v/s  2.12  (s/v)^2    0.2min  R2 10s 0.846 1m 0.953  drift -2100bps  days 30/30
+COINCHECK:ETH_SPOT   board  33.368 fee 0.00% s  33.368  v  8.90  v/s  0.27  (s/v)^2   14.1min  R2 10s 0.514 1m 0.863  drift -2304bps  days 30/30
+COINCHECK:XRP_SPOT   board  42.996 fee 0.00% s  42.996  v  8.25  v/s  0.19  (s/v)^2   27.1min  R2 10s 0.434 1m 0.804  drift -2314bps  days 30/30
+GMO:BTC_JPY          board   3.828 fee 0.00% s   3.828  v  6.88  v/s  1.80  (s/v)^2    0.3min  R2 10s 0.83 1m 0.947  drift -2102bps  days 30/29
+GMO:ETH_JPY          board  10.281 fee 0.00% s  10.281  v  8.84  v/s  0.86  (s/v)^2    1.4min  R2 10s 0.807 1m 0.947  drift -2303bps  days 30/29
+GMO:XRP_JPY          board   7.916 fee 0.00% s   7.916  v  8.67  v/s  1.09  (s/v)^2    0.8min  R2 10s 0.811 1m 0.938  drift -2320bps  days 30/29
+BITBANK:BTC_SPOT     board   2.724 fee 0.10% s  22.724  v  6.89  v/s  0.30  (s/v)^2   10.9min  R2 10s 0.589 1m 0.881  drift -2099bps  days 30/28
+BITBANK:ETH_SPOT     board   2.921 fee 0.12% s  26.921  v  8.80  v/s  0.33  (s/v)^2    9.4min  R2 10s 0.643 1m 0.893  drift -2302bps  days 30/28
+BITBANK:XRP_SPOT     board   2.525 fee 0.12% s  26.525  v  8.47  v/s  0.32  (s/v)^2    9.8min  R2 10s 0.533 1m 0.854  drift -2315bps  days 30/28
+
+wrote /home/lulurun/workspace/KamakuraQuantLab/Kamakura/article/03_spread-vol-triple-barrier/output/inputs.json
