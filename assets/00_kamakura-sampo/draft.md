@@ -87,3 +87,4 @@ canonical_url: https://zenn.dev/kamakuraquant/articles/2679ccc6c71416
 
 どれも、数字はすべて手元のデータから出したものです。
 再現できるように、分析に使ったコードと集計結果も一緒に公開します。
+使っているデータとツールは [kamakuraquantlab.jp](https://kamakuraquantlab.jp/) にまとめています。

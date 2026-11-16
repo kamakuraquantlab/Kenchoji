@@ -221,4 +221,6 @@ python regimes.py
 共通の `rv.py` が、リターン数の補正、日をまたいだ集計、記録の欠けの判定を行います。
 :::
 
+使ったデータの収録範囲（マーケット、期間、欠測）とファイル仕様は [Market Archive](https://kamakuraquantlab.jp/tsurugaoka/) に、Komachi と Hase の使い方は[ツールのページ](https://kamakuraquantlab.jp/tool/)にまとめています。
+
 *データ：鎌倉クオンツラボ。測定コードと出力：[GitHub](https://github.com/kamakuraquantlab/Kenchoji/tree/main/assets/02_volatility-estimation)。*

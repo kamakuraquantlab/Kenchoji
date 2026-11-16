@@ -356,6 +356,8 @@ python analysis.py --start 2026-06-01 --days 28
 手数料変更の検証には別途、bitbank BTC・XRP の 2025 年 11 月〜2026 年 3 月の板履歴が必要です。
 必要なデータをそろえたうえで、`analysis.py`、`fee_change.py`、`total_cost.py`、`derived.py`、`plots.py` の順に実行してください。
 
+使ったデータの収録範囲（マーケット、期間、欠測）とファイル仕様は [Market Archive](https://kamakuraquantlab.jp/tsurugaoka/) に、Komachi と Hase の使い方は[ツールのページ](https://kamakuraquantlab.jp/tool/)にまとめています。
+
 ---
 
 *データ: 鎌倉クオンツラボ。Binance Vision の公開約定データだけでは板スプレッドは再現できません。Binance の板履歴は別途必要です。*

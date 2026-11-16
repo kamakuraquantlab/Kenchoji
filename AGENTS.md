@@ -64,6 +64,10 @@ URLs are updated and pushed.
 ## New article checklist
 
 1. Create `assets/NN_slug/draft.md` (and scripts/output if any).
+   End the `自分で確かめるには` section with one short paragraph linking
+   [Market Archive](https://kamakuraquantlab.jp/tsurugaoka/) for coverage and the
+   file format, and the [tools page](https://kamakuraquantlab.jp/tool/) for
+   Komachi and Hase. Link text names the page; no banner, no store link.
 2. Pick the Zenn slug; create `articles/<slug>.md` with Zenn frontmatter and the
    body generated as above.
 3. After publishing: set `canonical_url` and `published_at` in the draft's

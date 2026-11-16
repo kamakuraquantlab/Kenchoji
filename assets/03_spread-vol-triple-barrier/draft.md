@@ -244,6 +244,8 @@ python3 paths.py --market COINCHECK:BTC_SPOT --output output/paths_coincheck_btc
 | §3.2 のランダムウォーク比較、§3.3 の勝率 25% | `feasibility.py` | `inputs.json` | `output/feasibility.json` |
 | §3.2, §3.3, §4 | `paths.py` | 板と `inputs.json` | `output/paths.json` |
 
+使ったデータの収録範囲（マーケット、期間、欠測）とファイル仕様は [Market Archive](https://kamakuraquantlab.jp/tsurugaoka/) に、Komachi と Hase の使い方は[ツールのページ](https://kamakuraquantlab.jp/tool/)にまとめています。
+
 ---
 
 > **GMO の市場について。** 本記事の `GMO:*_JPY` はレバレッジ市場です。GMO の現物（`GMO:*_SPOT`）とは別市場で、手数料体系も異なります。GMO コインの[公式手数料表](https://coin.z.com/jp/corp/guide/fees/)によると、日本時間 6:00 をまたいで保有する建玉には評価額の **0.04%（4 bps）/ 日**のレバレッジ手数料が発生します。この費用は本記事の S やトリプルバリアの損益に含めていません。6:00 をまたぐ取引を評価する場合は別途加算が必要です。
