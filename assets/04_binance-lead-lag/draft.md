@@ -1,8 +1,10 @@
 ---
 slate: 2
 publish: 4
-status: staged in Kenchoji (unpublished)
+status: published
 channel: Zenn
+published_at: 2026-11-18
+canonical_url: https://zenn.dev/kamakuraquant/articles/1291db5844632f
 ---
 
 # Binance の先行は 1 年で変わったか — 2025 年 8 月と 2026 年 8 月を 100 ms で比べる
@@ -199,6 +201,8 @@ Komachi が置く `date=` は両市場とも日本時間の日付です。UTC �
 
 `analysis.py` は 1 秒グリッドの最初の計測です。誤った結論へ至った測定も残すことで、
 分解能を変える前後を同じデータから確認できます。
+
+使ったデータの収録範囲（マーケット、期間、欠測）とファイル仕様は [Market Archive](https://kamakuraquantlab.jp/tsurugaoka/) に、Komachi と Hase の使い方は[ツールのページ](https://kamakuraquantlab.jp/tool/)にまとめています。
 
 ---
 
