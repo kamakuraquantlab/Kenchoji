@@ -1,0 +1,31 @@
+{
+  "_measurement": {
+    "dates": [
+      "2026-01-14",
+      "2026-03-11",
+      "2026-05-13",
+      "2026-07-08",
+      "2026-08-12"
+    ]
+  },
+  "BINANCE:BTC_USDT": {
+    "days": 5,
+    "rows_per_day_median": 850803,
+    "mean_interval_ms": 101.6
+  },
+  "COINCHECK:BTC_SPOT": {
+    "days": 5,
+    "rows_per_day_median": 232213,
+    "mean_interval_ms": 372.1
+  },
+  "BITBANK:BTC_SPOT": {
+    "days": 5,
+    "rows_per_day_median": 226937,
+    "mean_interval_ms": 380.7
+  },
+  "GMO:BTC_JPY": {
+    "days": 5,
+    "rows_per_day_median": 176246,
+    "mean_interval_ms": 490.2
+  }
+}

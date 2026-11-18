@@ -1,0 +1,4 @@
+2025-08-01 GMO:ETH_JPY            lag    600ms  pos 100.0%  r_opt 0.10211  r_0 0.01896
+2026-08-01 GMO:ETH_JPY            lag    500ms  pos 100.0%  r_opt 0.10507  r_0 0.01965
+
+wrote output/leadlag_100ms.json

@@ -1,0 +1,101 @@
+{
+  "_measurement": {
+    "dates": [
+      "2026-01-15",
+      "2026-02-12",
+      "2026-03-12",
+      "2026-04-16",
+      "2026-05-14",
+      "2026-06-11",
+      "2026-07-16",
+      "2026-08-13"
+    ],
+    "source_grid_seconds": 1,
+    "horizons_seconds": [
+      1,
+      5,
+      15,
+      60,
+      300
+    ],
+    "lag_window_bars": 8
+  },
+  "COINCHECK:BTC_SPOT": {
+    "1s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.4309,
+      "r_at_zero_median": 0.4256
+    },
+    "5s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.8302,
+      "r_at_zero_median": 0.8302
+    },
+    "15s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.9263,
+      "r_at_zero_median": 0.9263
+    },
+    "60s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.9633,
+      "r_at_zero_median": 0.9633
+    }
+  },
+  "BITBANK:BTC_SPOT": {
+    "1s": {
+      "days": 7,
+      "lag_seconds_median": 1,
+      "peak_r_median": 0.2331,
+      "r_at_zero_median": 0.2061
+    },
+    "5s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.5369,
+      "r_at_zero_median": 0.5369
+    },
+    "15s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.7649,
+      "r_at_zero_median": 0.7649
+    },
+    "60s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.9064,
+      "r_at_zero_median": 0.9064
+    }
+  },
+  "GMO:BTC_JPY": {
+    "1s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.4497,
+      "r_at_zero_median": 0.4238
+    },
+    "5s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.8184,
+      "r_at_zero_median": 0.8184
+    },
+    "15s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.9313,
+      "r_at_zero_median": 0.9313
+    },
+    "60s": {
+      "days": 7,
+      "lag_seconds_median": 0,
+      "peak_r_median": 0.9606,
+      "r_at_zero_median": 0.9606
+    }
+  }
+}
